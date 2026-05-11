@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 
 from .forms import BlogForm, CategoryForm, ProductForm, TeamMemberForm, TestimonialForm, WholesaleSellerForm
-from .models import Blog, Category, ContactMessage, Product, TeamMember, Testimonial, WholesaleSeller
+from .models import Blog, Category, ContactMessage, Product, ProductImage, TeamMember, Testimonial, WholesaleSeller
 
 
 def _admin_required(view_func):
@@ -289,7 +289,14 @@ def product_list(request):
 def product_create(request):
     form = ProductForm(request.POST or None, request.FILES or None)
     if request.method == "POST" and form.is_valid():
-        form.save()
+        product = form.save()
+        images = request.FILES.getlist('product_images')
+        for i, img in enumerate(images):
+            ProductImage.objects.create(
+                product=product,
+                image=img,
+                is_primary=(i == 0)
+            )
         messages.success(request, "Product added successfully.")
     return redirect("product_list")
 
@@ -299,8 +306,23 @@ def product_update(request, pk):
     product = get_object_or_404(Product, pk=pk)
     form = ProductForm(request.POST or None, request.FILES or None, instance=product)
     if request.method == "POST" and form.is_valid():
-        form.save()
+        product = form.save()
+        images = request.FILES.getlist('product_images')
+        for img in images:
+            ProductImage.objects.create(
+                product=product,
+                image=img,
+                is_primary=False
+            )
         messages.success(request, "Product updated successfully.")
+    return redirect("product_list")
+
+
+@_admin_required
+def product_image_delete(request, pk):
+    image = get_object_or_404(ProductImage, pk=pk)
+    image.delete()
+    messages.success(request, "Image deleted.")
     return redirect("product_list")
 
 

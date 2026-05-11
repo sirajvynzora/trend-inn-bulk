@@ -40,10 +40,10 @@
                 {% for product in products %}
                 <tr>
                     <td>
-                        {% if product.image %}
-                        <img src="{{ product.image.url }}" width="80" height="60" style="object-fit:cover;" class="img-fluid rounded">
+                        {% if product.images.exists %}
+                            <img src="{{ product.images.first.image.url }}" width="80" height="60" style="object-fit:cover;" class="img-fluid rounded">
                         {% else %}
-                        <img src="https://via.placeholder.com/80x60?text=No+Image" class="img-fluid rounded">
+                            <img src="https://via.placeholder.com/80x60?text=No+Image" class="img-fluid rounded">
                         {% endif %}
                     </td>
                     <td>{{ product.name }}</td>
@@ -122,8 +122,8 @@
                             <input type="number" name="stock" class="form-control" required>
                         </div>
                         <div class="col-12 mb-3">
-                            <label class="form-label">Image</label>
-                            <input type="file" name="image" class="form-control">
+                            <label class="form-label">Product Images <small class="text-muted">(You can select multiple)</small></label>
+                            <input type="file" name="product_images" class="form-control" multiple accept="image/*">
                         </div>
                     </div>
                 </div>
@@ -189,9 +189,26 @@
                             <label class="form-label">Stock</label>
                             <input type="number" name="stock" class="form-control" value="{{ product.stock }}" required>
                         </div>
+                        <!-- Existing Images -->
                         <div class="col-12 mb-3">
-                            <label class="form-label">Image</label>
-                            <input type="file" name="image" class="form-control">
+                            <label class="form-label">Current Images</label>
+                            <div class="d-flex flex-wrap gap-2">
+                                {% for img in product.images.all %}
+                                <div class="position-relative">
+                                    <img src="{{ img.image.url }}" width="80" height="60" style="object-fit:cover;" class="img-fluid rounded">
+                                    <a href="{% url 'product_image_delete' img.id %}" 
+                                       class="position-absolute top-0 end-0 btn btn-danger btn-sm p-0 px-1"
+                                       onclick="return confirm('Delete this image?')">×</a>
+                                </div>
+                                {% empty %}
+                                <p class="text-muted">No images yet.</p>
+                                {% endfor %}
+                            </div>
+                        </div>
+                        <!-- Add More Images -->
+                        <div class="col-12 mb-3">
+                            <label class="form-label">Add More Images</label>
+                            <input type="file" name="product_images" class="form-control" multiple accept="image/*">
                         </div>
                     </div>
                 </div>

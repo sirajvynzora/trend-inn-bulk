@@ -92,6 +92,18 @@ class Product(OptimizedImageModel):
         return f"{self.name} ({self.seller.name})"
 
 
+class ProductImage(OptimizedImageModel):
+    image_fields = ["image"]
+
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="images")
+    image = models.ImageField(upload_to="products/")
+    is_primary = models.BooleanField(default=False)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return f"Image for {self.product.name}"
+
+
 class Blog(OptimizedImageModel):
     image_fields = ["image"]
 
