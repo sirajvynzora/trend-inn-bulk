@@ -1,0 +1,417 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Page Header Start -->
+    <div class="page-header bg-section parallaxie">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <!-- Page Header Box Start -->
+                    <div class="page-header-box">
+                        <h1 class="text-anime-style-3" data-cursor="-opaque">Remote IT Support</h1>
+                        <nav class="wow fadeInUp">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">home</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'services' %}">services</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Remote IT Support</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <!-- Page Header Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Page Service Single Start -->
+    <div class="page-service_single">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <!-- Page Single Sidebar Start -->
+                    <div class="page-single-sidebar">
+                        <!-- Page Sidebar Category List Start -->
+                        <div class="page-category-list wow fadeInUp">
+                            <h3>Discover Services</h3>
+                            <ul>
+                                <li><a href="#">Cybersecurity Services</a></li>
+                                <li><a href="#">Network Infrastructure</a></li>
+                                <li><a href="#">Data Backup & Recovery</a></li>
+                                <li><a href="#">Cloud Migration Services</a></li>
+                                <li><a href="#">IT Consulting Solutions</a></li>
+                            </ul>
+                        </div>
+                        <!-- Page Sidebar Category List End -->
+
+                        <!-- Sidebar CTA Box Start -->
+                        <div class="sidebar-cta-box wow fadeInUp" data-wow-delay="0.2s">
+                            <!-- Sidebar CTA Image Start -->
+                            <div class="sidebar-cta-img">
+                                <figure class="image-anime">
+                                    <img src="{% static 'images/sidebar-cta-image.jpg' %}" alt="">
+                                </figure>
+                            </div>
+                            <!-- Sidebar CTA Image End -->
+
+                            <div class="sidebar-cta-body">
+                                <!-- Sidebar CTA Content Start -->
+                                <div class="sidebar-cta-content">
+                                    <h3>Contact information</h3>
+                                    <p>Reach out to our team for fast support or any inquiries — we're just a call away.
+                                    </p>
+                                </div>
+                                <!-- Sidebar CTA Content End -->
+
+                                <!-- Sidebar CTA Contact Start -->
+                                <div class="sidebar-cta-contact">
+                                    <div class="icon-box">
+                                        <img src="{% static 'images/sidebar-cta-logo.png' %}" alt="">
+                                    </div>
+
+                                    <div class="sidebar-contact-content">
+                                        <ul>
+                                            <li><img src="{% static 'images/icon-phone-white.svg' %}" alt=""> <a
+                                                    href="tel:+123456789">+(123) 456 789</a></li>
+                                            <li><img src="{% static 'images/icon-mail-white.svg' %}" alt=""> <a
+                                                    href="mailto:info@domainname.com">info@domainname.com</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Sidebar CTA Contact End -->
+                            </div>
+                        </div>
+                        <!-- Sidebar CTA Box End -->
+                    </div>
+                    <!-- Page Single Sidebar End -->
+                </div>
+
+                <div class="col-lg-8">
+                    <!-- Service Single Content Start -->
+                    <div class="service_single-content">
+                        <!-- Page Single Image Start -->
+                        <div class="page-single-image data-item-hover">
+                            <figure class="data-img-hover" data-intensity="0.4" data-speedin="1.5" data-speedout="1.5">
+                                <img src="{% static 'images/service_single-img.jpg' %}" alt="">
+                            </figure>
+                        </div>
+                        <!-- Page Single Image End -->
+
+                        <!-- Service Entry Start -->
+                        <div class="service-entry">
+                            <p class="wow fadeInUp">Our Remote IT Support services are designed to provide your business
+                                with immediate, reliable, and expert technical assistance—no matter where your team is
+                                located. We ensure uninterrupted operations by quickly addressing technical issues
+                                through secure remote access, minimizing downtime and maximizing productivity.</p>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">From software troubleshooting and system
+                                updates to performance optimization and device configuration, our support specialists
+                                are available 24/7 to resolve problems efficiently. With robust security protocols and
+                                real-time response, we empower your workforce to stay focused on what matters
+                                most—without worrying about IT roadblocks.</p>
+
+                            <!-- Service Care Box Start -->
+                            <div class="service-care-box">
+                                <h2 class="text-anime-style-3">Enhancing efficiency through IT care</h2>
+                                <p class="wow fadeInUp">We provide proactive IT care that goes beyond fixing issues —
+                                    our approach focuses on optimizing system performance, reducing downtime, and
+                                    ensuring your technology works seamlessly. With regular monitoring, timely updates,
+                                    and continuous support, we help your business maintain peak efficiency while
+                                    minimizing disruptions and risks.</p>
+
+                                <!-- Service Care Body Start -->
+                                <div class="service-care-body">
+                                    <!-- Service Care Item List Start -->
+                                    <div class="service-care-item-list">
+                                        <!-- Service Care Item Start -->
+                                        <div class="service-care-item wow fadeInUp" data-wow-delay="0.2s">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/icon-service-care-1.svg' %}" alt="">
+                                            </div>
+                                            <div class="service-care-item-content">
+                                                <p>We provide proactive IT care that goes beyond fixing issues our
+                                                    approach focuses.</p>
+                                            </div>
+                                        </div>
+                                        <!-- Service Care Item End -->
+
+                                        <!-- Service Care Item Start -->
+                                        <div class="service-care-item wow fadeInUp" data-wow-delay="0.4s">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/icon-service-care-2.svg' %}" alt="">
+                                            </div>
+                                            <div class="service-care-item-content">
+                                                <p>We provide proactive IT care that goes beyond fixing issues our
+                                                    approach focuses.</p>
+                                            </div>
+                                        </div>
+                                        <!-- Service Care Item End -->
+
+                                        <!-- Service Care Item Start -->
+                                        <div class="service-care-item wow fadeInUp" data-wow-delay="0.6s">
+                                            <div class="icon-box">
+                                                <img src="{% static 'images/icon-service-care-3.svg' %}" alt="">
+                                            </div>
+                                            <div class="service-care-item-content">
+                                                <p>We provide proactive IT care that goes beyond fixing issues our
+                                                    approach focuses.</p>
+                                            </div>
+                                        </div>
+                                        <!-- Service Care Item End -->
+                                    </div>
+                                    <!-- Service Care Item List End -->
+
+                                    <!-- Service Care Info Box Start -->
+                                    <div class="service-care-info-box wow fadeInUp" data-wow-delay="0.2s">
+                                        <div class="icon-box">
+                                            <img src="{% static 'images/icon-service-care-info.svg' %}" alt="">
+                                        </div>
+                                        <div class="service-care-info-content">
+                                            <h3>Smart Solutions</h3>
+                                            <p>Our technology-driven solutions are designed to simplify complex operatio
+                                                challenges, optimize.</p>
+                                            <ul>
+                                                <li>Seamless integration with your existing tools</li>
+                                                <li>Proactive issue resolution to minimize downtime risk.</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <!-- Service Care Info Box End -->
+                                </div>
+                                <!-- Service Care Body End -->
+                            </div>
+                            <!-- Service Care Box End -->
+
+                            <!-- Service Solution Box Start -->
+                            <div class="service-solution-box">
+                                <h2 class="text-anime-style-3">Driving growth with smart IT solutions</h2>
+                                <p class="wow fadeInUp">We provide proactive IT care that goes beyond fixing issues —
+                                    our approach focuses on optimizing system performance, reducing downtime, and
+                                    ensuring your technology works seamlessly. With regular monitoring, timely updates,
+                                    and continuous support, we help your business maintain peak efficiency while
+                                    minimizing disruptions and risks.</p>
+
+                                <!-- Service Solution Item List Start -->
+                                <div class="service-solution-item-list">
+                                    <!-- Service Solution Item Start -->
+                                    <div class="service-solution-item wow fadeInUp" data-wow-delay="0.2s">
+                                        <div class="service-solution-image">
+                                            <figure class="image-anime">
+                                                <img src="{% static 'images/service-solution-img-1.jpg' %}" alt="">
+                                            </figure>
+                                        </div>
+                                        <div class="service-solution-content">
+                                            <h3>Scalable Infrastructure</h3>
+                                            <p>Build flexible systems that adapt as your business evolves.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Service Solution Item End -->
+
+                                    <!-- Service Solution Item Start -->
+                                    <div class="service-solution-item wow fadeInUp" data-wow-delay="0.4s">
+                                        <div class="service-solution-image">
+                                            <figure class="image-anime">
+                                                <img src="{% static 'images/service-solution-img-2.jpg' %}" alt="">
+                                            </figure>
+                                        </div>
+                                        <div class="service-solution-content">
+                                            <h3>Strategic Integration</h3>
+                                            <p>Build flexible systems that adapt as your business evolves.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Service Solution Item End -->
+
+                                    <!-- Service Solution Item Start -->
+                                    <div class="service-solution-item wow fadeInUp" data-wow-delay="0.6s">
+                                        <div class="service-solution-image">
+                                            <figure class="image-anime">
+                                                <img src="{% static 'images/service-solution-img-3.jpg' %}" alt="">
+                                            </figure>
+                                        </div>
+                                        <div class="service-solution-content">
+                                            <h3>Innovation Enablement</h3>
+                                            <p>Build flexible systems that adapt as your business evolves.</p>
+                                        </div>
+                                    </div>
+                                    <!-- Service Solution Item End -->
+                                </div>
+                                <!-- Service Solution Item List End -->
+                            </div>
+                            <!-- Service Solution Box End -->
+
+                            <!-- Service Success Box Start -->
+                            <div class="service-success-box">
+                                <h2 class="text-anime-style-3">Empowering digital success</h2>
+                                <p class="wow fadeInUp">We provide proactive IT care that goes beyond fixing issues —
+                                    our approach focuses on optimizing system performance, reducing downtime, and
+                                    ensuring your technology works seamlessly. With regular monitoring, timely updates,
+                                    and continuous support, we help your business maintain peak efficiency while
+                                    minimizing disruptions and risks.</p>
+
+                                <ul class="wow fadeInUp" data-wow-delay="0.2s">
+                                    <li>Streamlined IT processes designed to maximize productivity.</li>
+                                    <li>Robust cybersecurity frameworks to safeguard your data.</li>
+                                    <li>Proactive monitoring and maintenance to reduce system.</li>
+                                    <li>Seamless integration of legacy systems with modern platform.</li>
+                                </ul>
+
+                                <!-- Service Success Counters Start -->
+                                <div class="service-success-counters">
+                                    <!-- Success Counter Item Start -->
+                                    <div class="success-counter-item">
+                                        <h2><span class="counter">25</span>+</h2>
+                                        <p>Client Served Globally</p>
+                                    </div>
+                                    <!-- Success Counter Item End -->
+
+                                    <!-- Success Counter Item Start -->
+                                    <div class="success-counter-item">
+                                        <h2><span class="counter">50</span>+</h2>
+                                        <p>Projects Successfully</p>
+                                    </div>
+                                    <!-- Success Counter Item End -->
+
+                                    <!-- Success Counter Item Start -->
+                                    <div class="success-counter-item">
+                                        <h2><span class="counter">15</span>+</h2>
+                                        <p>Indusries category</p>
+                                    </div>
+                                    <!-- Success Counter Item End -->
+
+                                    <!-- Success Counter Item Start -->
+                                    <div class="success-counter-item">
+                                        <h2><span class="counter">10</span>+</h2>
+                                        <p>Year trust experience</p>
+                                    </div>
+                                    <!-- Success Counter Item End -->
+                                </div>
+                                <!-- Service Success Counters End -->
+                            </div>
+                            <!-- Service Success Box End -->
+                        </div>
+                        <!-- Service Entry End -->
+
+                        <!-- Page Single FAQs Start -->
+                        <div class="page-single-faqs">
+                            <!-- Section Title Start -->
+                            <div class="section-title">
+                                <h2 class="text-anime-style-3" data-cursor="-opaque">Frequently asked question</h2>
+                            </div>
+                            <!-- Section Title End -->
+
+                            <!-- FAQ Accordion Start -->
+                            <div class="faq-accordion" id="accordion">
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp">
+                                    <h2 class="accordion-header" id="heading1">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                            Q1. How quickly can we get support when an issue arises?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse1" class="accordion-collapse collapse show"
+                                        aria-labelledby="heading1" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <p>Our average response time is under 30 minutes, ensuring that your
+                                                concerns are addressed swiftly. For critical issues, our team takes
+                                                immediate action to provide fast resolution and reduce any potential
+                                                downtime.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+                                    <h2 class="accordion-header" id="heading2">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false"
+                                            aria-controls="collapse2">
+                                            Q2. Can you help us move our business to the cloud?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                                        data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <p>Our average response time is under 30 minutes, ensuring that your
+                                                concerns are addressed swiftly. For critical issues, our team takes
+                                                immediate action to provide fast resolution and reduce any potential
+                                                downtime.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+                                    <h2 class="accordion-header" id="heading3">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false"
+                                            aria-controls="collapse3">
+                                            Q3. How do you protect our data from cyber threats?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                                        data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <p>Our average response time is under 30 minutes, ensuring that your
+                                                concerns are addressed swiftly. For critical issues, our team takes
+                                                immediate action to provide fast resolution and reduce any potential
+                                                downtime.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+                                    <h2 class="accordion-header" id="heading4">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false"
+                                            aria-controls="collapse4">
+                                            Q4. Can you customize your services for our business?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
+                                        data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <p>Our average response time is under 30 minutes, ensuring that your
+                                                concerns are addressed swiftly. For critical issues, our team takes
+                                                immediate action to provide fast resolution and reduce any potential
+                                                downtime.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.8s">
+                                    <h2 class="accordion-header" id="heading5">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false"
+                                            aria-controls="collapse5">
+                                            Q5. Do you provide employee cybersecurity training?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5"
+                                        data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <p>Our average response time is under 30 minutes, ensuring that your
+                                                concerns are addressed swiftly. For critical issues, our team takes
+                                                immediate action to provide fast resolution and reduce any potential
+                                                downtime.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+                            </div>
+                            <!-- FAQ Accordion End -->
+                        </div>
+                        <!-- Page Single FAQs End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Service Single End -->
+{% endblock %}

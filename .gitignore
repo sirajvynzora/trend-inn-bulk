@@ -1,0 +1,43 @@
+# Python cache
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+ENV/
+
+# Mac / OS files
+.DS_Store
+
+# Database
+db.sqlite3
+
+# User uploads
+media/
+
+# Static files (collected)
+staticfiles/
+
+# Environment variables
+.env
+
+# Logs
+*.log
+
+# Build files
+build/
+dist/
+*.egg-info/
+
+# Coverage
+.coverage
+htmlcov/
+
+# IDE
+.vscode/
+.idea/
+
+static/*.mp4

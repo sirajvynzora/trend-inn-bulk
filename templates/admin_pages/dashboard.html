@@ -1,0 +1,235 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block title %}Dashboard | Trend in Bulk{% endblock %}
+
+{% block content %}
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<div class="dashboard-wrap">
+
+    <!-- Stats Grid -->
+    <div class="stats-grid">
+
+        <div class="stat-card stat-blue">
+            <div class="stat-top">
+                <span class="stat-label">Sellers</span>
+                <div class="stat-icon"><i class="icofont-business-man"></i></div>
+            </div>
+            <div class="stat-value">{{ stats.total_sellers }}</div>
+            <div class="stat-footer">
+                <span class="pill pill-blue">{{ stats.sellers_this_month }} this month</span>
+            </div>
+        </div>
+
+        <div class="stat-card stat-green">
+            <div class="stat-top">
+                <span class="stat-label">Products</span>
+                <div class="stat-icon"><i class="icofont-box"></i></div>
+            </div>
+            <div class="stat-value">{{ stats.total_products }}</div>
+            <div class="stat-footer">
+                <span class="pill pill-green">{{ stats.products_this_month }} this month</span>
+            </div>
+        </div>
+
+        <div class="stat-card stat-purple">
+            <div class="stat-top">
+                <span class="stat-label">Blog Posts</span>
+                <div class="stat-icon"><i class="icofont-newspaper"></i></div>
+            </div>
+            <div class="stat-value">{{ stats.total_blogs }}</div>
+            <div class="stat-footer">Total Published</div>
+        </div>
+
+        <div class="stat-card stat-orange">
+            <div class="stat-top">
+                <span class="stat-label">Testimonials</span>
+                <div class="stat-icon"><i class="icofont-quote-left"></i></div>
+            </div>
+            <div class="stat-value">{{ stats.total_testimonials }}</div>
+            <div class="stat-footer">Total Reviews</div>
+        </div>
+
+    </div>
+
+    <!-- Recent Sellers + Recent Products -->
+    <div class="data-row">
+
+        <div class="data-card">
+            <div class="card-header">
+                <span class="card-title">Recent Sellers</span>
+                <a href="{% url 'seller_list' %}" class="view-all-link">View All →</a>
+            </div>
+            <ul class="feed-list">
+                {% for seller in recent_sellers %}
+                <li class="feed-item">
+                    <div class="feed-avatar feed-avatar-blue">
+                        <i class="icofont-business-man"></i>
+                    </div>
+                    <div class="feed-content">
+                        <p class="feed-name">{{ seller.name }}</p>
+                        <p class="feed-sub">{{ seller.phone }}</p>
+                        <p class="feed-meta">{{ seller.created_at|timesince }} ago</p>
+                    </div>
+                </li>
+                {% empty %}
+                <li class="feed-empty">No sellers added yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="data-card">
+            <div class="card-header">
+                <span class="card-title">Recent Products</span>
+                <a href="{% url 'product_list' %}" class="view-all-link">View All →</a>
+            </div>
+            <ul class="feed-list">
+                {% for product in recent_products %}
+                <li class="feed-item">
+                    <div class="feed-avatar feed-avatar-green">
+                        <i class="icofont-box"></i>
+                    </div>
+                    <div class="feed-content">
+                        <p class="feed-name">{{ product.name }}</p>
+                        <p class="feed-sub">₹{{ product.price_per_unit }} / {{ product.unit }} &nbsp;·&nbsp; {{ product.seller.name }}</p>
+                        <p class="feed-meta">{{ product.created_at|timesince }} ago</p>
+                    </div>
+                </li>
+                {% empty %}
+                <li class="feed-empty">No products added yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Recent Blogs -->
+    <div class="data-row">
+        <div class="data-card">
+            <div class="card-header">
+                <span class="card-title">Recent Blog Posts</span>
+                <a href="{% url 'blog_list' %}" class="view-all-link">View All →</a>
+            </div>
+            <ul class="feed-list">
+                {% for blog in recent_blogs %}
+                <li class="feed-item">
+                    <div class="feed-avatar feed-avatar-purple">
+                        <i class="icofont-newspaper"></i>
+                    </div>
+                    <div class="feed-content">
+                        <p class="feed-name">{{ blog.title }}</p>
+                        <p class="feed-meta">{{ blog.created_at|date:"M d, Y" }}</p>
+                    </div>
+                </li>
+                {% empty %}
+                <li class="feed-empty">No blog posts yet.</li>
+                {% endfor %}
+            </ul>
+        </div>
+
+        <div class="data-card">
+            <div class="card-header">
+                <span class="card-title">Quick Actions</span>
+            </div>
+            <div style="padding: 20px; display: flex; flex-direction: column; gap: 12px;">
+                <a href="{% url 'seller_create' %}" class="quick-action-btn btn-blue">
+                    <i class="icofont-plus"></i> Add New Seller
+                </a>
+                <a href="{% url 'product_create' %}" class="quick-action-btn btn-green">
+                    <i class="icofont-plus"></i> Add New Product
+                </a>
+                <a href="{% url 'blog_create' %}" class="quick-action-btn btn-purple">
+                    <i class="icofont-plus"></i> Write Blog Post
+                </a>
+                <a href="{% url 'testimonial_create' %}" class="quick-action-btn btn-orange">
+                    <i class="icofont-plus"></i> Add Testimonial
+                </a>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+<style>
+    *, *::before, *::after { box-sizing: border-box; }
+
+    .dashboard-wrap {
+        font-family: 'Plus Jakarta Sans', sans-serif;
+        padding: 28px 32px;
+        background: #f7f8fc;
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        gap: 18px;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+    }
+
+    .stat-card {
+        background: white;
+        border-radius: 14px;
+        padding: 22px 24px;
+        box-shadow: 0 1px 4px rgba(0,0,0,.06);
+        border-top: 3px solid transparent;
+        transition: transform .2s ease, box-shadow .2s ease;
+    }
+    .stat-card:hover { transform: translateY(-3px); box-shadow: 0 6px 20px rgba(0,0,0,.09); }
+    .stat-blue   { border-top-color: #3b82f6; }
+    .stat-green  { border-top-color: #22c55e; }
+    .stat-purple { border-top-color: #a855f7; }
+    .stat-orange { border-top-color: #f59e0b; }
+
+    .stat-top { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .stat-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: .7px; color: #9ca3af; }
+    .stat-icon  { width: 36px; height: 36px; border-radius: 9px; display: flex; align-items: center; justify-content: center; font-size: 1rem; }
+    .stat-blue   .stat-icon { background: #eff6ff; color: #3b82f6; }
+    .stat-green  .stat-icon { background: #f0fdf4; color: #22c55e; }
+    .stat-purple .stat-icon { background: #faf5ff; color: #a855f7; }
+    .stat-orange .stat-icon { background: #fffbeb; color: #f59e0b; }
+
+    .stat-value  { font-size: 30px; font-weight: 800; color: #111827; letter-spacing: -1px; line-height: 1; margin-bottom: 8px; }
+    .stat-footer { font-size: 12px; color: #9ca3af; font-weight: 500; display: flex; gap: 6px; flex-wrap: wrap; align-items: center; }
+
+    .pill { font-size: 11px; font-weight: 600; padding: 2px 9px; border-radius: 20px; }
+    .pill-blue   { background: #eff6ff; color: #1d4ed8; }
+    .pill-green  { background: #f0fdf4; color: #16a34a; }
+
+    .data-row   { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .data-card  { background: white; border-radius: 14px; overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,.06); }
+    .card-header { display: flex; align-items: center; justify-content: space-between; padding: 18px 22px; border-bottom: 1px solid #f3f4f6; }
+    .card-title  { font-size: 15px; font-weight: 700; color: #111827; }
+    .view-all-link { font-size: 13px; font-weight: 600; color: #3b82f6; text-decoration: none; }
+    .view-all-link:hover { opacity: .75; }
+
+    .feed-list  { list-style: none; margin: 0; padding: 0; max-height: 300px; overflow-y: auto; }
+    .feed-item  { display: flex; gap: 14px; padding: 14px 22px; border-bottom: 1px solid #f9fafb; align-items: flex-start; transition: background .15s; }
+    .feed-item:last-child { border-bottom: none; }
+    .feed-item:hover { background: #fafafa; }
+
+    .feed-avatar { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; font-size: 1rem; }
+    .feed-avatar-blue   { background: #eff6ff; color: #3b82f6; }
+    .feed-avatar-green  { background: #f0fdf4; color: #22c55e; }
+    .feed-avatar-purple { background: #faf5ff; color: #a855f7; }
+
+    .feed-content { flex: 1; min-width: 0; }
+    .feed-name { font-size: 14px; font-weight: 600; color: #111827; margin: 0 0 2px; }
+    .feed-sub  { font-size: 13px; color: #3b82f6; font-weight: 500; margin: 0 0 3px; }
+    .feed-meta { font-size: 11px; color: #9ca3af; margin: 0; }
+    .feed-empty { padding: 24px 22px; color: #9ca3af; font-size: 14px; }
+
+    .quick-action-btn { display: flex; align-items: center; gap: 8px; padding: 12px 18px; border-radius: 10px; font-size: 14px; font-weight: 600; text-decoration: none; transition: all .2s; }
+    .btn-blue   { background: #eff6ff; color: #2563eb; } .btn-blue:hover   { background: #2563eb; color: #fff; }
+    .btn-green  { background: #f0fdf4; color: #16a34a; } .btn-green:hover  { background: #16a34a; color: #fff; }
+    .btn-purple { background: #faf5ff; color: #7c3aed; } .btn-purple:hover { background: #7c3aed; color: #fff; }
+    .btn-orange { background: #fffbeb; color: #b45309; } .btn-orange:hover { background: #d97706; color: #fff; }
+
+    @media (max-width: 1100px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 768px)  { .data-row { grid-template-columns: 1fr; } }
+    @media (max-width: 640px)  { .dashboard-wrap { padding: 16px; } .stats-grid { grid-template-columns: 1fr; } }
+</style>
+{% endblock %}

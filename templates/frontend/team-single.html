@@ -1,0 +1,324 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Page Header Start -->
+    <div class="page-header bg-section parallaxie">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <!-- Page Header Box Start -->
+                    <div class="page-header-box">
+                        <h1 class="text-anime-style-3" data-cursor="-opaque">Ava Morgan</h1>
+                        <nav class="wow fadeInUp">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">home</a></li>
+                                <li class="breadcrumb-item"><a href="{% url 'team' %}">team</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">Ava Morgan</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <!-- Page Header Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Page Team Single Start -->
+    <div class="page-team_single">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <!-- Team Single Image Start -->
+                    <div class="team_single-image">
+                        <figure class="image-anime reveal">
+                            <img src="{% static 'images/team-2.jpg' %}" alt="">
+                        </figure>
+                    </div>
+                    <!-- Team Single Image End -->
+                </div>
+
+                <div class="col-xl-6">
+                    <!-- Team About Content Start -->
+                    <div class="team-about-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">About Me</h3>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Turning technical vision into the
+                                functional reality</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">Combining strategic thinking with deep
+                                technical expertise to design, develop, and implement solutions that are not only
+                                reliable and scalable but also adaptable to future innovations and evolving business
+                                needs.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Team Contact Info Box Start -->
+                        <div class="team-contact-info-box">
+                            <!-- Team Contact List Start -->
+                            <div class="team-contact-list wow fadeInUp" data-wow-delay="0.4s">
+                                <ul>
+                                    <li><span>Name :</span>Ava Morgan</li>
+                                    <li><span>Experience :</span>10 years</li>
+                                    <li><span>Position :</span>Cybersecurity Specialist</li>
+                                    <li><span>Phone :</span>+(123) 456-7890</li>
+                                    <li><span>Email :</span>support@domainname.com</li>
+                                    <li><span>Address :</span>2464 Royal, New Jersey 45</li>
+                                </ul>
+                            </div>
+                            <!-- Team Contact List End -->
+
+                            <!-- Member Social List Start -->
+                            <div class="member-social-list wow fadeInUp" data-wow-delay="0.6s">
+                                <h3>Follow on social media :</h3>
+                                <ul>
+                                    <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fa-brands fa-linkedin-in"></i></a></li>
+                                </ul>
+                            </div>
+                            <!-- Member Social List End -->
+                        </div>
+                        <!-- Team Contact Info Box End -->
+                    </div>
+                    <!-- Team About Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Team Single End -->
+
+    <!-- Team Personal Skill Section Start -->
+    <div class="team-personal-skill">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-6">
+                    <!-- Team Personal Info Start -->
+                    <div class="team-personal-info">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Personal info</h2>
+                            <p class="wow fadeInUp">We help businesses streamline and upgrade their point-of-sale
+                                systems with modern, efficient, and user-friendly technology. Our POS solutions are
+                                designed to improve customer experience, reduce transaction times, and give you better
+                                control over inventory, sales tracking, and reporting.Whether you're operating a retail
+                                store, restaurant,or service-based business.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <div class="team-personal-info-list wow fadeInUp" data-wow-delay="0.2s">
+                            <ul>
+                                <li>Real-time Sales Analytics - Track performance and make data-driven decisions.</li>
+                                <li>Seamless Inventory Sync - Automatically update stock levels across all your
+                                    locations.</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <!-- Team Personal Info End -->
+                </div>
+
+                <div class="col-xl-6">
+                    <div class="team-personal-skills">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">My skill</h2>
+                            <p class="wow fadeInUp">We help businesses streamline and upgrade their point-of-sale
+                                systems with modern, efficient, and user-friendly technology. Our POS solutions are
+                                designed to improve customer experience.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Team Skills List Start -->
+                        <div class="team-skills-list">
+                            <!-- Skills Progress Bar Start -->
+                            <div class="skills-progress-bar">
+                                <!-- Skill Item Start -->
+                                <div class="skillbar" data-percent="85%">
+                                    <div class="skill-data">
+                                        <div class="skill-title">System Design</div>
+                                        <div class="skill-no">85%</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="count-bar"></div>
+                                    </div>
+                                </div>
+                                <!-- Skill Item End -->
+                            </div>
+                            <!-- Skills Progress Bar End -->
+
+                            <!-- Skills Progress Bar Start -->
+                            <div class="skills-progress-bar">
+                                <!-- Skill Item Start -->
+                                <div class="skillbar" data-percent="92%">
+                                    <div class="skill-data">
+                                        <div class="skill-title">Code Optimization</div>
+                                        <div class="skill-no">92%</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="count-bar"></div>
+                                    </div>
+                                </div>
+                                <!-- Skill Item End -->
+                            </div>
+                            <!-- Skills Progress Bar End -->
+
+                            <!-- Skills Progress Bar Start -->
+                            <div class="skills-progress-bar">
+                                <!-- Skill Item Start -->
+                                <div class="skillbar" data-percent="89%">
+                                    <div class="skill-data">
+                                        <div class="skill-title">CCloud Architecture</div>
+                                        <div class="skill-no">89%</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="count-bar"></div>
+                                    </div>
+                                </div>
+                                <!-- Skill Item End -->
+                            </div>
+                            <!-- Skills Progress Bar End -->
+
+                            <!-- Skills Progress Bar Start -->
+                            <div class="skills-progress-bar">
+                                <!-- Skill Item Start -->
+                                <div class="skillbar" data-percent="98%">
+                                    <div class="skill-data">
+                                        <div class="skill-title">Technical Leadership</div>
+                                        <div class="skill-no">98%</div>
+                                    </div>
+                                    <div class="skill-progress">
+                                        <div class="count-bar"></div>
+                                    </div>
+                                </div>
+                                <!-- Skill Item End -->
+                            </div>
+                            <!-- Skills Progress Bar End -->
+                        </div>
+                        <!-- Team Skills List End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team Personal Skill Section End -->
+
+    <!-- Team Contact Expertise Section Start -->
+    <div class="team-contact-expertise">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6">
+                    <!-- Contact Us Form Start -->
+                    <div class="contact-us-form team-contact-form">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Send us a message</h2>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Contact Form Start -->
+                        <div class="contact-form">
+                            <form id="contactForm" action="#" method="POST" data-toggle="validator" class="wow fadeInUp"
+                                data-wow-delay="0.2s">
+                                <div class="row">
+                                    <div class="form-group col-md-6 mb-4">
+                                        <input type="text" name="fname" class="form-control" id="fname"
+                                            placeholder="First name" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+
+                                    <div class="form-group col-md-6 mb-4">
+                                        <input type="text" name="lname" class="form-control" id="lname"
+                                            placeholder="Last name" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+
+                                    <div class="form-group col-md-6 mb-4">
+                                        <input type="email" name="email" class="form-control" id="email"
+                                            placeholder="E-mail" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+
+                                    <div class="form-group col-md-6 mb-4">
+                                        <input type="text" name="phone" class="form-control" id="phone"
+                                            placeholder="Phone" required>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+
+                                    <div class="form-group col-md-12 mb-5">
+                                        <textarea name="message" class="form-control" id="message" rows="4"
+                                            placeholder="message..."></textarea>
+                                        <div class="help-block with-errors"></div>
+                                    </div>
+
+                                    <div class="col-md-12">
+                                        <button type="submit" class="btn-default btn-highlighted">submit message</button>
+                                        <div id="msgSubmit" class="h3 hidden"></div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                        <!-- Contact Form End -->
+                    </div>
+                    <!-- Contact Us Form End -->
+                </div>
+
+                <div class="col-xl-6">
+                    <!-- Team Expertise Content Start -->
+                    <div class="team-expertise-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">My expertise</h2>
+                            <p class="wow fadeInUp">With a strong foundation in system architecture and years of
+                                hands-on experience, I specialize in designing scalable, secure & high-performance
+                                solutions tailored to business needs. My expertise lies in bridging the gap between
+                                technical possibilities & real-world functionality—translating complex requirement into
+                                practical implementations.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Team Expertise Body Start -->
+                        <div class="team-expertise-body wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="expertise-body-cta-box">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-services-5.svg' %}" alt="">
+                                </div>
+                                <div class="expertise-body-cta-content">
+                                    <h3>Need Custom?</h3>
+                                    <p>We tailor solutions to fit your unique business needs flexibility.</p>
+                                </div>
+                                <div class="expertise-body-cta-btn">
+                                    <a href="{% url 'contact' %}" class="btn-default btn-highlighted">contact us</a>
+                                </div>
+                            </div>
+
+                            <div class="team-expertise-body-content">
+                                <h3>Our Expert Team</h3>
+                                <p>Streamline your business processes, reduce inefficiencies, and boost overall
+                                    productivity through customized</p>
+                                <ul>
+                                    <li>Ensure high availability & performance.</li>
+                                    <li>Align technical design & business goals</li>
+                                    <li>Ensure high availability & performance.</li>
+                                    <li>Focused on cost-effective & scalable.</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- Team Expertise Body End -->
+
+                        <!-- Section Footer Text Start -->
+                        <div class="section-footer-text wow fadeInUp" data-wow-delay="0.6s">
+                            <p><span>Free</span>From setup to scaling - <a href="{% url 'contact' %}">discover solutions
+                                    that
+                                    adapt as you grow.</a></p>
+                        </div>
+                        <!-- Section Footer Text End -->
+                    </div>
+                    <!-- Team Expertise Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Team Contact Expertise Section End -->
+{% endblock %}

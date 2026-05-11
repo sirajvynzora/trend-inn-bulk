@@ -1,0 +1,558 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Page Header Start -->
+    <div class="page-header bg-section parallaxie">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <!-- Page Header Box Start -->
+                    <div class="page-header-box">
+                        <h1 class="text-anime-style-3" data-cursor="-opaque">Frequently Asked Question</h1>
+                        <nav class="wow fadeInUp">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">FAQs</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <!-- Page Header Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Page Faqs Start -->
+    <div class="page-faqs">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4">
+                    <!-- Page Single Sidebar Start -->
+                    <div class="page-single-sidebar">
+                        <!-- Page Sidebar Category List Start -->
+                        <div class="page-category-list wow fadeInUp">
+                            <ul>
+                                <li><a href="#faq_1">Technical solutions</a></li>
+                                <li><a href="#faq_2">Development strategy</a></li>
+                                <li><a href="#faq_3">Architectural planning</a></li>
+                                <li><a href="#faq_4">Deployment guidance</a></li>
+                            </ul>
+                        </div>
+                        <!-- Page Sidebar Category List End -->
+
+                        <!-- Sidebar CTA Box Start -->
+                        <div class="sidebar-cta-box wow fadeInUp" data-wow-delay="0.2s">
+                            <!-- Sidebar CTA Image Start -->
+                            <div class="sidebar-cta-img">
+                                <figure class="image-anime">
+                                    <img src="{% static 'images/sidebar-cta-image.jpg' %}" alt="">
+                                </figure>
+                            </div>
+                            <!-- Sidebar CTA Image End -->
+
+                            <div class="sidebar-cta-body">
+                                <!-- Sidebar CTA Content Start -->
+                                <div class="sidebar-cta-content">
+                                    <h3>Contact information</h3>
+                                    <p>Reach out to our team for fast support or any inquiries — we're just a call away.
+                                    </p>
+                                </div>
+                                <!-- Sidebar CTA Content End -->
+
+                                <!-- Sidebar CTA Contact Start -->
+                                <div class="sidebar-cta-contact">
+                                    <div class="icon-box">
+                                        <img src="{% static 'images/sidebar-cta-logo.png' %}" alt="">
+                                    </div>
+
+                                    <div class="sidebar-contact-content">
+                                        <ul>
+                                            <li><img src="{% static 'images/icon-phone-white.svg' %}" alt=""> <a
+                                                    href="tel:+123456789">+(123) 456 789</a></li>
+                                            <li><img src="{% static 'images/icon-mail-white.svg' %}" alt=""> <a
+                                                    href="mailto:info@domainname.com">info@domainname.com</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                                <!-- Sidebar CTA Contact End -->
+                            </div>
+                        </div>
+                        <!-- Sidebar CTA Box End -->
+                    </div>
+                    <!-- Page Single Sidebar End -->
+                </div>
+
+                <div class="col-lg-8">
+                    <!-- Page FAQs Catagery Start -->
+                    <div class="page-faqs-catagery">
+                        <!-- FAQs section start -->
+                        <div class="page-single-faqs" id="faq_1">
+                            <div class="section-title">
+                                <h2 class="text-anime-style-3" data-cursor="-opaque">Technical solutions</h2>
+                            </div>
+
+                            <!-- FAQ Accordion Start -->
+                            <div class="faq-accordion" id="accordion">
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp">
+                                    <h2 class="accordion-header" id="heading1">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                            Q1. What makes a technical solution scalable and adaptable for future
+                                            growth?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse1" class="accordion-collapse collapse show"
+                                        aria-labelledby="heading1" data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <p>A scalable and adaptable technical solution is built with modular
+                                                architecture, cloud readiness, and flexible data handling. It ensures
+                                                the system can handle increased user demand or feature expansion without
+                                                performance loss, code rewrites, or overhaul.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+                                    <h2 class="accordion-header" id="heading2">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse2" aria-expanded="false"
+                                            aria-controls="collapse2">
+                                            Q2. How do you ensure reliability and stability in mission-critical systems?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                                        data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <p>A scalable and adaptable technical solution is built with modular
+                                                architecture, cloud readiness, and flexible data handling. It ensures
+                                                the system can handle increased user demand or feature expansion without
+                                                performance loss, code rewrites, or overhaul.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+                                    <h2 class="accordion-header" id="heading3">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse3" aria-expanded="false"
+                                            aria-controls="collapse3">
+                                            Q3. In what ways can legacy systems be upgraded or optimized effectively?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                                        data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <p>A scalable and adaptable technical solution is built with modular
+                                                architecture, cloud readiness, and flexible data handling. It ensures
+                                                the system can handle increased user demand or feature expansion without
+                                                performance loss, code rewrites, or overhaul.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+                                    <h2 class="accordion-header" id="heading4">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse4" aria-expanded="false"
+                                            aria-controls="collapse4">
+                                            Q4. What is your process for solving highly complex technical challenges?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
+                                        data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <p>A scalable and adaptable technical solution is built with modular
+                                                architecture, cloud readiness, and flexible data handling. It ensures
+                                                the system can handle increased user demand or feature expansion without
+                                                performance loss, code rewrites, or overhaul.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.8s">
+                                    <h2 class="accordion-header" id="heading5">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse5" aria-expanded="false"
+                                            aria-controls="collapse5">
+                                            Q5. Which tools and technologies do you rely on for technical planning and
+                                            design?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5"
+                                        data-bs-parent="#accordion">
+                                        <div class="accordion-body">
+                                            <p>A scalable and adaptable technical solution is built with modular
+                                                architecture, cloud readiness, and flexible data handling. It ensures
+                                                the system can handle increased user demand or feature expansion without
+                                                performance loss, code rewrites, or overhaul.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+                            </div>
+                            <!-- FAQ Accordion End -->
+                        </div>
+                        <!-- FAQs section End -->
+
+                        <!-- FAQs section start -->
+                        <div class="page-single-faqs" id="faq_2">
+                            <div class="section-title">
+                                <h2 class="text-anime-style-3" data-cursor="-opaque">Development strategy</h2>
+                            </div>
+
+                            <!-- FAQ Accordion Start -->
+                            <div class="faq-accordion" id="accordion1">
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp">
+                                    <h2 class="accordion-header" id="heading6">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse6" aria-expanded="true" aria-controls="collapse6">
+                                            Q1. How do you plan and execute large-scale development projects
+                                            successfully?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse6" class="accordion-collapse collapse show"
+                                        aria-labelledby="heading6" data-bs-parent="#accordion1">
+                                        <div class="accordion-body">
+                                            <p>I start with clear goals, break down tasks into milestones, and use Agile
+                                                or Scrum methodologies for adaptive planning. Regular sprints, feedback
+                                                loops, and code reviews ensure the team delivers efficiently and
+                                                iteratively.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+                                    <h2 class="accordion-header" id="heading7">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse7" aria-expanded="false"
+                                            aria-controls="collapse7">
+                                            Q2. What are the key practices you follow for managing development teams?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse7" class="accordion-collapse collapse" aria-labelledby="heading7"
+                                        data-bs-parent="#accordion1">
+                                        <div class="accordion-body">
+                                            <p>I start with clear goals, break down tasks into milestones, and use Agile
+                                                or Scrum methodologies for adaptive planning. Regular sprints, feedback
+                                                loops, and code reviews ensure the team delivers efficiently and
+                                                iteratively.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+                                    <h2 class="accordion-header" id="heading8">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse8" aria-expanded="false"
+                                            aria-controls="collapse8">
+                                            Q3. How do you ensure the codebase remains clean, scalable, and secure?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse8" class="accordion-collapse collapse" aria-labelledby="heading8"
+                                        data-bs-parent="#accordion1">
+                                        <div class="accordion-body">
+                                            <p>I start with clear goals, break down tasks into milestones, and use Agile
+                                                or Scrum methodologies for adaptive planning. Regular sprints, feedback
+                                                loops, and code reviews ensure the team delivers efficiently and
+                                                iteratively.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+                                    <h2 class="accordion-header" id="heading9">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse9" aria-expanded="false"
+                                            aria-controls="collapse9">
+                                            Q4. How do you keep development aligned with evolving business goals?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse9" class="accordion-collapse collapse" aria-labelledby="heading9"
+                                        data-bs-parent="#accordion1">
+                                        <div class="accordion-body">
+                                            <p>I start with clear goals, break down tasks into milestones, and use Agile
+                                                or Scrum methodologies for adaptive planning. Regular sprints, feedback
+                                                loops, and code reviews ensure the team delivers efficiently and
+                                                iteratively.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.8s">
+                                    <h2 class="accordion-header" id="heading10">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse10" aria-expanded="false"
+                                            aria-controls="collapse10">
+                                            Q5. What development tools and platforms do you prefer using and why?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse10" class="accordion-collapse collapse" aria-labelledby="heading10"
+                                        data-bs-parent="#accordion1">
+                                        <div class="accordion-body">
+                                            <p>I start with clear goals, break down tasks into milestones, and use Agile
+                                                or Scrum methodologies for adaptive planning. Regular sprints, feedback
+                                                loops, and code reviews ensure the team delivers efficiently and
+                                                iteratively.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+                            </div>
+                            <!-- FAQ Accordion End -->
+                        </div>
+                        <!-- FAQs section End -->
+
+                        <!-- FAQs section start -->
+                        <div class="page-single-faqs" id="faq_3">
+                            <div class="section-title">
+                                <h2 class="text-anime-style-3" data-cursor="-opaque">Architectural planning</h2>
+                            </div>
+
+                            <!-- FAQ Accordion Start -->
+                            <div class="faq-accordion" id="accordion2">
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp">
+                                    <h2 class="accordion-header" id="heading11">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse11" aria-expanded="true"
+                                            aria-controls="collapse11">
+                                            Q1. Why is early-stage architectural planning crucial to software success?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse11" class="accordion-collapse collapse show"
+                                        aria-labelledby="heading11" data-bs-parent="#accordion2">
+                                        <div class="accordion-body">
+                                            <p>Architectural planning sets the foundation for performance, scalability,
+                                                and maintainability. It prevents costly redesigns later and ensures the
+                                                system can grow and adapt as business needs evolve.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+                                    <h2 class="accordion-header" id="heading12">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse12" aria-expanded="false"
+                                            aria-controls="collapse12">
+                                            Q2. What architectural patterns do you commonly use and why?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse12" class="accordion-collapse collapse" aria-labelledby="heading12"
+                                        data-bs-parent="#accordion2">
+                                        <div class="accordion-body">
+                                            <p>Architectural planning sets the foundation for performance, scalability,
+                                                and maintainability. It prevents costly redesigns later and ensures the
+                                                system can grow and adapt as business needs evolve.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+                                    <h2 class="accordion-header" id="heading13">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse13" aria-expanded="false"
+                                            aria-controls="collapse13">
+                                            Q3. How do you evaluate which architecture best fits a project?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse13" class="accordion-collapse collapse" aria-labelledby="heading13"
+                                        data-bs-parent="#accordion2">
+                                        <div class="accordion-body">
+                                            <p>Architectural planning sets the foundation for performance, scalability,
+                                                and maintainability. It prevents costly redesigns later and ensures the
+                                                system can grow and adapt as business needs evolve.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+                                    <h2 class="accordion-header" id="heading14">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse14" aria-expanded="false"
+                                            aria-controls="collapse14">
+                                            Q4. How do you ensure performance and security are considered in
+                                            architecture?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse14" class="accordion-collapse collapse" aria-labelledby="heading14"
+                                        data-bs-parent="#accordion2">
+                                        <div class="accordion-body">
+                                            <p>Architectural planning sets the foundation for performance, scalability,
+                                                and maintainability. It prevents costly redesigns later and ensures the
+                                                system can grow and adapt as business needs evolve.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.8s">
+                                    <h2 class="accordion-header" id="heading15">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse15" aria-expanded="false"
+                                            aria-controls="collapse15">
+                                            Q5. How do you handle architectural decisions in a fast-paced development
+                                            cycle?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse15" class="accordion-collapse collapse" aria-labelledby="heading15"
+                                        data-bs-parent="#accordion2">
+                                        <div class="accordion-body">
+                                            <p>Architectural planning sets the foundation for performance, scalability,
+                                                and maintainability. It prevents costly redesigns later and ensures the
+                                                system can grow and adapt as business needs evolve.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+                            </div>
+                            <!-- FAQ Accordion End -->
+                        </div>
+                        <!-- FAQs section End -->
+
+                        <!-- FAQs section start -->
+                        <div class="page-single-faqs" id="faq_4">
+                            <div class="section-title">
+                                <h2 class="text-anime-style-3" data-cursor="-opaque">Deployment guidance</h2>
+                            </div>
+
+                            <!-- FAQ Accordion Start -->
+                            <div class="faq-accordion" id="accordion3">
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp">
+                                    <h2 class="accordion-header" id="heading16">
+                                        <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                            data-bs-target="#collapse16" aria-expanded="false"
+                                            aria-controls="collapse16">
+                                            Q1. What are your best practices for ensuring smooth and error-free
+                                            deployments?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse16" class="accordion-collapse collapse show"
+                                        aria-labelledby="heading16" data-bs-parent="#accordion3">
+                                        <div class="accordion-body">
+                                            <p>I use CI/CD pipelines, automated testing, and versioned releases. I also
+                                                prefer blue-green or canary deployments to minimize risk, and I ensure
+                                                rollback strategies are in place for every release cycle.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+                                    <h2 class="accordion-header" id="heading17">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse17" aria-expanded="false"
+                                            aria-controls="collapse17">
+                                            Q2. How do you ensure production deployments remain secure and reliable?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse17" class="accordion-collapse collapse" aria-labelledby="heading17"
+                                        data-bs-parent="#accordion3">
+                                        <div class="accordion-body">
+                                            <p>I use CI/CD pipelines, automated testing, and versioned releases. I also
+                                                prefer blue-green or canary deployments to minimize risk, and I ensure
+                                                rollback strategies are in place for every release cycle.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+                                    <h2 class="accordion-header" id="heading18">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse18" aria-expanded="false"
+                                            aria-controls="collapse18">
+                                            Q3. How do you handle deployments across multiple environments?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse18" class="accordion-collapse collapse" aria-labelledby="heading18"
+                                        data-bs-parent="#accordion3">
+                                        <div class="accordion-body">
+                                            <p>I use CI/CD pipelines, automated testing, and versioned releases. I also
+                                                prefer blue-green or canary deployments to minimize risk, and I ensure
+                                                rollback strategies are in place for every release cycle.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+                                    <h2 class="accordion-header" id="heading19">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse19" aria-expanded="false"
+                                            aria-controls="collapse19">
+                                            Q4. How do you monitor, analyze, and improve deployments over time?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse19" class="accordion-collapse collapse" aria-labelledby="heading19"
+                                        data-bs-parent="#accordion3">
+                                        <div class="accordion-body">
+                                            <p>I use CI/CD pipelines, automated testing, and versioned releases. I also
+                                                prefer blue-green or canary deployments to minimize risk, and I ensure
+                                                rollback strategies are in place for every release cycle.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+
+                                <!-- FAQ Item Start -->
+                                <div class="accordion-item wow fadeInUp" data-wow-delay="0.8s">
+                                    <h2 class="accordion-header" id="heading20">
+                                        <button class="accordion-button collapsed" type="button"
+                                            data-bs-toggle="collapse" data-bs-target="#collapse20" aria-expanded="false"
+                                            aria-controls="collapse20">
+                                            Q5. What role does cloud infrastructure play in modern deployments?
+                                        </button>
+                                    </h2>
+                                    <div id="collapse20" class="accordion-collapse collapse" aria-labelledby="heading20"
+                                        data-bs-parent="#accordion3">
+                                        <div class="accordion-body">
+                                            <p>I use CI/CD pipelines, automated testing, and versioned releases. I also
+                                                prefer blue-green or canary deployments to minimize risk, and I ensure
+                                                rollback strategies are in place for every release cycle.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- FAQ Item End -->
+                            </div>
+                            <!-- FAQ Accordion End -->
+                        </div>
+                        <!-- FAQs section End -->
+                    </div>
+                    <!-- Page FAQs Catagery End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Faqs End -->
+{% endblock %}

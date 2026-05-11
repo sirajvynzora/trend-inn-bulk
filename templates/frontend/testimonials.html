@@ -1,0 +1,561 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Page Header Start -->
+    <div class="page-header bg-section parallaxie">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <!-- Page Header Box Start -->
+                    <div class="page-header-box">
+                        <h1 class="text-anime-style-3" data-cursor="-opaque">Our testimonials</h1>
+                        <nav class="wow fadeInUp">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">our testimonials</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <!-- Page Header Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- page Testimonials Start -->
+    <div class="page-testimonials">
+        <div class="container">
+            <div class="row">
+{% for testimonial in testimonials %}
+                <div class="col-xl-4 col-lg-6 col-md-6">
+                    <!-- Testimonials Item Start -->
+                    <div class="testimonial-item wow fadeInUp">
+                        <div class="testimonial-header">
+                            <div class="testimonial-quote">
+                                <img src="{% static 'images/testimonial-quote.svg' %}" alt="">
+                            </div>
+
+                            <div class="testimonials-rating">
+                                {% if testimonial.rating >= 1 %}<i class="fa-solid fa-star"></i>{% endif %}
+                                {% if testimonial.rating >= 2 %}<i class="fa-solid fa-star"></i>{% endif %}
+                                {% if testimonial.rating >= 3 %}<i class="fa-solid fa-star"></i>{% endif %}
+                                {% if testimonial.rating >= 4 %}<i class="fa-solid fa-star"></i>{% endif %}
+                                {% if testimonial.rating >= 5 %}<i class="fa-solid fa-star"></i>{% endif %}
+                            </div>
+                        </div>
+
+                        <div class="testimonial-content">
+                            <p>{{ testimonial.message }}</p>
+                        </div>
+                        <div class="testimonial-author">
+                            <div class="author-image">
+                                <figure class="image-anime">
+                                    {% if testimonial.image %}
+                                        <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}">
+                                    {% else %}
+                                        <img src="{% static 'images/author-1.jpg' %}" alt="{{ testimonial.name }}">
+                                    {% endif %}
+                                </figure>
+                            </div>
+                            <div class="author-content">
+                                <h3>{{ testimonial.name }}</h3>
+                                <p>{{ testimonial.designation }}</p>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Testimonials Item End -->
+                </div>
+{% empty %}
+<p>No testimonials yet.</p>
+{% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- page Testimonials Start -->
+
+    <!-- Intro Video Section Start -->
+    <div class="intro-video-box bg-section">
+        <div class="container-fluid">
+            <div class="row no-gutters">
+                <div class="col-lg-12">
+                    <!-- Intro Video Start -->
+                    <div class="intro-video wow fadeInUp" data-wow-delay="0.2s">
+                        <!-- Intro Image Start -->
+                        <div class="intro-video-image">
+                            <figure class="image-anime">
+                                <img src="{% static 'images/intro-video-image.jpg' %}" alt="">
+                            </figure>
+                        </div>
+                        <!-- Intro Image End -->
+
+                        <!-- Video Play Button Start -->
+                        <div class="video-play-button bg-effect">
+                            <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video"
+                                data-cursor-text="Play">
+                                <i class="fa-solid fa-play"></i>
+                            </a>
+                        </div>
+                        <!-- Video Play Button End -->
+                    </div>
+                    <!-- Intro Video End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Intro Video Section End -->
+
+    <!-- Why Choose Us Section Start -->
+    <div class="why-choose-us">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6">
+                    <!-- Why Choose Image Box Start -->
+                    <div class="why-choose-image-box">
+                        <div class="why-choose-box-1">
+                            <!-- Why Choose Image Start -->
+                            <div class="why-choose-img image-1">
+                                <figure class="image-anime reveal">
+                                    <img src="{% static 'images/why-choose-img-1.jpg' %}" alt="">
+                                </figure>
+                            </div>
+                            <!-- Why Choose Image End -->
+
+                            <!-- Why Choose Image Start -->
+                            <div class="why-choose-img image-2">
+                                <figure class="image-anime reveal">
+                                    <img src="{% static 'images/why-choose-img-2.jpg' %}" alt="">
+                                </figure>
+                            </div>
+                            <!-- Why Choose Image End -->
+                        </div>
+
+                        <div class="why-choose-box-2">
+                            <!-- Why Choose Image Start -->
+                            <div class="why-choose-img image-3">
+                                <figure class="image-anime reveal">
+                                    <img src="{% static 'images/why-choose-img-3.jpg' %}" alt="">
+                                </figure>
+                            </div>
+                            <!-- Why Choose Image End -->
+
+                            <!-- Why Choose Image Start -->
+                            <div class="why-choose-img image-4">
+                                <figure class="image-anime reveal">
+                                    <img src="{% static 'images/why-choose-img-4.jpg' %}" alt="">
+                                </figure>
+                            </div>
+                            <!-- Why Choose Image End -->
+                        </div>
+
+                        <!-- Contact Us Circle Start -->
+                        <div class="contact-us-circle">
+                            <a href="{% url 'contact' %}"><img src="{% static 'images/contact-us-circle.svg' %}"
+                                    alt=""></a>
+                        </div>
+                        <!-- Contact Us Circle End -->
+                    </div>
+                    <!-- Why Choose Image Box End -->
+                </div>
+
+                <div class="col-xl-6">
+                    <!-- Why Choose Item Box Start -->
+                    <div class="why-choose-us-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">Why Choose Us</h3>
+                            <h2 class="text-effect" data-cursor="-opaque">Because we focus on results that matter to
+                                your business</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">Our team combines decades of experience,
+                                advanced technologies, and a customer-first approach to ensure your business thrives in
+                                an ever-changing digital landscape.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Why Choose Body Start -->
+                        <div class="why-choose-body">
+                            <!-- Why Choose List Start -->
+                            <div class="why-choose-list wow fadeInUp" data-wow-delay="0.4s">
+                                <ul>
+                                    <li>Expert Team with Proven Experience</li>
+                                    <li>24/7 Proactive Support and Monitoring</li>
+                                    <li>Enterprise-Grade Security and Compliance</li>
+                                    <li>Transparent Communication & Dedicated Partner</li>
+                                </ul>
+                            </div>
+                            <!-- Why Choose List End -->
+
+                            <!-- Why Choose Counter Box Start -->
+                            <div class="why-choose-counter-box">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-why-choose-counter.svg' %}" alt="">
+                                </div>
+                                <div class="why-choose-counter-content">
+                                    <h2><span class="counter">25</span>+</h2>
+                                    <p>Years Of Experience</p>
+                                </div>
+                            </div>
+                            <!-- Why Choose Counter Box End -->
+                        </div>
+                        <!-- Why Choose Body End -->
+
+                        <!-- Why Choose Button Start -->
+                        <div class="why-choose-btn wow fadeInUp" data-wow-delay="0.6s">
+                            <a href="{% url 'contact' %}" class="btn-default btn-highlighted">Contact Us</a>
+                        </div>
+                        <!-- Why Choose Button End -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Why Choose Us Section End -->
+
+    <!-- Our Features Section Start -->
+    <div class="our-features bg-section">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-4">
+                    <!-- Section Sub Title Start -->
+                    <div class="section-sub-title">
+                        <h3 class="wow fadeInUp">Our Features</h3>
+                    </div>
+                    <!-- Section Sub Title End -->
+                </div>
+
+                <div class="col-lg-8">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h2 class="text-effect" data-cursor="-opaque">Feature-rich solutions built to support your
+                            growth and security needs</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row feature-item-list">
+                <div class="col-xl-3 col-md-6">
+                    <!-- Feature Item Start -->
+                    <div class="feature-item active wow fadeInUp">
+                        <div class="feature-image">
+                            <img src="{% static 'images/feature-image-1.jpg' %}" alt="">
+                        </div>
+                        <div class="feature-body">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon-feature-1.svg' %}" alt="">
+                            </div>
+                            <div class="feature-item-content">
+                                <div class="feature-info">
+                                    <h3>Cloud Infrastructure</h3>
+                                    <p>Deploy flexible cloud solutions that grow with your business.</p>
+                                </div>
+                                <div class="feature-counters">
+                                    <div class="feature-counter-item">
+                                        <h2><span class="counter">1.2</span>M+</h2>
+                                        <p>Active Users</p>
+                                    </div>
+                                    <div class="feature-counter-item">
+                                        <h2><span class="counter">98</span>%</h2>
+                                        <p>Uptime Guaranty</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature Item End -->
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+                    <!-- Feature Item Start -->
+                    <div class="feature-item wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="feature-image">
+                            <img src="{% static 'images/feature-image-2.jpg' %}" alt="">
+                        </div>
+                        <div class="feature-body">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon-feature-2.svg' %}" alt="">
+                            </div>
+                            <div class="feature-item-content">
+                                <div class="feature-info">
+                                    <h3>Fast & Reliable Support</h3>
+                                    <p>Our expert support team is avail-able 24/7.</p>
+                                </div>
+                                <div class="feature-counters">
+                                    <div class="feature-counter-item">
+                                        <h2><span class="counter">2</span>K+</h2>
+                                        <p>Support Tickets</p>
+                                    </div>
+                                    <div class="feature-counter-item">
+                                        <h2><span class="counter">15</span>Min</h2>
+                                        <p>Response Time</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature Item End -->
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+                    <!-- Feature Item Start -->
+                    <div class="feature-item wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="feature-image">
+                            <img src="{% static 'images/feature-image-1.jpg' %}" alt="">
+                        </div>
+                        <div class="feature-body">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon-feature-3.svg' %}" alt="">
+                            </div>
+                            <div class="feature-item-content">
+                                <div class="feature-info">
+                                    <h3>Seamless Integration</h3>
+                                    <p>Connect all your existing tools, applications, and workflows.</p>
+                                </div>
+                                <div class="feature-counters">
+                                    <div class="feature-counter-item">
+                                        <h2><span class="counter">50</span>+</h2>
+                                        <p>Supported Apps</p>
+                                    </div>
+                                    <div class="feature-counter-item">
+                                        <h2><span class="counter">100</span>+</h2>
+                                        <p>New Software</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature Item End -->
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+                    <!-- Feature Review Box Start -->
+                    <div class="feature-review-box wow fadeInUp" data-wow-delay="0.6s">
+                        <!-- Feature Review Image Start -->
+                        <div class="feature-review-image">
+                            <figure class="image-anime">
+                                <img src="{% static 'images/feature-image-2.jpg' %}" alt="">
+                            </figure>
+                        </div>
+                        <!-- Feature Review Image End -->
+
+                        <!-- Review Box Start -->
+                        <div class="review-box">
+                            <!-- Satisfy Client Images Start -->
+                            <div class="satisfy-client-images">
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-1.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-2.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-3.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-4.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image add-more">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                            </div>
+                            <!-- Satisfy Client Images End -->
+
+                            <!-- Satisfy Client Content Start -->
+                            <div class="satisfy-client-content">
+                                <p>98% Happy Satisfied Clients</p>
+                            </div>
+                            <!-- Satisfy Client Content End -->
+                        </div>
+                        <!-- Review Box End -->
+                    </div>
+                    <!-- Feature Review Box End -->
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- Section Footer Text Start -->
+                    <div class="section-footer-text wow fadeInUp" data-wow-delay="0.8s">
+                        <p>From day one to enterprise - <a href="{% url 'contact' %}">we're your partner in long-term
+                                tech
+                                success.</a></p>
+                    </div>
+                    <!-- Section Footer Text End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Features Section End -->
+
+    <!-- Our FAQs Section Start -->
+    <div class="our-faqs">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6">
+                    <!-- Faq Image Box Start -->
+                    <div class="faq-image-box wow fadeInUp" data-wow-delay="0.2s">
+                        <!-- Faq Image 1 Start -->
+                        <div class="faq-img-1">
+                            <!-- Faq Image Start -->
+                            <div class="faq-image">
+                                <figure class="image-anime">
+                                    <img src="{% static 'images/faq-image-1.jpg' %}" alt="">
+                                </figure>
+                            </div>
+                            <!-- Faq Image End -->
+
+                            <!-- Contact Us Circle Start -->
+                            <div class="contact-us-circle">
+                                <a href="{% url 'contact' %}"><img src="{% static 'images/contact-us-circle.svg' %}"
+                                        alt=""></a>
+                            </div>
+                            <!-- Contact Us Circle End -->
+                        </div>
+                        <!-- Faq Image 1 End -->
+
+                        <!-- Faq Image 2 Start -->
+                        <div class="faq-img-2">
+                            <!-- Faq CTA Box Start -->
+                            <div class="faq-cta-box">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-headphone.svg' %}" alt="">
+                                </div>
+                                <div class="faq-cta-content">
+                                    <p>Need any help? Contact us today</p>
+                                    <h3><a href="tel:+132465789">+(123) 456-789</a></h3>
+                                </div>
+                            </div>
+                            <!-- Faq CTA Box End -->
+
+                            <!-- Faq Image Start -->
+                            <div class="faq-image">
+                                <figure class="image-anime">
+                                    <img src="{% static 'images/faq-image-2.jpg' %}" alt="">
+                                </figure>
+                            </div>
+                            <!-- Faq Image End -->
+                        </div>
+                        <!-- Faq Image 2 End -->
+                    </div>
+                    <!-- Faq Image Box End -->
+                </div>
+
+                <div class="col-xl-6">
+                    <!-- FAQs Content Start -->
+                    <div class="faqs-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">Frequently Asked Questions</h3>
+                            <h2 class="text-effect" data-cursor="-opaque">Everything you need to know about our it
+                                services and solutions</h2>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- FAQ Accordion Start -->
+                        <div class="faq-accordion" id="accordion">
+                            <!-- FAQ Item Start -->
+                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+                                <h2 class="accordion-header" id="heading1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        Q1. How quickly can we get support when an issue arises?
+                                    </button>
+                                </h2>
+                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1"
+                                    data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <p>Our average response time is within 30 minutes. For critical issues, we
+                                            prioritize immediate resolution to minimize downtime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item End -->
+
+                            <!-- FAQ Item Start -->
+                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+                                <h2 class="accordion-header" id="heading2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                        Q2. Can you help us move our business to the cloud?
+                                    </button>
+                                </h2>
+                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                                    data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <p>Our average response time is within 30 minutes. For critical issues, we
+                                            prioritize immediate resolution to minimize downtime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item End -->
+
+                            <!-- FAQ Item Start -->
+                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+                                <h2 class="accordion-header" id="heading3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                        Q3. How do you protect our data from cyber threats?
+                                    </button>
+                                </h2>
+                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                                    data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <p>Our average response time is within 30 minutes. For critical issues, we
+                                            prioritize immediate resolution to minimize downtime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item End -->
+
+                            <!-- FAQ Item Start -->
+                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.8s">
+                                <h2 class="accordion-header" id="heading4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                        Q4. Can you customize your services for our business?
+                                    </button>
+                                </h2>
+                                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
+                                    data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <p>Our average response time is within 30 minutes. For critical issues, we
+                                            prioritize immediate resolution to minimize downtime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item End -->
+
+                            <!-- FAQ Item Start -->
+                            <div class="accordion-item wow fadeInUp" data-wow-delay="1s">
+                                <h2 class="accordion-header" id="heading5">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                        Q5. Do you provide employee cybersecurity training?
+                                    </button>
+                                </h2>
+                                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5"
+                                    data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <p>Our average response time is within 30 minutes. For critical issues, we
+                                            prioritize immediate resolution to minimize downtime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item End -->
+                        </div>
+                        <!-- FAQ Accordion End -->
+                    </div>
+                    <!-- FAQs Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our FAQs Section End -->
+{% endblock %}

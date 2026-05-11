@@ -1,0 +1,162 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block title %}Bookings | Liok Admin{% endblock %}
+
+{% block content %}
+<div class="dashboard__form__wraper">
+    <div class="create__course__title mb-4 d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <h4 class="mb-0">Bookings</h4>
+        <div class="d-flex align-items-center gap-2 ms-auto">
+            <div class="search-box">
+                <input type="text" id="bookingSearchInput" class="form-control form-control-sm"
+                    placeholder="Search booking...">
+            </div>
+        </div>
+    </div>
+
+    <div class="custom-table-container">
+        <table class="table table-striped table-hover align-middle">
+            <thead class="table-light">
+                <tr>
+                    <th scope="col">Date Posted</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Contact Info</th>
+                    <th scope="col">Booking Details</th>
+                    <th scope="col" class="text-center">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for booking in bookings %}
+                <tr>
+                    <td>{{ booking.created_at|date:"M d, Y" }}</td>
+                    <td><strong>{{ booking.name }}</strong></td>
+                    <td>
+                        <div class="d-flex flex-column small">
+                            <span><i class="fas fa-phone"></i> {{ booking.phone }}</span>
+                            {% if booking.email %}<span><i class="fas fa-envelope"></i> {{ booking.email }}</span>{% endif %}
+                        </div>
+                    </td>
+                    <td>
+                        <div class="d-flex flex-column small">
+                            <span><strong>Check In:</strong> {{ booking.check_in|date:"M d, Y" }}</span>
+                            <span><strong>Check Out:</strong> {{ booking.check_out|date:"M d, Y" }}</span>
+                            <span><strong>Guests:</strong> {{ booking.guests }}</span>
+                            {% if booking.camping_package %}
+                            <span class="text-success mt-1"><strong>Package:</strong> {{ booking.camping_package.name }}</span>
+                            {% endif %}
+                        </div>
+                    </td>
+                    <td class="text-center">
+                        <button type="button" class="btn btn-sm btn-info me-1 text-white" data-bs-toggle="modal"
+                            data-bs-target="#readBookingModal{{ booking.id }}">
+                            <i class="fas fa-book-open"></i> Read
+                        </button>
+                        <button type="button" class="btn btn-sm btn-danger" data-bs-toggle="modal"
+                            data-bs-target="#deleteBookingModal{{ booking.id }}">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </td>
+                </tr>
+                {% empty %}
+                <tr>
+                    <td colspan="5" class="text-center py-4">
+                        <p class="text-muted">No bookings yet.</p>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+
+    {% if bookings.has_other_pages %}
+    <nav aria-label="Bookings pagination">
+        <ul class="pagination justify-content-center mt-4">
+            {% if bookings.has_previous %}
+            <li class="page-item"><a class="page-link" href="?page={{ bookings.previous_page_number }}">&laquo;</a></li>
+            {% endif %}
+            {% for i in bookings.paginator.page_range %}
+            {% if bookings.number == i %}
+            <li class="page-item active"><span class="page-link">{{ i }}</span></li>
+            {% else %}
+            <li class="page-item"><a class="page-link" href="?page={{ i }}">{{ i }}</a></li>
+            {% endif %}
+            {% endfor %}
+            {% if bookings.has_next %}
+            <li class="page-item"><a class="page-link" href="?page={{ bookings.next_page_number }}">&raquo;</a></li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
+</div>
+
+{% for booking in bookings %}
+<div class="modal fade" id="readBookingModal{{ booking.id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Booking from {{ booking.name }}</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body">
+                <p><strong>Check In:</strong> {{ booking.check_in|date:"M d, Y" }}</p>
+                <p><strong>Check Out:</strong> {{ booking.check_out|date:"M d, Y" }}</p>
+                <p><strong>Guests:</strong> {{ booking.guests }}</p>
+                {% if booking.camping_package %}
+                <p><strong>Selected Package:</strong> <span class="badge bg-success">{{ booking.camping_package.name }}</span></p>
+                {% endif %}
+                {% if booking.message %}
+                <p><strong>Message:</strong></p>
+                <p>{{ booking.message }}</p>
+                {% endif %}
+                <hr>
+                <div class="d-flex gap-2">
+                    <a href="tel:{{ booking.phone }}" class="btn btn-outline-primary flex-grow-1"><i
+                            class="fas fa-phone"></i> Call</a>
+                    {% if booking.email %}
+                    <a href="mailto:{{ booking.email }}" class="btn btn-outline-secondary flex-grow-1"><i
+                            class="fas fa-envelope"></i> Email</a>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deleteBookingModal{{ booking.id }}" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" action="{% url 'admin_delete_booking' booking.id %}">
+                {% csrf_token %}
+                <div class="modal-header">
+                    <h5 class="modal-title">Delete Booking</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    Are you sure you want to delete this booking?
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-danger">Yes, Delete</button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endfor %}
+
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const searchInput = document.getElementById("bookingSearchInput");
+        const tableRows = document.querySelectorAll("tbody tr");
+
+        searchInput.addEventListener("keyup", function () {
+            const value = this.value.toLowerCase();
+            tableRows.forEach(row => {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.indexOf(value) > -1 ? "" : "none";
+            });
+        });
+    });
+</script>
+{% endblock %}

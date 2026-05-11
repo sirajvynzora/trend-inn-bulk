@@ -1,0 +1,300 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <!-- Meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="Awaiken">
+    <!-- Page Title -->
+    <title>Codeio - IT Solution and Technology HTML Template</title>
+    <!-- Favicon Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="{% static 'images/favicon/apple-touch-icon.png' %}">
+    <link rel="icon" type="image/png" sizes="32x32" href="{% static 'images/favicon/favicon-32x32.png' %}">
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'images/favicon/favicon-16x16.png' %}">
+    <link rel="manifest" href="{% static 'images/favicon/site.webmanifest' %}">
+    <!-- Google Fonts Css-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap" rel="stylesheet">
+    <!-- Bootstrap Css -->
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet" media="screen">
+    <!-- SlickNav Css -->
+    <link href="{% static 'css/slicknav.min.css' %}" rel="stylesheet">
+    <!-- Swiper Css -->
+    <link rel="stylesheet" href="{% static 'css/swiper-bundle.min.css' %}">
+    <!-- Font Awesome Icon Css-->
+    <link href="{% static 'css/all.min.css' %}" rel="stylesheet" media="screen">
+    <!-- Animated Css -->
+    <link href="{% static 'css/animate.css' %}" rel="stylesheet">
+    <!-- Magnific Popup Core Css File -->
+    <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}">
+    <!-- Mouse Cursor Css File -->
+    <link rel="stylesheet" href="{% static 'css/mousecursor.css' %}">
+    <!-- Main Custom Css -->
+    <link href="{% static 'css/custom.css' %}" rel="stylesheet" media="screen">
+</head>
+
+<body>
+
+    <!-- Preloader Start -->
+    <div class="preloader">
+        <div class="loading-container">
+            <div class="loading"></div>
+            <div id="loading-icon"><img src="{% static 'images/logo.png' %}" alt=""></div>
+        </div>
+    </div>
+    <!-- Preloader End -->
+
+    <!-- Topbar Section Start -->
+    <div class="topbar">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-7 col-md-6">
+                    <!-- Topbar Contact Information Start -->
+                    <div class="topbar-contact-info">
+                        <ul>
+                            <li><img src="{% static 'images/icon-mail-white.svg' %}" alt=""><span>Email Us At: </span><a
+                                    href="mailto:trendinbulk@gmail.com">trendinbulk@gmail.com</a></li>
+                            <li><img src="{% static 'images/icon-phone-white.svg' %}" alt=""><span>Phone Number:
+                                </span><a href="tel:123456789">+(123)-456-789</a></li>
+                        </ul>
+                    </div>
+                    <!-- Topbar Contact Information End -->
+                </div>
+
+                <div class="col-lg-5 col-md-6">
+                    <!-- Topbar Social Links Start -->
+                    <div class="topbar-social-links">
+                        <ul>
+                            <li><a href="#"><i class="fa-brands fa-instagram"></i>Instagram</a></li>
+                            <li><a href="#"><i class="fa-brands fa-facebook-f"></i>Facebook</a></li>
+                            <li><a href="#"><i class="fa-brands fa-dribbble"></i>Dribbble</a></li>
+                        </ul>
+                    </div>
+                    <!-- Topbar Social Links End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar Section End -->
+
+    <!-- Header Start -->
+    <header class="main-header">
+        <div class="header-sticky">
+            <nav class="navbar navbar-expand-lg">
+                <div class="container">
+                    <!-- Logo Start -->
+                    <a class="navbar-brand" href="{% url 'home' %}">
+                        <img src="{% static 'images/logo.png' %}" alt="Logo">
+                    </a>
+                    <!-- Logo End -->
+
+                    <!-- Main Menu Start -->
+                    <div class="collapse navbar-collapse main-menu">
+                        <div class="nav-menu-wrapper">
+                            <ul class="navbar-nav mr-auto" id="menu">
+                                <li class="nav-item"><a class="nav-link" href="{% url 'home' %}">Home</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'about' %}">About Us</a></li>
+                                <li class="nav-item submenu"><a class="nav-link" href="#">Products</a>
+                                    <ul>
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'products' %}">All Products</a></li>
+                                        {% for cat in menu_categories %}
+                                        <li class="nav-item"><a class="nav-link" href="{% url 'category_products' cat.slug %}">{{ cat.name }}</a></li>
+                                        {% endfor %}
+                                    </ul>
+                                </li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Blogs</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
+                                <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
+                                    <ul>
+                                        <li><a href="{% url 'services' %}">Services</a></li>
+                                        <li><a href="{% url 'team' %}">Team</a></li>
+                                        <li><a href="{% url 'testimonials' %}">Testimonials</a></li>
+                                        <li><a href="{% url 'pricing' %}">Pricing</a></li>
+                                        <li><a href="{% url 'faqs' %}">FAQs</a></li>
+                                        <li><a href="{% url 'image_gallery' %}">Image Gallery</a></li>
+                                        <li><a href="{% url 'video_gallery' %}">Video Gallery</a></li>
+                                        <li><a href="{% url 'page_not_found' %}">404 Page</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+
+                        <!-- Header Btn Start -->
+                        <div class="header-btn">
+                            <a href="{% url 'contact' %}" class="btn-default btn-highlighted">Get a Free Consultation</a>
+                        </div>
+                        <!-- Header Btn End -->
+                    </div>
+                    <!-- Main Menu End -->
+                    <div class="navbar-toggle"></div>
+                </div>
+            </nav>
+            <div class="responsive-menu"></div>
+        </div>
+    </header>
+    <!-- Header End -->
+{% block content %}
+{% endblock %}
+    <!-- Main Footer Start -->
+    <footer class="main-footer bg-section dark-section">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3">
+                    <!-- About Footer Start -->
+                    <div class="about-footer">
+                        <!-- Footer Logo Start -->
+                        <div class="footer-logo">
+                            <img src="{% static 'images/footer-logo.png' %}" alt="">
+                        </div>
+                        <!-- Footer Logo End -->
+
+                        <!-- About Footer Content Start -->
+                        <div class="about-footer-content">
+                            <p>Explore expert articles, industry trends, and guides on IT services.</p>
+                        </div>
+                        <!-- About Footer Content End -->
+
+                        <!-- Footer Social Link Start -->
+                        <div class="footer-social-links">
+                            <ul>
+                                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-facebook-f"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-x-twitter"></i></a></li>
+                                <li><a href="#"><i class="fa-brands fa-pinterest-p"></i></a></li>
+                            </ul>
+                        </div>
+                        <!-- Footer Social Link End -->
+                    </div>
+                    <!-- About Footer End -->
+                </div>
+
+                <div class="col-xl-9">
+                    <!-- Footer Link List Start -->
+                    <div class="footer-link-list">
+                        <!-- Footer Links Start -->
+                        <div class="footer-links">
+                            <h3>Our Address</h3>
+                            <!-- Footer Contact Item Start -->
+                            <div class="footer-contact-item">
+                                <h4>London</h4>
+                                <p>2118 Thornridge Cir. Syracuse, Connecticut 35624</p>
+                            </div>
+                            <!-- Footer Contact Item End -->
+                        </div>
+                        <!-- Footer Links End -->
+
+                        <!-- Footer Links Start -->
+                        <div class="footer-links">
+                            <h3>Get In Touch</h3>
+                            <!-- Footer Contact Item Start -->
+                            <div class="footer-contact-item">
+                                <p><a href="mailto:info@domainname.com">info@domainname.com</a></p>
+                            </div>
+                            <!-- Footer Contact Item End -->
+
+                            <!-- Footer Contact Item Start -->
+                            <div class="footer-contact-item">
+                                <h3><a href="tel:+123456789">+(123) 456-789</a></h3>
+                            </div>
+                            <!-- Footer Contact Item End -->
+                        </div>
+                        <!-- Footer Links End -->
+
+                        <!-- Footer Links start -->
+                        <div class="footer-links footer-newsletter">
+                            <h3>Our Newsletter</h3>
+                            <p>Explore expert articles, industry trends, and guides on IT services</p>
+                            <!-- Footer NewsLetter Form Start -->
+                            <div class="footer-newsletter-form">
+                                <form id="newslettersForm" action="#" method="POST">
+                                    <div class="form-group">
+                                        <input type="email" name="mail" class="form-control" id="mail"
+                                            placeholder="E-mail Address *" required>
+                                        <button type="submit" class="newsletter-btn"><img
+                                                src="{% static 'images/arrow-white.svg' %}" alt=""></button>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- Footer NewsLetter Form End -->
+                        </div>
+                        <!-- Footer Links end -->
+                    </div>
+                    <!-- Footer Link List End -->
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- Footer Copyright Start -->
+                    <div class="footer-copyright">
+                        <!-- Footer Top Button Start -->
+                        <div class="footer-top-button">
+                            <a href="#top">
+                                <img src="{% static 'images/arrow-white.svg' %}" alt="">
+                            </a>
+                        </div>
+                        <!-- Footer Top Button End -->
+
+                        <!-- Footer Copyright Text Start -->
+                        <div class="footer-copyright-text">
+                            <p>Copyright © 2025 All Rights Reserved.</p>
+                        </div>
+                        <!-- Footer Copyright Text End -->
+
+                        <!-- Footer Menu Start -->
+                                                <div class="footer-menu">
+                            <ul>
+                                <li><a href="{% url 'home' %}">Home</a></li>
+                                <li><a href="{% url 'about' %}">About Us</a></li>
+                                <li><a href="{% url 'products' %}">Products</a></li>
+                                <li><a href="{% url 'blog' %}">Blogs</a></li>
+                                <li><a href="{% url 'contact' %}">Contact Us</a></li>
+                            </ul>
+                        </div>
+                        <!-- Footer Menu End -->
+                    </div>
+                    <!-- Footer Copyright End -->
+                </div>
+            </div>
+        </div>
+    </footer>
+    <!-- Main Footer End -->
+
+    <!-- Jquery Library File -->
+    <script src="{% static 'js/jquery-3.7.1.min.js' %}"></script>
+    <!-- Bootstrap js file -->
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <!-- Validator js file -->
+    <script src="{% static 'js/validator.min.js' %}"></script>
+    <!-- SlickNav js file -->
+    <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+    <!-- Swiper js file -->
+    <script src="{% static 'js/swiper-bundle.min.js' %}"></script>
+    <!-- Counter js file -->
+    <script src="{% static 'js/jquery.waypoints.min.js' %}"></script>
+    <script src="{% static 'js/jquery.counterup.min.js' %}"></script>
+    <!-- Magnific js file -->
+    <script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+    <!-- SmoothScroll -->
+    <script src="{% static 'js/SmoothScroll.js' %}"></script>
+    <!-- Parallax js -->
+    <script src="{% static 'js/parallaxie.js' %}"></script>
+    <!-- MagicCursor js file -->
+    <script src="{% static 'js/gsap.min.js' %}"></script>
+    <script src="{% static 'js/magiccursor.js' %}"></script>
+    <!-- Text Effect js file -->
+    <script src="{% static 'js/SplitText.min.js' %}"></script>
+    <script src="{% static 'js/ScrollTrigger.min.js' %}"></script>
+    <!-- YTPlayer js File -->
+    <script src="{% static 'js/jquery.mb.YTPlayer.min.js' %}"></script>
+    <!-- Image Effect js File -->
+    <script src="{% static 'js/three.min.js' %}"></script>
+    <script src="{% static 'js/hover.js' %}"></script>
+    <!-- Wow js file -->
+    <script src="{% static 'js/wow.min.js' %}"></script>
+    <!-- Main Custom js file -->
+    <script src="{% static 'js/function.js' %}"></script>

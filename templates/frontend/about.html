@@ -1,0 +1,1030 @@
+{% extends 'frontend/base.html' %}
+{% load static %}
+
+{% block content %}
+<!-- Page Header Start -->
+    <div class="page-header bg-section parallaxie">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-12">
+                    <!-- Page Header Box Start -->
+                    <div class="page-header-box">
+                        <h1 class="text-anime-style-3" data-cursor="-opaque">About us</h1>
+                        <nav class="wow fadeInUp">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item"><a href="{% url 'home' %}">home</a></li>
+                                <li class="breadcrumb-item active" aria-current="page">About us</li>
+                            </ol>
+                        </nav>
+                    </div>
+                    <!-- Page Header Box End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- About Us Section Start -->
+    <div class="about-us">
+        <div class="container">
+            <div class="row">
+                <div class="col-xl-3">
+                    <div class="about-businesses-client-content">
+                        <!-- Section Sub Title Start -->
+                        <div class="section-sub-title wow fadeInUp">
+                            <h3 class="wow fadeInUp">Innovation That Drives Growth</h3>
+                        </div>
+                        <!-- Section Sub Title End -->
+
+                        <!-- About Client Box Start -->
+                        <div class="about-client-box wow fadeInUp" data-wow-delay="0.2s">
+                            <!-- Satisfy Client Images Start -->
+                            <div class="satisfy-client-images">
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-1.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-2.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-3.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-4.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image add-more">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                            </div>
+                            <!-- Satisfy Client Images End -->
+
+                            <!-- About Client Box Content Start -->
+                            <div class="about-client-box-content">
+                                <p>We're proud to have built lasting relationships with businesses.</p>
+                            </div>
+                            <!-- About Client Box Content End -->
+                        </div>
+                        <!-- About Client Box End -->
+                    </div>
+                </div>
+
+                <div class="col-xl-9">
+                    <!-- About Us Content Start -->
+                    <div class="about-us-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h2 class="text-effect" data-cursor="-opaque">A platform built to create entrepreneurs and connect businesses across India</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">Trending Bulk was created in Kerala when we faced many challenges while trying to build a new store. One of the biggest problems was finding reliable vendors and suppliers. Most wholesale suppliers were located in the north side of India, which made sourcing products difficult for businesses in the south. This challenge inspired us to build a platform that connects businesses across the country.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- About Us Body Start -->
+                        <div class="about-us-body">
+                            <!-- About Body Item Start -->
+                            <div class="about-body-item wow fadeInUp">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-about-body-item-1.svg' %}" alt="">
+                                </div>
+                                <div class="about-body-item-content">
+                                    <h3>Our Story</h3>
+                                    <p>Started in Kerala with a mission to solve the sourcing problem faced by south Indian entrepreneurs.</p>
+                                </div>
+                            </div>
+                            <!-- About Body Item End -->
+
+                            <!-- About Body Item Start -->
+                            <div class="about-body-item wow fadeInUp" data-wow-delay="0.2s">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-about-body-item-2.svg' %}" alt="">
+                                </div>
+                                <div class="about-body-item-content">
+                                    <h3>Our Network</h3>
+                                    <p>We bridge North and South India, creating a supply network where products can move across regions easily.</p>
+                                </div>
+                            </div>
+                            <!-- About Body Item End -->
+
+                            <!-- About Body Item Start -->
+                            <div class="about-body-item wow fadeInUp" data-wow-delay="0.4s">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-about-body-item-3.svg' %}" alt="">
+                                </div>
+                                <div class="about-body-item-content">
+                                    <h3>Our Support</h3>
+                                    <p>From product sourcing to marketing guidance, we provide complete A to Z support for every startup journey.</p>
+                                </div>
+                            </div>
+                            <!-- About Body Item End -->
+                        </div>
+                        <!-- About Us Body End -->
+
+                        <!-- About Us Button Start -->
+                        <div class="about-us-btn wow fadeInUp" data-wow-delay="0.6s">
+                            <a href="{% url 'about' %}" class="btn-default btn-highlighted">More About Us</a>
+                        </div>
+                        <!-- About Us Button End -->
+                    </div>
+                    <!-- About Us Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- About Us Section End -->
+
+    <!-- Our Approach Section Start -->
+    <div class="our-approach bg-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-5">
+                    <!-- Approach Image Start -->
+                    <div class="approach-image">
+                        <!-- Approach Img Start -->
+                        <div class="approach-img">
+                            <figure class="image-anime reveal">
+                                <img src="{% static 'images/approach-image.jpg' %}" alt="">
+                            </figure>
+                        </div>
+                        <!-- Approach Img End -->
+
+                        <!-- Approach Image List Start -->
+                        <div class="approach-image-list">
+                            <div class="approach-list-img wow fadeInUp">
+                                <figure class="image-anime">
+                                    <img src="{% static 'images/approach-list-img-1.jpg' %}" alt="">
+                                </figure>
+                            </div>
+
+                            <div class="approach-list-img">
+                                <figure class="image-anime">
+                                    <img src="{% static 'images/approach-list-img-2.jpg' %}" alt="">
+                                </figure>
+                            </div>
+                        </div>
+                        <!-- Approach Image List End -->
+
+                        <!-- Contact Us Circle Start -->
+                        <div class="contact-us-circle">
+                            <a href="{% url 'contact' %}">
+                                <img src="{% static 'images/contact-us-circle.svg' %}" alt="">
+                            </a>
+                        </div>
+                        <!-- Contact Us Circle End -->
+                    </div>
+                    <!-- Approach Image End -->
+                </div>
+
+                <div class="col-xl-7">
+                    <!-- Our Approach Content Start -->
+                    <div class="our-approach-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">Our approach</h3>
+                            <h2 class="text-anime-style-3" data-cursor="-opaque">Building India's strongest wholesale and dropshipping supply network</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">At Trending Bulk, we provide a wide range of trending wholesale products including gadgets, fashion items, ornaments, dresses, toys, household products, food items, and many more — all available under one platform at competitive wholesale prices.</p>
+                            <p class="wow fadeInUp" data-wow-delay="0.4s">Whether it's a custom software application,
+                                cloud-based platform, or enterprise-grade system, we ensure every solution is tailored
+                                to meet your unique business objectives.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Approach Item List Start -->
+                        <div class="approach-item-list wow fadeInUp" data-wow-delay="0.6s">
+                            <!-- Approach Item Start -->
+                            <div class="approach-item">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-approach-1.svg' %}" alt="">
+                                </div>
+                                <div class="approach-item-content">
+                                    <h3>Our Mission</h3>
+                                    <p>To empower entrepreneurs and help startups build successful businesses by providing quality wholesale products and complete business guidance.</p>
+                                </div>
+                            </div>
+                            <!-- Approach Item End -->
+
+                            <!-- Approach Item Start -->
+                            <div class="approach-item">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-approach-2.svg' %}" alt="">
+                                </div>
+                                <div class="approach-item-content">
+                                    <h3>Our Vision</h3>
+                                    <p>To build one of the largest wholesale and dropshipping supply networks, connecting vendors and entrepreneurs across India.</p>
+                                </div>
+                            </div>
+                            <!-- Approach Item End -->
+                        </div>
+                        <!-- Approach Item List End -->
+                    </div>
+                    <!-- Our Approach Content End -->
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- Section Footer Text Start -->
+                    <div class="section-footer-text wow fadeInUp" data-wow-delay="0.8s">
+                        <p><span>Free</span> From setup to scaling - <a href="{% url 'contact' %}">discover solutions
+                                that
+                                adapt as you grow.</a></p>
+                    </div>
+                    <!-- Section Footer Text End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Approach Section Start -->
+
+    <!-- Our Strength Section Start -->
+    <div class="our-strength">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-4">
+                    <!-- Section Sub Title Start -->
+                    <div class="section-sub-title">
+                        <h3 class="wow fadeInUp">Our Strength</h3>
+                    </div>
+                    <!-- Section Sub Title End -->
+                </div>
+
+                <div class="col-lg-8">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h2 class="text-effect" data-cursor="-opaque">Delivering lasting value through smart tools,
+                            scalable innovation</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-xl-8">
+                    <!-- Strength image Video Start -->
+                    <div class="strength-image-video intro-video wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="intro-video-image">
+                            <figure class="image-anime">
+                                <img src="{% static 'images/strength-image.jpg' %}" alt="">
+                            </figure>
+                        </div>
+
+                        <div class="video-play-button">
+                            <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video"
+                                data-cursor-text="Play">
+                                <i class="fa-solid fa-play"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <!-- Strength image Video End -->
+                </div>
+
+                <div class="col-xl-4">
+                    <!-- Strength Item List Start -->
+                    <div class="strength-item-list">
+                        <!-- Strength Item Start -->
+                        <div class="strength-item active wow fadeInUp">
+                            <div class="strength-item-counter">
+                                <h2><span class="counter">25</span>+</h2>
+                            </div>
+                            <div class="strength-item-content">
+                                <p>Successfully delivered project across diverse industries. Focused on quality,
+                                    innovation, and long-term results.</p>
+                            </div>
+                        </div>
+                        <!-- Strength Item End -->
+
+                        <!-- Strength Item Start -->
+                        <div class="strength-item wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="strength-item-counter">
+                                <h2><span class="counter">10</span>%</h2>
+                            </div>
+                            <div class="strength-item-content">
+                                <p>Successfully delivered project across diverse industries. Focused on quality,
+                                    innovation, and long-term results.</p>
+                            </div>
+                        </div>
+                        <!-- Strength Item End -->
+
+                        <!-- Strength Item Start -->
+                        <div class="strength-item wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="strength-item-counter">
+                                <h2><span class="counter">32</span>K</h2>
+                            </div>
+                            <div class="strength-item-content">
+                                <p>Successfully delivered project across diverse industries. Focused on quality,
+                                    innovation, and long-term results.</p>
+                            </div>
+                        </div>
+                        <!-- Strength Item End -->
+                    </div>
+                    <!-- Strength Item List End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Strength Section End -->
+
+    <!-- Our Features Section Start -->
+    <div class="our-features bg-section">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-4">
+                    <!-- Section Sub Title Start -->
+                    <div class="section-sub-title">
+                        <h3 class="wow fadeInUp">Our Features</h3>
+                    </div>
+                    <!-- Section Sub Title End -->
+                </div>
+
+                <div class="col-lg-8">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h2 class="text-effect" data-cursor="-opaque">Feature-rich solutions built to support your
+                            growth and security needs</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row feature-item-list">
+                <div class="col-xl-3 col-md-6">
+                    <!-- Feature Item Start -->
+                    <div class="feature-item active wow fadeInUp">
+                        <div class="feature-image">
+                            <img src="{% static 'images/feature-image-1.jpg' %}" alt="">
+                        </div>
+                        <div class="feature-body">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon-feature-1.svg' %}" alt="">
+                            </div>
+                            <div class="feature-item-content">
+                                <div class="feature-info">
+                                    <h3>Cloud Infrastructure</h3>
+                                    <p>Deploy flexible cloud solutions that grow with your business.</p>
+                                </div>
+                                <div class="feature-counters">
+                                    <div class="feature-counter-item">
+                                        <h2><span class="counter">1.2</span>M+</h2>
+                                        <p>Active Users</p>
+                                    </div>
+                                    <div class="feature-counter-item">
+                                        <h2><span class="counter">98</span>%</h2>
+                                        <p>Uptime Guaranty</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature Item End -->
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+                    <!-- Feature Item Start -->
+                    <div class="feature-item wow fadeInUp" data-wow-delay="0.2s">
+                        <div class="feature-image">
+                            <img src="{% static 'images/feature-image-2.jpg' %}" alt="">
+                        </div>
+                        <div class="feature-body">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon-feature-2.svg' %}" alt="">
+                            </div>
+                            <div class="feature-item-content">
+                                <div class="feature-info">
+                                    <h3>Fast & Reliable Support</h3>
+                                    <p>Our expert support team is avail-able 24/7.</p>
+                                </div>
+                                <div class="feature-counters">
+                                    <div class="feature-counter-item">
+                                        <h2><span class="counter">2</span>K+</h2>
+                                        <p>Support Tickets</p>
+                                    </div>
+                                    <div class="feature-counter-item">
+                                        <h2><span class="counter">15</span>Min</h2>
+                                        <p>Response Time</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature Item End -->
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+                    <!-- Feature Item Start -->
+                    <div class="feature-item wow fadeInUp" data-wow-delay="0.4s">
+                        <div class="feature-image">
+                            <img src="{% static 'images/feature-image-1.jpg' %}" alt="">
+                        </div>
+                        <div class="feature-body">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon-feature-3.svg' %}" alt="">
+                            </div>
+                            <div class="feature-item-content">
+                                <div class="feature-info">
+                                    <h3>Seamless Integration</h3>
+                                    <p>Connect all your existing tools, applications, and workflows.</p>
+                                </div>
+                                <div class="feature-counters">
+                                    <div class="feature-counter-item">
+                                        <h2><span class="counter">50</span>+</h2>
+                                        <p>Supported Apps</p>
+                                    </div>
+                                    <div class="feature-counter-item">
+                                        <h2><span class="counter">100</span>+</h2>
+                                        <p>New Software</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Feature Item End -->
+                </div>
+
+                <div class="col-xl-3 col-md-6">
+                    <!-- Feature Review Box Start -->
+                    <div class="feature-review-box wow fadeInUp" data-wow-delay="0.6s">
+                        <!-- Feature Review Image Start -->
+                        <div class="feature-review-image">
+                            <figure class="image-anime">
+                                <img src="{% static 'images/feature-image-2.jpg' %}" alt="">
+                            </figure>
+                        </div>
+                        <!-- Feature Review Image End -->
+
+                        <!-- Review Box Start -->
+                        <div class="review-box">
+                            <!-- Satisfy Client Images Start -->
+                            <div class="satisfy-client-images">
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-1.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-2.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-3.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image">
+                                    <figure class="image-anime">
+                                        <img src="{% static 'images/author-4.jpg' %}" alt="">
+                                    </figure>
+                                </div>
+                                <div class="satisfy-client-image add-more">
+                                    <i class="fa-solid fa-plus"></i>
+                                </div>
+                            </div>
+                            <!-- Satisfy Client Images End -->
+
+                            <!-- Satisfy Client Content Start -->
+                            <div class="satisfy-client-content">
+                                <p>98% Happy Satisfied Clients</p>
+                            </div>
+                            <!-- Satisfy Client Content End -->
+                        </div>
+                        <!-- Review Box End -->
+                    </div>
+                    <!-- Feature Review Box End -->
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- Section Footer Text Start -->
+                    <div class="section-footer-text wow fadeInUp" data-wow-delay="0.8s">
+                        <p>From day one to enterprise - <a href="{% url 'contact' %}">we're your partner in long-term
+                                tech
+                                success.</a></p>
+                    </div>
+                    <!-- Section Footer Text End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Features Section End -->
+
+    <!-- How It Work Section Start -->
+    <div class="how-it-work">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-4">
+                    <!-- Section Sub Title Start -->
+                    <div class="section-sub-title">
+                        <h3 class="wow fadeInUp">How It Works</h3>
+                    </div>
+                    <!-- Section Sub Title End -->
+                </div>
+
+                <div class="col-lg-8">
+                    <!-- Section Title Start -->
+                    <div class="section-title">
+                        <h2 class="text-effect" data-cursor="-opaque">Clear steps that ensure scalable, secure, and
+                            hassle-free it management</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-lg-12">
+                    <!-- How Work Step Box Start -->
+                    <div class="how-work-step-box">
+                        <!-- How Work Item Start -->
+                        <div class="how-work-item wow fadeInUp">
+                            <div class="how-work-body">
+                                <div class="how-work-header">
+                                    <div class="icon-box">
+                                        <img src="{% static 'images/icon-how-work-1.svg' %}" alt="">
+                                    </div>
+                                    <div class="how-work-stpe-no">
+                                        <h3>Step 01</h3>
+                                    </div>
+                                </div>
+                                <div class="how-work-item-content">
+                                    <h3>Direct Factory Sourcing</h3>
+                                    <p>We find and source trending products directly from factories and manufacturers to ensure the lowest possible wholesale prices.</p>
+                                    <ul>
+                                        <li>In-depth evaluation</li>
+                                        <li>Clear strategy development</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="how-work-item-list">
+                                <ul>
+                                    <li>Factory Direct</li>
+                                    <li>Best Pricing</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- How Work Item End -->
+
+                        <!-- How Work Item Start -->
+                        <div class="how-work-item wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="how-work-body">
+                                <div class="how-work-header">
+                                    <div class="icon-box">
+                                        <img src="{% static 'images/icon-how-work-2.svg' %}" alt="">
+                                    </div>
+                                    <div class="how-work-stpe-no">
+                                        <h3>Step 02</h3>
+                                    </div>
+                                </div>
+                                <div class="how-work-item-content">
+                                    <h3>North–South Product Network</h3>
+                                    <p>We bridge the gap between North and South India, making trending products available across regions easily.</p>
+                                    <ul>
+                                        <li>In-depth evaluation</li>
+                                        <li>Clear strategy development</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="how-work-item-list">
+                                <ul>
+                                    <li>Pan India Network</li>
+                                    <li>Regional Products</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- How Work Item End -->
+
+                        <!-- How Work Item Start -->
+                        <div class="how-work-item wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="how-work-body">
+                                <div class="how-work-header">
+                                    <div class="icon-box">
+                                        <img src="{% static 'images/icon-how-work-3.svg' %}" alt="">
+                                    </div>
+                                    <div class="how-work-stpe-no">
+                                        <h3>Step 03</h3>
+                                    </div>
+                                </div>
+                                <div class="how-work-item-content">
+                                    <h3>Quality Checking</h3>
+                                    <p>Before dispatching any product, our team carefully checks the product quality and packaging to ensure reliable and sellable items.</p>
+                                    <ul>
+                                        <li>In-depth evaluation</li>
+                                        <li>Clear strategy development</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="how-work-item-list">
+                                <ul>
+                                    <li>Quality Verified</li>
+                                    <li>Reliable Products</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- How Work Item End -->
+
+                        <!-- How Work Item Start -->
+                        <div class="how-work-item wow fadeInUp" data-wow-delay="0.6s">
+                            <div class="how-work-body">
+                                <div class="how-work-header">
+                                    <div class="icon-box">
+                                        <img src="{% static 'images/icon-how-work-4.svg' %}" alt="">
+                                    </div>
+                                    <div class="how-work-stpe-no">
+                                        <h3>Step 04</h3>
+                                    </div>
+                                </div>
+                                <div class="how-work-item-content">
+                                    <h3>Secure Packing & Delivery</h3>
+                                    <p>Products are packed securely and shipped through trusted courier services directly to your location.</p>
+                                    <ul>
+                                        <li>In-depth evaluation</li>
+                                        <li>Clear strategy development</li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="how-work-item-list">
+                                <ul>
+                                    <li>Secure Packaging</li>
+                                    <li>Fast Delivery</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <!-- How Work Item End -->
+                    </div>
+                    <!-- How Work Step Box End -->
+                </div>
+
+                <div class="col-lg-12">
+                    <!-- Section Footer Text Start -->
+                    <div class="section-footer-text wow fadeInUp" data-wow-delay="0.8s">
+                        <p><span>Free</span> From setup to scaling - <a href="{% url 'contact' %}">discover solutions
+                                that
+                                adapt as you grow.</a></p>
+                    </div>
+                    <!-- Section Footer Text End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- How It Work Section End -->
+
+    <!-- Intro Video Section Start -->
+    <div class="intro-video-box bg-section">
+        <div class="container-fluid">
+            <div class="row no-gutters">
+                <div class="col-lg-12">
+                    <!-- Intro Video Start -->
+                    <div class="intro-video wow fadeInUp" data-wow-delay="0.2s">
+                        <!-- Intro Image Start -->
+                        <div class="intro-video-image">
+                            <figure class="image-anime">
+                                <img src="{% static 'images/intro-video-image.jpg' %}" alt="">
+                            </figure>
+                        </div>
+                        <!-- Intro Image End -->
+
+                        <!-- Video Play Button Start -->
+                        <div class="video-play-button bg-effect">
+                            <a href="https://www.youtube.com/watch?v=Y-x0efG1seA" class="popup-video"
+                                data-cursor-text="Play">
+                                <i class="fa-solid fa-play"></i>
+                            </a>
+                        </div>
+                        <!-- Video Play Button End -->
+                    </div>
+                    <!-- Intro Video End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Intro Video Section End -->
+
+    <!-- Our Team Section Start -->
+    <div class="our-team">
+        <div class="container">
+            <div class="row section-row">
+                <div class="col-lg-12">
+                    <!-- Section Title Start -->
+                    <div class="section-title section-title-center">
+                        <h3 class="wow fadeInUp">Our Team</h3>
+                        <h2 class="text-effect" data-cursor="-opaque">Meet the dedicated creative minds driving our
+                            digital excellence</h2>
+                    </div>
+                    <!-- Section Title End -->
+                </div>
+            </div>
+
+            <div class="row">
+{% for member in team %}
+                <div class="col-xl-3 col-md-6">
+                    <div class="team-item wow fadeInUp">
+                        <div class="team-image">
+                            <a href="{% url 'team_single' %}" class="image-anime" data-cursor-text="View">
+                                <figure>
+                                    {% if member.image %}
+                                        <img src="{{ member.image.url }}" alt="{{ member.name }}">
+                                    {% else %}
+                                        <img src="{% static 'images/team-1.jpg' %}" alt="{{ member.name }}">
+                                    {% endif %}
+                                </figure>
+                            </a>
+                        </div>
+                        <div class="team-body">
+                            <div class="team-content">
+                                <h3><a href="{% url 'team_single' %}">{{ member.name }}</a></h3>
+                                <p>{{ member.designation }}</p>
+                            </div>
+                            <div class="team-social-list">
+                                <ul>
+                                    {% if member.instagram %}<li><a href="{{ member.instagram }}"><i class="fa-brands fa-instagram"></i></a></li>{% endif %}
+                                    {% if member.facebook %}<li><a href="{{ member.facebook }}"><i class="fa-brands fa-facebook-f"></i></a></li>{% endif %}
+                                    {% if member.twitter %}<li><a href="{{ member.twitter }}"><i class="fa-brands fa-twitter"></i></a></li>{% endif %}
+                                    {% if member.linkedin %}<li><a href="{{ member.linkedin }}"><i class="fa-brands fa-linkedin-in"></i></a></li>{% endif %}
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+{% empty %}
+<p>No team members yet.</p>
+{% endfor %}
+            </div>
+        </div>
+    </div>
+    <!-- Our Team Section End -->
+
+    <!-- Our Innovation Section Start -->
+    <div class="our-innovation bg-section">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-5">
+                    <!-- Our Innovation Content Start -->
+                    <div class="our-innovation-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">Our innovation</h3>
+                            <h2 class="text-effect" data-cursor="-opaque">Trusted technology partner for innovation</h2>
+                            <p class="wow fadeInUp" data-wow-delay="0.2s">At Codeio, we believe that every great
+                                solution begins with a bold idea. Our approach combines strategic thinking, deep
+                                technical expertise, and creative problem-solving to transform your vision into a
+                                powerful digital product.</p>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- Innovation Counters Start -->
+                        <div class="innovation-counters">
+                            <!-- Innovation Counter Item Start -->
+                            <div class="innovation-counter-item">
+                                <h2><span class="counter">100</span>K</h2>
+                                <p>Tech Solutions Built</p>
+                            </div>
+                            <!-- Innovation Counter Item End -->
+
+                            <!-- Innovation Counter Item Start -->
+                            <div class="innovation-counter-item">
+                                <h2><span class="counter">49</span>%</h2>
+                                <p>Process Time Saved</p>
+                            </div>
+                            <!-- Innovation Counter Item End -->
+                        </div>
+                        <!-- Innovation Counters End -->
+
+                        <!-- Innovation List Start -->
+                        <div class="innovation-list wow fadeInUp" data-wow-delay="0.4s">
+                            <ul>
+                                <li>We partner with forward-thinking business to deliver intelligent scalable.</li>
+                            </ul>
+                        </div>
+                        <!-- Innovation List End -->
+
+                        <!-- Innovation Button Start -->
+                        <div class="innovation-btn wow fadeInUp" data-wow-delay="0.6s">
+                            <a href="{% url 'contact' %}" class="btn-default btn-highlighted">Learn more</a>
+                        </div>
+                        <!-- Innovation Button End -->
+                    </div>
+                    <!-- Our Innovation Content End -->
+                </div>
+
+                <div class="col-xl-7">
+                    <!-- Innovation Image List Start -->
+                    <div class="innovation-image-list">
+                        <!-- Innovation Image Start -->
+                        <div class="innovation-item wow fadeInUp">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon-innovation-1.svg' %}" alt="">
+                            </div>
+                            <div class="innovation-item-content">
+                                <h3>Strategic Expertise</h3>
+                                <p>We combine deep industry knowledge with innovative thinking to craft with tailored
+                                    strategies.</p>
+                            </div>
+                        </div>
+                        <!-- Innovation Image End -->
+
+                        <!-- Innovation Image Start -->
+                        <div class="innovation-image">
+                            <figure class="image-anime reveal">
+                                <img src="{% static 'images/innovation-image.jpg' %}" alt="">
+                            </figure>
+                        </div>
+                        <!-- Innovation Image End -->
+
+                        <!-- Innovation Image Start -->
+                        <div class="innovation-item active wow fadeInUp" data-wow-delay="0.2s">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon-innovation-2.svg' %}" alt="">
+                            </div>
+                            <div class="innovation-item-content">
+                                <h3>Smart Solutions</h3>
+                                <p>Our technology-driven solutions are designed to simplify complex operatio challenges,
+                                    optimize.</p>
+                            </div>
+                        </div>
+                        <!-- Innovation Image End -->
+
+                        <!-- Innovation Image Start -->
+                        <div class="innovation-item wow fadeInUp" data-wow-delay="0.4s">
+                            <div class="icon-box">
+                                <img src="{% static 'images/icon-innovation-3.svg' %}" alt="">
+                            </div>
+                            <div class="innovation-item-content">
+                                <h3>Reliable Support</h3>
+                                <p>From implementation to ongoing maintenance, our dedicated support team ensures</p>
+                            </div>
+                        </div>
+                        <!-- Innovation Image End -->
+                    </div>
+                    <!-- Innovation Image List End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our Innovation Section End -->
+
+    <!-- Our FAQs Section Start -->
+    <div class="our-faqs">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-xl-6">
+                    <!-- Faq Image Box Start -->
+                    <div class="faq-image-box wow fadeInUp" data-wow-delay="0.2s">
+                        <!-- Faq Image 1 Start -->
+                        <div class="faq-img-1">
+                            <!-- Faq Image Start -->
+                            <div class="faq-image">
+                                <figure class="image-anime">
+                                    <img src="{% static 'images/faq-image-1.jpg' %}" alt="">
+                                </figure>
+                            </div>
+                            <!-- Faq Image End -->
+
+                            <!-- Contact Us Circle Start -->
+                            <div class="contact-us-circle">
+                                <a href="{% url 'contact' %}"><img src="{% static 'images/contact-us-circle.svg' %}"
+                                        alt=""></a>
+                            </div>
+                            <!-- Contact Us Circle End -->
+                        </div>
+                        <!-- Faq Image 1 End -->
+
+                        <!-- Faq Image 2 Start -->
+                        <div class="faq-img-2">
+                            <!-- Faq CTA Box Start -->
+                            <div class="faq-cta-box">
+                                <div class="icon-box">
+                                    <img src="{% static 'images/icon-headphone.svg' %}" alt="">
+                                </div>
+                                <div class="faq-cta-content">
+                                    <p>Need any help? Contact us today</p>
+                                    <h3><a href="tel:+132465789">+(123) 456-789</a></h3>
+                                </div>
+                            </div>
+                            <!-- Faq CTA Box End -->
+
+                            <!-- Faq Image Start -->
+                            <div class="faq-image">
+                                <figure class="image-anime">
+                                    <img src="{% static 'images/faq-image-2.jpg' %}" alt="">
+                                </figure>
+                            </div>
+                            <!-- Faq Image End -->
+                        </div>
+                        <!-- Faq Image 2 End -->
+                    </div>
+                    <!-- Faq Image Box End -->
+                </div>
+
+                <div class="col-xl-6">
+                    <!-- FAQs Content Start -->
+                    <div class="faqs-content">
+                        <!-- Section Title Start -->
+                        <div class="section-title">
+                            <h3 class="wow fadeInUp">Frequently Asked Questions</h3>
+                            <h2 class="text-effect" data-cursor="-opaque">Everything you need to know about our it
+                                services and solutions</h2>
+                        </div>
+                        <!-- Section Title End -->
+
+                        <!-- FAQ Accordion Start -->
+                        <div class="faq-accordion" id="accordion">
+                            <!-- FAQ Item Start -->
+                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.2s">
+                                <h2 class="accordion-header" id="heading1">
+                                    <button class="accordion-button" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse1" aria-expanded="true" aria-controls="collapse1">
+                                        Q1. How quickly can we get support when an issue arises?
+                                    </button>
+                                </h2>
+                                <div id="collapse1" class="accordion-collapse collapse show" aria-labelledby="heading1"
+                                    data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <p>Our average response time is within 30 minutes. For critical issues, we
+                                            prioritize immediate resolution to minimize downtime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item End -->
+
+                            <!-- FAQ Item Start -->
+                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.4s">
+                                <h2 class="accordion-header" id="heading2">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse2" aria-expanded="false" aria-controls="collapse2">
+                                        Q2. Can you help us move our business to the cloud?
+                                    </button>
+                                </h2>
+                                <div id="collapse2" class="accordion-collapse collapse" aria-labelledby="heading2"
+                                    data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <p>Our average response time is within 30 minutes. For critical issues, we
+                                            prioritize immediate resolution to minimize downtime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item End -->
+
+                            <!-- FAQ Item Start -->
+                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.6s">
+                                <h2 class="accordion-header" id="heading3">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse3" aria-expanded="false" aria-controls="collapse3">
+                                        Q3. How do you protect our data from cyber threats?
+                                    </button>
+                                </h2>
+                                <div id="collapse3" class="accordion-collapse collapse" aria-labelledby="heading3"
+                                    data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <p>Our average response time is within 30 minutes. For critical issues, we
+                                            prioritize immediate resolution to minimize downtime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item End -->
+
+                            <!-- FAQ Item Start -->
+                            <div class="accordion-item wow fadeInUp" data-wow-delay="0.8s">
+                                <h2 class="accordion-header" id="heading4">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse4" aria-expanded="false" aria-controls="collapse4">
+                                        Q4. Can you customize your services for our business?
+                                    </button>
+                                </h2>
+                                <div id="collapse4" class="accordion-collapse collapse" aria-labelledby="heading4"
+                                    data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <p>Our average response time is within 30 minutes. For critical issues, we
+                                            prioritize immediate resolution to minimize downtime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item End -->
+
+                            <!-- FAQ Item Start -->
+                            <div class="accordion-item wow fadeInUp" data-wow-delay="1s">
+                                <h2 class="accordion-header" id="heading5">
+                                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                        data-bs-target="#collapse5" aria-expanded="false" aria-controls="collapse5">
+                                        Q5. Do you provide employee cybersecurity training?
+                                    </button>
+                                </h2>
+                                <div id="collapse5" class="accordion-collapse collapse" aria-labelledby="heading5"
+                                    data-bs-parent="#accordion">
+                                    <div class="accordion-body">
+                                        <p>Our average response time is within 30 minutes. For critical issues, we
+                                            prioritize immediate resolution to minimize downtime.</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <!-- FAQ Item End -->
+                        </div>
+                        <!-- FAQ Accordion End -->
+                    </div>
+                    <!-- FAQs Content End -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Our FAQs Section End -->
+{% endblock %}

@@ -1,0 +1,80 @@
+{% extends "admin_pages/base.html" %}
+{% load static %}
+
+{% block title %}Add Category | Admin Dashboard{% endblock %}
+
+{% block content %}
+<div class="dashboard sp_bottom_100">
+    <div class="container-fluid full__width__padding">
+        <div class="row">
+            <div class="col-xl-9 col-lg-9 col-md-12">
+                <div class="dashboard__section__title">
+                    <h4 class="mb-0">Add Category</h4>
+                </div>
+
+                <div class="row mt-4">
+                    <div class="col-12">
+                        <form method="post" enctype="multipart/form-data" class="needs-validation form-wrapper" novalidate>
+                            {% csrf_token %}
+                            <div class="mb-4">
+                                <label for="categoryName" class="form-label">Category Name <span class="text-danger">*</span></label>
+                                <input type="text" name="name" id="categoryName" class="form-control modern-input" required>
+                                <div class="invalid-feedback">Please enter a category name.</div>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="categoryDescription" class="form-label">Description</label>
+                                <textarea name="description" id="categoryDescription" class="form-control modern-input" rows="4"></textarea>
+                            </div>
+
+                            <div class="mb-4">
+                                <label for="categoryImage" class="form-label">Category Image</label>
+                                <input type="file" name="image" id="categoryImage" class="form-control modern-input" accept="image/*">
+                            </div>
+
+                            <div class="dashboard__form__button">
+                                <button type="submit" class="btn btn-primary">Add Category</button>
+                                <a href="{% url 'category_list' %}" class="btn btn-secondary">Cancel</a>
+                            </div>
+                        </form>
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+    const form = document.querySelector('form');
+    const categoryInput = document.getElementById('categoryName');
+
+    const errorDiv = document.createElement('div');
+    errorDiv.classList.add('text-danger', 'mt-1');
+    categoryInput.insertAdjacentElement('afterend', errorDiv);
+
+    function validateCategory() {
+        const value = categoryInput.value.trim();
+        let error = '';
+        if (!value) {
+            error = 'Category name is required.';
+        }
+        errorDiv.textContent = error;
+        categoryInput.classList.toggle('is-invalid', !!error);
+        return !error;
+    }
+
+    categoryInput.addEventListener('blur', validateCategory);
+    categoryInput.addEventListener('input', validateCategory);
+
+    form.addEventListener('submit', function (e) {
+        if (!validateCategory()) {
+            e.preventDefault();
+            categoryInput.focus();
+        }
+    });
+});
+</script>
+{% endblock %}
