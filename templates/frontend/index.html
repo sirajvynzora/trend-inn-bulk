@@ -213,41 +213,20 @@
             <div class="row services-item-list">
                 {% for category in categories %}
                 <div class="col-xl-3 col-md-6">
-                    <!-- Category Item Start -->
-                    <div class="services-item {% if forloop.first %}active{% endif %} wow fadeInUp" data-wow-delay="{{ forloop.counter0|add:0.2 }}s">
-                        <div class="services-item-header">
-                            <div class="icon-box">
-                                {% if category.image %}
-                                    <img src="{{ category.image.url }}" alt="{{ category.name }}" style="width: 50px; height: 50px; object-fit: contain;">
-                                {% else %}
-                                    <img src="{% static 'images/icon-services-1.svg' %}" alt="{{ category.name }}">
-                                {% endif %}
-                            </div>
-                            <div class="services-btn">
-                                <a href="{% url 'category_products' category.slug %}"><img src="{% static 'images/arrow-primary.svg' %}"
-                                        alt=""></a>
+                    <a href="{% url 'category_products' category.slug %}" class="d-block text-decoration-none">
+                        <div class="card-bg-wrapper wow fadeInUp" data-wow-delay="{% cycle '0.1s' '0.3s' '0.5s' '0.7s' %}">
+                            <div class="card-bg-img" style="background-image: url('{% if category.image %}{{ category.image.url }}{% else %}{% static 'images/project-1.jpg' %}{% endif %}');"></div>
+                            <div class="card-bg-overlay"></div>
+                            <div class="card-bg-content">
+                                <h3>{{ category.name }}</h3>
+                                <p>{{ category.description|truncatechars:60 }}</p>
                             </div>
                         </div>
-                        <div class="services-item-content">
-                            <h3><a href="{% url 'category_products' category.slug %}">{{ category.name }}</a></h3>
-                            <p>{{ category.description|truncatewords:10 }}</p>
-                        </div>
-                    </div>
-                    <!-- Category Item End -->
+                    </a>
                 </div>
                 {% empty %}
-                <div class="col-lg-12 text-center">
-                    <p>No categories available yet.</p>
-                </div>
+                <p class="text-center w-100">No categories added yet.</p>
                 {% endfor %}
-
-                <div class="col-lg-12">
-                    <!-- Section Footer Text Start -->
-                    <div class="section-footer-text wow fadeInUp" data-wow-delay="0.8s">
-                        <p><span>Browse</span> All wholesale sectors - <a href="{% url 'products' %}">view all categories</a></p>
-                    </div>
-                    <!-- Section Footer Text End -->
-                </div>
             </div>
         </div>
     </div>
