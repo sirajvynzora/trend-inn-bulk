@@ -84,7 +84,7 @@
                 <div class="container">
                     <!-- Logo Start -->
                     <a class="navbar-brand" href="{% url 'home' %}">
-                        <img src="{% static 'images/logo.png' %}" alt="Trend in Bulk Logo" style="max-height: 65px; width: auto;">
+                        <img src="{% static 'images/logo.png' %}" alt="Trend in Bulk Logo" style="height: 80px; width: auto; max-width: 340px;">
                     </a>
                     <!-- Logo End -->
 
@@ -144,7 +144,7 @@
                     <div class="about-footer">
                         <!-- Footer Logo Start -->
                         <div class="footer-logo">
-                            <img src="{% static 'images/footer-logo.png' %}" alt="">
+                            <img src="{% static 'images/logo.png' %}" alt="Trend in Bulk Logo" style="height: 100px; width: auto; max-width: 380px;">
                         </div>
                         <!-- Footer Logo End -->
 
@@ -201,21 +201,12 @@
                         <!-- Footer Links End -->
 
                         <!-- Footer Links start -->
-                        <div class="footer-links footer-newsletter">
-                            <h3>Our Newsletter</h3>
-                            <p>Subscribe to our newsletter for the latest wholesale deals and updates.</p>
-                            <!-- Footer NewsLetter Form Start -->
-                            <div class="footer-newsletter-form">
-                                <form id="newslettersForm" action="#" method="POST">
-                                    <div class="form-group">
-                                        <input type="email" name="mail" class="form-control" id="mail"
-                                            placeholder="E-mail Address *" required>
-                                        <button type="submit" class="newsletter-btn"><img
-                                                src="{% static 'images/arrow-white.svg' %}" alt=""></button>
-                                    </div>
-                                </form>
+                        <div class="footer-links">
+                            <h3>Wholesale Inquiry</h3>
+                            <p>Interested in bulk pricing or custom orders? Reach out to our sales team for exclusive wholesale catalogs and quotes.</p>
+                            <div class="footer-inquiry-cta" style="margin-top: 25px;">
+                                <a href="{% url 'contact' %}" class="btn-default btn-trend-gradient">Send an Inquiry</a>
                             </div>
-                            <!-- Footer NewsLetter Form End -->
                         </div>
                         <!-- Footer Links end -->
                     </div>

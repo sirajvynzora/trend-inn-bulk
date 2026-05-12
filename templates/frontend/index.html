@@ -2,6 +2,8 @@
 {% load static %}
 
 {% block content %}
+{# --- OLD HERO SECTION (kept for reference) --- #}
+{% comment %}
 <!-- Hero Section Start -->
     <div class="hero bg-section dark-section parallaxie">
         <div class="container">
@@ -79,7 +81,506 @@
             </div>
         </div>
     </div>
-    <!-- Hero Section End -->
+<!-- Hero Section End -->
+{% endcomment %}
+
+<!-- NEW Hero Section Start -->
+<section class="tib-hero">
+    <video class="tib-hero-video" autoplay muted loop playsinline>
+        <source src="{% static 'images/new/video.mp4' %}" type="video/mp4">
+    </video>
+    <div class="tib-hero-overlay"></div>
+    <div class="tib-hero-main">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-lg-6">
+                    <div class="tib-badge">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        India's Trusted B2B Wholesale Platform
+                    </div>
+                    <h1>Buy in Bulk. <span style="color: var(--accent-orange)">Sell at Scale.</span></h1>
+                    <p>Connect directly with verified manufacturers & suppliers across India. Factory-direct pricing, quality assurance & pan-India delivery.</p>
+                    
+                    <div class="tib-features">
+                        <div class="tib-feature-item">
+                            <i class="fa-solid fa-industry"></i>
+                            <div class="tib-feature-text">
+                                <strong>Factory</strong>
+                                <span>Direct Prices</span>
+                            </div>
+                        </div>
+                        <div class="tib-feature-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <div class="tib-feature-text">
+                                <strong>Quality</strong>
+                                <span>Assured</span>
+                            </div>
+                        </div>
+                        <div class="tib-feature-item">
+                            <i class="fa-solid fa-truck-fast"></i>
+                            <div class="tib-feature-text">
+                                <strong>Pan-India</strong>
+                                <span>Delivery</span>
+                            </div>
+                        </div>
+                        <div class="tib-feature-item">
+                            <i class="fa-solid fa-headset"></i>
+                            <div class="tib-feature-text">
+                                <strong>Dedicated</strong>
+                                <span>Support</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="tib-hero-btns">
+                        <a href="{% url 'products' %}" class="tib-btn-primary">Shop by Category &rarr;</a>
+                        <a href="https://wa.me/919999999999" target="_blank" class="tib-btn-outline">
+                            <i class="fa-brands fa-whatsapp"></i>
+                            Chat on WhatsApp
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-6"></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Stats Bar -->
+    <div class="tib-stats-bar">
+        <div class="container">
+            <div class="tib-stats-row">
+                <div class="tib-stat-item">
+                    <i class="fa-solid fa-users"></i>
+                    <div class="tib-stat-content">
+                        <strong>10,000+</strong>
+                        <span>Verified Sellers</span>
+                    </div>
+                </div>
+                <div class="tib-stat-divider"></div>
+                <div class="tib-stat-item">
+                    <i class="fa-solid fa-bag-shopping"></i>
+                    <div class="tib-stat-content">
+                        <strong>2,50,000+</strong>
+                        <span>Products</span>
+                    </div>
+                </div>
+                <div class="tib-stat-divider"></div>
+                <div class="tib-stat-item">
+                    <i class="fa-solid fa-boxes-stacked"></i>
+                    <div class="tib-stat-content">
+                        <strong>500+</strong>
+                        <span>Product Categories</span>
+                    </div>
+                </div>
+                <div class="tib-stat-divider"></div>
+                <div class="tib-stat-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <div class="tib-stat-content">
+                        <strong>26+</strong>
+                        <span>States Covered</span>
+                    </div>
+                </div>
+                <div class="tib-stat-divider"></div>
+                <div class="tib-stat-item" style="justify-content: flex-end;">
+                    <i class="fa-solid fa-route"></i>
+                    <div class="tib-stat-content">
+                        <strong>North to South</strong>
+                        <span>Pan India Network</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<style>
+.tib-hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    font-family: var(--default-font);
+}
+
+.tib-hero-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+    z-index: 0;
+}
+
+.tib-hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        to right,
+        rgba(13, 13, 43, 0.93) 0%,
+        rgba(13, 13, 43, 0.80) 40%,
+        rgba(13, 13, 43, 0.25) 65%,
+        rgba(13, 13, 43, 0.0) 100%
+    );
+    z-index: 1;
+}
+
+.tib-hero-main {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    padding: 160px 0 80px; /* was 140px 0 60px */
+    position: relative;
+    z-index: 2;
+}
+
+.header-sticky .navbar .container,
+.tib-hero .container,
+.tib-stats-bar .container {
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.tib-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    border: 1px solid rgba(255,255,255,0.2);
+    border-radius: 50px;
+    padding: 8px 18px;
+    font-size: 13px;
+    color: #ffffff;
+    backdrop-filter: blur(4px);
+    background: rgba(255,255,255,0.07);
+    margin-bottom: 24px;
+}
+
+.tib-badge i {
+    color: #4FC3F7;
+}
+
+.tib-hero-main h1 {
+    font-size: clamp(44px, 5.5vw, 72px); /* was clamp(36px, 5vw, 64px) */
+    margin-bottom: 28px; /* was 20px */
+    line-height: 1.08;
+    font-weight: 700;
+    color: #ffffff;
+    letter-spacing: -0.02em;
+}
+
+.tib-hero-main p {
+    font-size: 17px; /* was 16px */
+    margin-bottom: 40px; /* was 32px */
+    max-width: 520px;
+    color: #ffffff;
+    line-height: 1.7;
+}
+
+.tib-features {
+    display: flex;
+    gap: 28px; /* was 16px */
+    margin-bottom: 44px; /* was 36px */
+    flex-wrap: wrap;
+}
+
+.tib-feature-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    min-width: 140px;
+}
+
+.tib-feature-item i {
+    font-size: 26px; /* was 22px */
+    color: rgba(255,255,255,0.45);
+}
+
+.tib-feature-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.tib-feature-text strong {
+    font-size: 15px; /* was 14px */
+    font-weight: 600;
+    color: #ffffff;
+}
+
+.tib-feature-text span {
+    font-size: 13px; /* was 12px */
+    color: #ffffff;
+}
+
+.tib-hero-btns {
+    display: flex;
+    gap: 20px; /* was 16px */
+    flex-wrap: wrap;
+}
+
+.tib-btn-primary {
+    background: var(--accent-orange);
+    color: #fff;
+    padding: 16px 36px; /* was 14px 28px */
+    font-size: 16px; /* was 15px */
+    border-radius: 10px;
+    font-weight: 600;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.tib-btn-primary:hover {
+    background: var(--accent-hover);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.tib-btn-outline {
+    border: 1.5px solid rgba(255,255,255,0.35);
+    color: #fff;
+    padding: 15px 28px; /* was 13px 24px */
+    font-size: 16px;
+    border-radius: 10px;
+    font-weight: 600;
+    background: transparent;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.tib-btn-outline:hover {
+    border-color: #ffffff;
+    background: rgba(255,255,255,0.07);
+    transform: translateY(-2px);
+    color: #fff;
+}
+
+.tib-stats-bar {
+    position: relative;
+    z-index: 2;
+    background: transparent;
+    border-top: 1px solid rgba(255, 255, 255, 0.10);
+    padding: 28px 0;
+}
+
+.tib-stats-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: nowrap;
+    gap: 0;
+    width: 100%;
+}
+
+.tib-stat-item {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    min-width: 0;
+    justify-content: center;
+}
+
+.tib-stat-item:first-child {
+    justify-content: flex-start;
+}
+
+.tib-stat-item:last-child {
+    justify-content: flex-end;
+}
+
+.tib-stat-item i {
+    font-size: 32px;
+    color: rgba(255, 255, 255, 0.70);
+    flex-shrink: 0;
+}
+
+.tib-stat-content strong {
+    display: block;
+    font-size: 26px;
+    font-weight: 700;
+    color: var(--accent-orange);
+    line-height: 1;
+    margin-bottom: 4px;
+}
+
+.tib-stat-content span {
+    display: block;
+    font-size: 13px;
+    color: #ffffff;
+    line-height: 1.3;
+}
+
+.tib-stat-divider {
+    width: 1px;
+    height: 48px;
+    background: rgba(255, 255, 255, 0.12);
+    flex-shrink: 0;
+}
+
+/* ── DESKTOP LARGE (1400px+) ── */
+@media (min-width: 1400px) {
+    .tib-hero-main h1 {
+        font-size: 68px;
+    }
+}
+
+/* ── DESKTOP STANDARD (1200px – 1399px) ── */
+@media (max-width: 1399px) {
+    .tib-hero-main h1 {
+        font-size: 56px;
+    }
+}
+
+/* ── LAPTOP / SMALL DESKTOP (992px – 1199px) ── */
+@media (max-width: 1199px) {
+    .tib-hero-main h1 {
+        font-size: 46px;
+    }
+    .tib-hero-main p {
+        font-size: 15px;
+    }
+    .tib-features {
+        gap: 20px;
+    }
+}
+
+/* ── TABLET (768px – 991px) ── */
+@media (max-width: 991px) {
+    .tib-hero {
+        background-position: center center;
+    }
+    .tib-hero-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(8, 8, 32, 0.55) 0%,
+            rgba(8, 8, 32, 0.45) 50%,
+            rgba(8, 8, 32, 0.65) 100%
+        );
+    }
+    .tib-hero-main {
+        padding: 110px 0 50px;
+        text-align: center;
+    }
+    .tib-badge {
+        justify-content: center;
+    }
+    .tib-hero-main h1 {
+        font-size: 40px;
+    }
+    .tib-hero-main p {
+        font-size: 15px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+    .tib-features {
+        justify-content: center;
+        gap: 18px;
+    }
+    .tib-hero-btns {
+        justify-content: center;
+    }
+    .tib-hero-main .col-lg-6:last-child {
+        display: none;
+    }
+    .tib-stat-divider {
+        display: none;
+    }
+    .tib-stat-item {
+        min-width: 140px;
+        padding: 8px 12px;
+    }
+    .tib-stat-content strong {
+        font-size: 20px;
+    }
+    .tib-stats-bar {
+        display: none;
+    }
+}
+
+/* ── MOBILE LARGE (768px – 767px fallback) ── */
+@media (max-width: 767px) {
+    .tib-hero-main {
+        padding: 100px 0 40px;
+    }
+    .tib-hero-main h1 {
+        font-size: 34px;
+    }
+    .tib-hero-main p {
+        font-size: 14px;
+        max-width: 100%;
+    }
+    .tib-features {
+        gap: 14px;
+    }
+    .tib-feature-item i {
+        font-size: 20px;
+    }
+    .tib-feature-item strong {
+        font-size: 13px;
+    }
+    .tib-feature-item span {
+        font-size: 11px;
+    }
+    .tib-btn-primary,
+    .tib-btn-outline {
+        font-size: 14px;
+        padding: 13px 22px;
+    }
+    .tib-stats-bar {
+        padding: 20px 0;
+    }
+    .tib-stats-row {
+        justify-content: flex-start;
+        gap: 12px;
+    }
+    .tib-stat-item {
+        min-width: calc(50% - 12px);
+        flex: 0 0 calc(50% - 12px);
+    }
+    .tib-stat-content strong {
+        font-size: 20px;
+    }
+    .tib-stat-content span {
+        font-size: 12px;
+    }
+}
+
+/* ── MOBILE SMALL (below 480px) ── */
+@media (max-width: 480px) {
+    .tib-hero-main h1 {
+        font-size: 28px;
+    }
+    .tib-badge {
+        font-size: 11px;
+        padding: 6px 14px;
+    }
+    .tib-hero-btns {
+        flex-direction: column;
+        width: 100%;
+    }
+    .tib-btn-primary,
+    .tib-btn-outline {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+    .tib-stat-item {
+        min-width: 100%;
+        flex: 0 0 100%;
+    }
+    .tib-stat-content strong {
+        font-size: 18px;
+    }
+}
+</style>
+<!-- NEW Hero Section End -->
 
     <!-- About Us Section Start -->
     <div class="about-us">
