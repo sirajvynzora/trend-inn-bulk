@@ -7625,3 +7625,27 @@ header.main-header .header-sticky.active {
         display: none;
     }
 }
+
+/* --- Responsive Logo Scaling --- */
+.navbar-brand img {
+    height: 80px !important;
+    width: auto !important;
+    max-width: 340px !important;
+}
+
+.footer-logo img {
+    height: 100px !important;
+    width: auto !important;
+    max-width: 380px !important;
+}
+
+@media (max-width: 767px) {
+    .navbar-brand img {
+        height: 55px !important; /* Scaled down for mobile */
+        max-width: 220px !important;
+    }
+    .footer-logo img {
+        height: 70px !important; /* Scaled down for mobile */
+        max-width: 260px !important;
+    }
+}
