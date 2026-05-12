@@ -12,14 +12,14 @@ ENV/
 # Mac / OS files
 .DS_Store
 
-# Database
-db.sqlite3
+# # Database
+# db.sqlite3
 
-# User uploads
-media/
+# # User uploads
+# media/
 
-# Static files (collected)
-staticfiles/
+# # Static files (collected)
+# staticfiles/
 
 # Environment variables
 .env
