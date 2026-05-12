@@ -7568,3 +7568,60 @@ header.main-header .header-sticky.active {
 .slicknav_nav ul {
     background-color: var(--navy-dark) !important; 
 }
+
+/* --- Hero Quick Actions Sidebar (Homepage Only) --- */
+.tib-hero {
+    position: relative; 
+}
+
+.hero-quick-actions {
+    position: absolute; 
+    top: 50%;
+    right: 0;
+    transform: translateY(-50%);
+    z-index: 10;
+}
+
+.hero-quick-actions ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* CRITICAL FIX: Anchors all buttons flush to the right wall */
+    gap: 5px;
+}
+
+.hero-quick-actions li {
+    margin: 0;
+}
+
+.hero-quick-actions .action-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    background-color: var(--accent-orange); 
+    color: #FFFFFF !important;
+    font-size: 20px;
+    border-radius: 8px 0 0 8px;
+    box-shadow: -2px 2px 10px rgba(0, 0, 0, 0.15);
+    /* CRITICAL FIX: Only transition width and background, not transform */
+    transition: width 0.3s ease-in-out, background-color 0.3s ease-in-out; 
+}
+
+/* Hover State - Turn Blue and expand smoothly to the left */
+.hero-quick-actions .action-btn:hover {
+    background-color: var(--primary-blue); 
+    color: #FFFFFF !important;
+    width: 65px; /* Widens the button to the left because it is anchored right */
+    /* Removed transform: translateX to prevent the gap on the right */
+}
+
+/* Hide on mobile and tablets */
+@media (max-width: 991px) {
+    .hero-quick-actions {
+        display: none;
+    }
+}
