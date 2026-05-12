@@ -5,8 +5,13 @@
 
 {% block content %}
 <div class="dashboard__form__wraper">
-    <div class="create__course__title mb-4">
-        <h4>Category List</h4>
+    <div class="create__course__title mb-4 d-flex flex-wrap justify-content-between align-items-center gap-2">
+        <h4 class="mb-0">Category List</h4>
+        <div class="d-flex align-items-center gap-2 ms-auto">
+            <div class="search-box">
+                <input type="text" id="categorySearchInput" class="form-control form-control-sm" placeholder="Search categories...">
+            </div>
+        </div>
         <a href="{% url 'category_create' %}" class="btn btn-primary btn-sm">
             <i class="fas fa-plus"></i> Add New Category
         </a>
@@ -145,4 +150,22 @@
     </nav>
     {% endif %}
 </div>
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById("categorySearchInput");
+    const tableRows = document.querySelectorAll("tbody tr");
+
+    if (!searchInput) return;
+
+    searchInput.addEventListener("keyup", function() {
+        const value = this.value.toLowerCase();
+        tableRows.forEach(row => {
+            if (row.cells.length > 1) {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.indexOf(value) > -1 ? "" : "none";
+            }
+        });
+    });
+});
+</script>
 {% endblock %}

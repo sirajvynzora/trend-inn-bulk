@@ -110,7 +110,7 @@
                                 </li>
                                 <li class="nav-item"><a class="nav-link" href="{% url 'blog' %}">Blogs</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{% url 'contact' %}">Contact Us</a></li>
-                                <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
+                                {% comment %} <li class="nav-item submenu"><a class="nav-link" href="#">Pages</a>
                                     <ul>
                                         <li><a href="{% url 'services' %}">Services</a></li>
                                         <li><a href="{% url 'team' %}">Team</a></li>
@@ -121,7 +121,7 @@
                                         <li><a href="{% url 'video_gallery' %}">Video Gallery</a></li>
                                         <li><a href="{% url 'page_not_found' %}">404 Page</a></li>
                                     </ul>
-                                </li>
+                                </li> {% endcomment %}
                             </ul>
                         </div>
 

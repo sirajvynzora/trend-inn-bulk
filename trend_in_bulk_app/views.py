@@ -192,11 +192,11 @@ def admin_dashboard(request):
 
 @_admin_required
 def category_list(request):
-    categories_qs = Category.objects.all().order_by("-created_at")
-    paginator = Paginator(categories_qs, 10)
-    page_number = request.GET.get("page")
+    categories_list = Category.objects.all().order_by('-id')
+    paginator = Paginator(categories_list, 10)
+    page_number = request.GET.get('page')
     categories = paginator.get_page(page_number)
-    return render(request, "admin_pages/category_list.html", {"categories": categories})
+    return render(request, 'admin_pages/category_list.html', {'categories': categories})
 
 
 @_admin_required
@@ -246,7 +246,11 @@ def category_delete(request, pk):
 
 @_admin_required
 def seller_list(request):
-    return render(request, "admin_pages/seller_list.html", {"sellers": WholesaleSeller.objects.all()})
+    sellers_list = WholesaleSeller.objects.all().order_by('-id')
+    paginator = Paginator(sellers_list, 10)
+    page_number = request.GET.get('page')
+    sellers = paginator.get_page(page_number)
+    return render(request, 'admin_pages/seller_list.html', {'sellers': sellers})
 
 
 @_admin_required
@@ -282,11 +286,15 @@ def seller_delete(request, pk):
 @_admin_required
 def product_list(request):
     category_id = request.GET.get('category')
-    products = Product.objects.select_related("seller", "category").all()
+    products_qs = Product.objects.select_related("seller", "category").all().order_by('-id')
     
     if category_id:
-        products = products.filter(category_id=category_id)
+        products_qs = products_qs.filter(category_id=category_id)
         
+    paginator = Paginator(products_qs, 10)
+    page_number = request.GET.get('page')
+    products = paginator.get_page(page_number)
+    
     return render(
         request,
         "admin_pages/product_list.html",
@@ -423,12 +431,11 @@ def testimonial_delete(request, pk):
 
 @_admin_required
 def contact_list(request):
-    ContactMessage.objects.filter(is_read=False).update(is_read=True)
-    contacts = ContactMessage.objects.all().order_by("-created_at")
-    paginator = Paginator(contacts, 10)
-    page_number = request.GET.get("page")
-    page_obj = paginator.get_page(page_number)
-    return render(request, "admin_pages/contact_list.html", {"contacts": page_obj})
+    contacts_list = ContactMessage.objects.all().order_by('-id')
+    paginator = Paginator(contacts_list, 10)
+    page_number = request.GET.get('page')
+    contacts = paginator.get_page(page_number)
+    return render(request, 'admin_pages/contact_list.html', {'contacts': contacts})
 
 
 @_admin_required

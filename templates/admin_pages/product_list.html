@@ -6,8 +6,7 @@
     <div class="create__course__title mb-4 d-flex flex-wrap justify-content-between align-items-center gap-2">
         <div class="d-flex align-items-center gap-3">
             <h4 class="mb-0">Product List</h4>
-            <form method="GET" action="{% url 'product_list' %}" class="d-flex align-items-center">
-                {% comment %} <label for="categoryFilter" class="me-2 fw-bold mb-0">Filter by Category:</label> {% endcomment %}
+            <form method="GET" action="{% url 'product_list' %}" class="d-flex align-items-center gap-2">
                 <select name="category" id="categoryFilter" class="form-select form-select-sm w-auto" onchange="this.form.submit()">
                     <option value="">All Categories</option>
                     {% for cat in categories %}
@@ -17,6 +16,9 @@
                     {% endfor %}
                 </select>
             </form>
+            <div class="search-box">
+                <input type="text" id="productSearchInput" class="form-control form-control-sm" placeholder="Search products...">
+            </div>
         </div>
         <a href="#" class="btn btn-success btn-sm" data-bs-toggle="modal" data-bs-target="#addProductModal">
             <i class="fas fa-plus"></i> New Product
@@ -215,4 +217,23 @@
     </div>
 </div>
 {% endfor %}
+
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    const searchInput = document.getElementById("productSearchInput");
+    const tableRows = document.querySelectorAll("tbody tr");
+
+    if (!searchInput) return;
+
+    searchInput.addEventListener("keyup", function() {
+        const value = this.value.toLowerCase();
+        tableRows.forEach(row => {
+            if (row.cells.length > 1) {
+                const text = row.textContent.toLowerCase();
+                row.style.display = text.indexOf(value) > -1 ? "" : "none";
+            }
+        });
+    });
+});
+</script>
 {% endblock %}
