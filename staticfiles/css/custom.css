@@ -7640,8 +7640,8 @@ header.main-header .header-sticky.active {
     width: 100vw;
     height: 100vh;
     z-index: 9999;
-    background-color: #000000 !important; 
-    display: flex !important; /* Locked for testing */
+    background-color: #ffffff !important; /* Forces a pure white background */
+    display: flex;
     align-items: center;
     justify-content: center;
 }
@@ -7651,6 +7651,8 @@ header.main-header .header-sticky.active {
     max-width: 500px; /* Scales the GIF to be large and prominent */
     height: auto;
     object-fit: contain;
+    /* Shaves 0px from top/bottom, and 3px from left/right to hide edge lines */
+    clip-path: inset(0px 3px 0px 3px); 
 }
 
 /* Hide the old loading container if it somehow persists */
