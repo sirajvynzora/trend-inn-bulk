@@ -2619,6 +2619,10 @@ header.main-header .header-sticky.active {
 	width: calc(25% - 22.5px);
 }
 
+.blogs-swiper .post-item {
+    width: 100%;
+}
+
 .post-featured-image {
 	position: relative;
 	margin-bottom: 20px;
@@ -7678,5 +7682,8 @@ header.main-header .header-sticky.active {
     .footer-logo img {
         height: 70px !important; /* Scaled down for mobile */
         max-width: 260px !important;
+    }
+    .custom-gif-preloader .gif-loader-img {
+        max-width: 250px; /* Scaled down for mobile */
     }
 }

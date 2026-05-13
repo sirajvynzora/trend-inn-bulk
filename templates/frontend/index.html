@@ -145,10 +145,13 @@
                     </div>
 
                     <div class="tib-hero-btns">
-                        <a href="{% url 'products' %}" class="tib-btn-primary">Shop by Category &rarr;</a>
+                        <a href="{% url 'products' %}" class="tib-btn-primary">
+                            <span class="btn-full-text">Shop by Category &rarr;</span>
+                            <span class="btn-short-text">Products &rarr;</span>
+                        </a>
                         <a href="https://wa.me/919999999999" target="_blank" class="tib-btn-outline">
                             <i class="fa-brands fa-whatsapp"></i>
-                            Chat on WhatsApp
+                            <span class="wa-text">Chat on WhatsApp</span>
                         </a>
                     </div>
                 </div>
@@ -365,6 +368,10 @@
     transition: all 0.3s ease;
 }
 
+.btn-short-text {
+    display: none;
+}
+
 .tib-btn-primary:hover {
     background: var(--accent-hover);
     transform: translateY(-2px);
@@ -541,15 +548,24 @@
     .tib-hero-main {
         padding: 100px 0 40px;
     }
+    .tib-hero-overlay {
+        background: linear-gradient(
+            to bottom,
+            rgba(8, 8, 32, 0.35) 0%,
+            rgba(8, 8, 32, 0.25) 50%,
+            rgba(8, 8, 32, 0.45) 100%
+        );
+    }
     .tib-hero-main h1 {
         font-size: 34px;
     }
     .tib-hero-main p {
         font-size: 14px;
         max-width: 100%;
+        margin-bottom: 24px !important;
     }
     .tib-features {
-        gap: 14px;
+        display: none !important; /* Hides the feature badges entirely on mobile screens */
     }
     .tib-feature-item i {
         font-size: 20px;
@@ -560,10 +576,52 @@
     .tib-feature-item span {
         font-size: 11px;
     }
-    .tib-btn-primary,
+    /* Mobile Hero Buttons - Single Line Layout */
+    .tib-hero-btns {
+        flex-direction: row !important; /* Overrides any column stacking */
+        flex-wrap: nowrap;
+        justify-content: center;
+        gap: 10px;
+        width: 100%;
+    }
+    
+    .tib-btn-primary {
+        flex: 0 0 auto !important; /* CRITICAL FIX: Stops the button from stretching */
+        width: auto !important;
+        padding: 12px 24px !important; /* Slightly wider padding for a nice pill shape */
+        font-size: 14px !important;
+        white-space: nowrap;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn-full-text {
+        display: none;
+    }
+
+    .btn-short-text {
+        display: inline;
+    }
+    
+    /* Convert WA button to an Icon-only square */
+    .wa-text {
+        display: none; /* Hides the text on mobile */
+    }
+    
     .tib-btn-outline {
-        font-size: 14px;
-        padding: 13px 22px;
+        width: 48px !important; 
+        height: 48px !important;
+        padding: 0 !important;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-shrink: 0; /* Prevents the square from squishing */
+    }
+    
+    .tib-btn-outline i {
+        font-size: 24px;
+        margin: 0;
     }
     .tib-stats-bar {
         padding: 20px 0;
@@ -593,16 +651,7 @@
         font-size: 11px;
         padding: 6px 14px;
     }
-    .tib-hero-btns {
-        flex-direction: column;
-        width: 100%;
-    }
-    .tib-btn-primary,
-    .tib-btn-outline {
-        width: 100%;
-        justify-content: center;
-        text-align: center;
-    }
+    /* Hero buttons handled by 767px query */
     .tib-stat-item {
         min-width: 100%;
         flex: 0 0 100%;
