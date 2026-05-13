@@ -86,9 +86,21 @@
 
 <!-- NEW Hero Section Start -->
 <section class="tib-hero">
-    <video class="tib-hero-video" autoplay muted loop playsinline>
-        <source src="{% static 'images/new/video.mp4' %}" type="video/mp4">
+    <video id="hero-video" class="tib-hero-video" autoplay muted loop playsinline>
+        <source id="hero-video-source" src="" type="video/mp4">
     </video>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            var video = document.getElementById('hero-video');
+            var source = document.getElementById('hero-video-source');
+            if (window.innerWidth < 768) {
+                source.src = "{% static 'images/new/video-mob.mp4' %}";
+            } else {
+                source.src = "{% static 'images/new/video.mp4' %}";
+            }
+            video.load();
+        });
+    </script>
     <div class="tib-hero-overlay"></div>
     <div class="tib-hero-main">
         <div class="container">
