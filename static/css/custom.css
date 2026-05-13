@@ -7683,4 +7683,7 @@ header.main-header .header-sticky.active {
         height: 70px !important; /* Scaled down for mobile */
         max-width: 260px !important;
     }
+    .custom-gif-preloader .gif-loader-img {
+        max-width: 250px; /* Scaled down for mobile */
+    }
 }
