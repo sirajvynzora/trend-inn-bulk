@@ -403,8 +403,14 @@ a:focus {
 	position: absolute;
 	top: 50%;
 	left: 50%;
-	max-width: 100px;
+	max-width: 300px; /* Further increased for a more impactful presence */
 	transform: translate(-50%, -50%);
+    animation: preloader-pulse 2s ease-in-out infinite;
+}
+
+@keyframes preloader-pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); }
+    50% { transform: translate(-50%, -50%) scale(1.15); } /* Subtle zoom/pulse effect */
 }
 
 @keyframes rotate-loading {
@@ -7624,6 +7630,32 @@ header.main-header .header-sticky.active {
     .hero-quick-actions {
         display: none;
     }
+}
+
+/* --- Custom GIF Preloader --- */
+.custom-gif-preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 9999;
+    background-color: #000000 !important; 
+    display: flex !important; /* Locked for testing */
+    align-items: center;
+    justify-content: center;
+}
+
+.custom-gif-preloader .gif-loader-img {
+    width: 100%;
+    max-width: 500px; /* Scales the GIF to be large and prominent */
+    height: auto;
+    object-fit: contain;
+}
+
+/* Hide the old loading container if it somehow persists */
+.custom-gif-preloader .loading-container {
+    display: none !important;
 }
 
 /* --- Responsive Logo Scaling --- */
