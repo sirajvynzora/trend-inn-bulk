@@ -545,13 +545,20 @@
 
 /* ── MOBILE LARGE (768px – 767px fallback) ── */
 @media (max-width: 767px) {
+    /* CRITICAL FIX: Use svh (Small Viewport Height) to account for mobile browser UI bars */
+    .tib-hero {
+        min-height: 100svh !important;
+        height: 100svh !important;
+    }
+
     /* Shift hero text block upwards */
     .tib-hero-main .row.align-items-center {
         align-items: flex-start !important; 
     }
     
     .tib-hero-main {
-        padding: 130px 0 100px !important; /* Pushes content down slightly from header, leaves room at bottom for stats */
+        /* Reduced top padding from 130px to 100px to pull content up, and bottom to 80px */
+        padding: 100px 0 80px !important; 
     }
     .tib-hero-overlay {
         background: linear-gradient(
