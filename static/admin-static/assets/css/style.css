@@ -64,7 +64,8 @@
 :root {
   --bodyColor: #222222;
   --bodyBg: #fbfbfb;
-  --bodyBg1: #F7F7F7;
+  /* --bodyBg1: #F7F7F7; */
+  --bodyBg1: #F4F7FA;
   --whiteColor: #ffffff;
   --whitegrey: #6A7C92;
   --whitegrey1: #EDEDED;
@@ -73,15 +74,21 @@
   --headingColor: #222222;
   --contentColor: #5F6C76;
   --contentColor2: #5C727D;
-  --primaryColor: #1A237E; /* Deep Blue for sidebar/header */
-  --secondaryColor: #F2277E;
-  --secondaryColor2: #FF275A;
+  /* --primaryColor: #1A237E; */ /* Deep Blue for sidebar/header */
+  --primaryColor: #1B75BC;
+  /* --secondaryColor: #F2277E; */
+  --secondaryColor: #F47B20;
+  /* --secondaryColor2: #FF275A; */
+  --secondaryColor2: #d96910;
   --secondaryColor3: #FF2828;
-  --actionColor: #FF6600;  /* Orange for actions */
+  /* --actionColor: #FF6600; */  /* Orange for actions */
+  --actionColor: #F47B20;
   --blackColor: #000000;
   --blackColor2: #191B1E;
-  --darkblack: #0D0D2B;
-  --darkcolor: #263546;
+  /* --darkblack: #0D0D2B; */
+  --darkblack: #0D2F5E;
+  /* --darkcolor: #263546; */
+  --darkcolor: #0D2F5E;
   --darkgray: #9FA2CE;
   --deepgray: #202942;
   --lightGrey: #7B8696;
@@ -125,9 +132,12 @@
   --borderRadius2: 20px;
   --borderRadius3: 10px;
   --transition: .3s;
-  --bodyFont: "Inter", sans-serif;
-  --headingFont: "Hind", sans-serif;
-  --contentFont: "Inter", sans-serif;
+  /* --bodyFont: "Inter", sans-serif; */
+  --bodyFont: "Sora", sans-serif;
+  /* --headingFont: "Hind", sans-serif; */
+  --headingFont: "Sora", sans-serif;
+  /* --contentFont: "Inter", sans-serif; */
+  --contentFont: "Sora", sans-serif;
 }
 
 .is_dark {
