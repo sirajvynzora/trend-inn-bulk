@@ -111,6 +111,8 @@
 
             /* --light-blue: #dbeafe; */
             --light-blue: #d6eaf8;
+            --accent-orange: #F47B20;
+            --accent-orange-hover: #d96910;
             --sidebar-width: 280px;
             --header-height: 70px;
             --white: #ffffff;
@@ -560,6 +562,29 @@
             text-decoration: none;
             font-size: 14px;
             font-weight: 500;
+        }
+
+        /* Frontend-aligned orange accents for key admin CTAs and icon touches */
+        .btn-primary,
+        a.btn-primary {
+            background-color: var(--accent-orange);
+            border-color: var(--accent-orange);
+        }
+
+        .btn-primary:hover,
+        .btn-primary:focus,
+        a.btn-primary:hover,
+        a.btn-primary:focus {
+            background-color: var(--accent-orange-hover);
+            border-color: var(--accent-orange-hover);
+        }
+
+        .stat-icon {
+            color: var(--accent-orange);
+        }
+
+        .card-action:hover {
+            color: var(--accent-orange);
         }
 
         /* Mobile Responsive */
