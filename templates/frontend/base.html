@@ -296,5 +296,74 @@
             currentYearElement.textContent = new Date().getFullYear();
         }
     </script>
+    <script>
+    (function() {
+        function initStickySidebars() {
+            var configs = [
+                { sidebar: '.page-single-sidebar', wrapper: '.page-project_single, .page-service-single, .page-blog-single' },
+                { sidebar: '.about-businesses-client-content', wrapper: '.about-us' }
+            ];
+
+            configs.forEach(function(config) {
+                var sidebars = document.querySelectorAll(config.sidebar);
+                sidebars.forEach(function(sidebar) {
+                    var wrapper = sidebar.closest(config.wrapper);
+                    if (!wrapper) return;
+
+                    /* Reset CSS sticky to avoid conflicts */
+                    sidebar.style.position = 'relative';
+                    sidebar.style.top = 'auto';
+
+                    var navHeight = 90;
+                    var bottomBuffer = 50;
+                    var initialOffsetTop = 0;
+
+                    function getInitialTop() {
+                        sidebar.style.position = 'relative';
+                        sidebar.style.top = 'auto';
+                        sidebar.style.transform = 'none';
+                        var rect = sidebar.getBoundingClientRect();
+                        initialOffsetTop = rect.top + window.pageYOffset;
+                    }
+
+                    function onScroll() {
+                        if (window.innerWidth < 992) {
+                            sidebar.style.transform = 'none';
+                            return;
+                        }
+
+                        var scrollY       = window.pageYOffset;
+                        var stickyStart   = initialOffsetTop - navHeight;
+                        var wrapperBottom = wrapper.getBoundingClientRect().bottom + scrollY;
+                        var sidebarH      = sidebar.offsetHeight;
+                        var stickyStop    = wrapperBottom - sidebarH - navHeight - bottomBuffer;
+
+                        if (scrollY >= stickyStart) {
+                            var translateY = Math.min(scrollY - stickyStart, Math.max(0, stickyStop - stickyStart));
+                            sidebar.style.position  = 'relative';
+                            sidebar.style.top       = 'auto';
+                            sidebar.style.transform = 'translateY(' + translateY + 'px)';
+                        } else {
+                            sidebar.style.transform = 'translateY(0)';
+                        }
+                    }
+
+                    getInitialTop();
+                    window.addEventListener('scroll', onScroll, { passive: true });
+                    window.addEventListener('resize', function() {
+                        getInitialTop();
+                        onScroll();
+                    });
+                });
+            });
+        }
+
+        if (document.readyState === 'loading') {
+            document.addEventListener('DOMContentLoaded', initStickySidebars);
+        } else {
+            initStickySidebars();
+        }
+    })();
+    </script>
 </body>
 </html>

@@ -1178,7 +1178,7 @@
                                             <h3><a href="{% url 'product_detail' product.slug %}">{{ product.name }}</a></h3>
                                             <div class="stack-footer">
                                                 <span class="stack-price">₹{{ product.price_per_unit }}</span>
-                                                <a href="{% url 'product_detail' product.slug %}" class="stack-link">Explore Detail</a>
+                                                <a href="{% url 'product_detail' product.slug %}" class="btn-default">Explore Detail</a>
                                             </div>
                                         </div>
                                     </div>
@@ -1398,7 +1398,6 @@
         .stack-content h3 a { color: inherit; text-decoration: none; }
         .stack-footer { display: flex; justify-content: space-between; align-items: center; }
         .stack-price { color: rgba(255,255,255,0.9); font-size: 22px; font-weight: 700; }
-        .stack-link { color: #fff; font-size: 13px; font-weight: 600; border-bottom: 1px solid rgba(255,255,255,0.35); padding-bottom: 2px; text-decoration: none; }
 
         /* ── MOBILE ── */
         @media (max-width: 991px) {

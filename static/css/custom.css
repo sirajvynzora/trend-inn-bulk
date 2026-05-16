@@ -1080,8 +1080,6 @@ header.main-header .header-sticky.active {
 }
 
 .about-businesses-client-content {
-	position: sticky;
-	top: 40px;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -3561,8 +3559,6 @@ header.main-header .header-sticky.active {
 }
 
 .page-single-sidebar {
-	position: sticky;
-	top: 20px;
 	margin-right: 2.344vw;
 }
 
@@ -5000,11 +4996,6 @@ header.main-header .header-sticky.active {
 
 .page-contact-us {
 	padding: 100px 0;
-}
-
-.contact-us-heading {
-	position: sticky;
-	top: 20px;
 }
 
 .contact-info-list {
