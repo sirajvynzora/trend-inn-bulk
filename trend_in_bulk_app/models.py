@@ -181,3 +181,19 @@ class TeamMember(OptimizedImageModel):
 
     def __str__(self):
         return self.name
+
+class ProductAttribute(models.Model):
+    product = models.ForeignKey(
+        Product,
+        on_delete=models.CASCADE,
+        related_name='attributes'
+    )
+    field_name = models.CharField(max_length=100)
+    field_value = models.CharField(max_length=500)
+    order = models.PositiveIntegerField(default=0)
+
+    class Meta:
+        ordering = ['order', 'id']
+
+    def __str__(self):
+        return f"{self.product.name} — {self.field_name}: {self.field_value}"

@@ -5,7 +5,7 @@ from django.shortcuts import get_object_or_404, redirect, render
 from django.utils import timezone
 
 from .forms import BlogForm, CategoryForm, ProductForm, TeamMemberForm, TestimonialForm, WholesaleSellerForm
-from .models import Blog, Category, ContactMessage, Product, ProductImage, TeamMember, Testimonial, WholesaleSeller
+from .models import Blog, Category, ContactMessage, Product, ProductAttribute, ProductImage, TeamMember, Testimonial, WholesaleSeller
 
 
 def _admin_required(view_func):
@@ -319,6 +319,21 @@ def product_create(request):
                 image=img,
                 is_primary=(i == 0)
             )
+        # Save custom attributes
+        idx = 0
+        while True:
+            name  = request.POST.get(f'attr_name_{idx}')
+            value = request.POST.get(f'attr_value_{idx}')
+            if name is None:
+                break
+            if name.strip() and value.strip():
+                ProductAttribute.objects.create(
+                    product=product,
+                    field_name=name.strip(),
+                    field_value=value.strip(),
+                    order=idx
+                )
+            idx += 1
         messages.success(request, "Product added successfully.")
     return redirect("product_list")
 
@@ -336,6 +351,22 @@ def product_update(request, pk):
                 image=img,
                 is_primary=False
             )
+        # Save custom attributes
+        product.attributes.all().delete()
+        idx = 0
+        while True:
+            name  = request.POST.get(f'attr_name_{idx}')
+            value = request.POST.get(f'attr_value_{idx}')
+            if name is None:
+                break
+            if name.strip() and value.strip():
+                ProductAttribute.objects.create(
+                    product=product,
+                    field_name=name.strip(),
+                    field_value=value.strip(),
+                    order=idx
+                )
+            idx += 1
         messages.success(request, "Product updated successfully.")
     return redirect("product_list")
 
@@ -366,6 +397,39 @@ def product_toggle_featured(request, pk):
         from django.http import JsonResponse
         return JsonResponse({"is_featured": product.is_featured})
     return redirect("product_list")
+
+
+@_admin_required
+def product_attributes_json(request, pk):
+    from django.http import JsonResponse
+    product = get_object_or_404(Product, pk=pk)
+    attrs = list(product.attributes.values('id', 'field_name', 'field_value', 'order'))
+    return JsonResponse({'attributes': attrs})
+
+
+@_admin_required
+def product_attributes_save(request, pk):
+    from django.http import JsonResponse
+    product = get_object_or_404(Product, pk=pk)
+    if request.method == 'POST':
+        # Delete all existing attributes and re-save
+        product.attributes.all().delete()
+        idx = 0
+        while True:
+            name  = request.POST.get(f'attr_name_{idx}')
+            value = request.POST.get(f'attr_value_{idx}')
+            if name is None:
+                break
+            if name.strip() and value.strip():
+                ProductAttribute.objects.create(
+                    product=product,
+                    field_name=name.strip(),
+                    field_value=value.strip(),
+                    order=idx
+                )
+            idx += 1
+        return JsonResponse({'status': 'ok'})
+    return JsonResponse({'status': 'error'}, status=400)
 
 
 # Blogs CRUD

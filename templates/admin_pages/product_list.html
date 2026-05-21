@@ -123,6 +123,22 @@
                             <label class="form-label">Product Images <small class="text-muted">(You can select multiple)</small></label>
                             <input type="file" name="product_images" class="form-control" multiple accept="image/*">
                         </div>
+                        <div class="col-12">
+<!-- Product Attributes Start -->
+<div class="mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <label class="form-label fw-semibold mb-0">Custom Attributes</label>
+        <button type="button" class="btn btn-sm btn-outline-primary" id="addAttributeRowAdd">
+            + Add Field
+        </button>
+    </div>
+    <div id="addAttributeRows">
+        <!-- Rows added dynamically -->
+    </div>
+    <small class="text-muted">Add custom fields like Fabric Type, MOQ, Color, Size, etc.</small>
+</div>
+<!-- Product Attributes End -->
+                        </div>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -195,6 +211,22 @@
                         <div class="col-12 mb-3">
                             <label class="form-label">Add More Images</label>
                             <input type="file" name="product_images" class="form-control" multiple accept="image/*">
+                        </div>
+                        <div class="col-12">
+<!-- Product Attributes Start -->
+<div class="mt-4">
+    <div class="d-flex justify-content-between align-items-center mb-2">
+        <label class="form-label fw-semibold mb-0">Custom Attributes</label>
+        <button type="button" class="btn btn-sm btn-outline-primary" id="addAttributeRowEdit">
+            + Add Field
+        </button>
+    </div>
+    <div id="editAttributeRows">
+        <!-- Rows injected by JS when modal opens -->
+    </div>
+    <small class="text-muted">Add custom fields like Fabric Type, MOQ, Color, Size, etc.</small>
+</div>
+<!-- Product Attributes End -->
                         </div>
                     </div>
                 </div>
@@ -314,6 +346,141 @@ document.querySelectorAll('.featured-checkbox').forEach(function(checkbox) {
             checkbox.checked = !checkbox.checked;
             alert('Something went wrong. Please try again.');
         });
+    });
+});
+</script>
+
+<script>
+// ── Attribute row template ──────────────────────────────────
+function attrRow(name, value, attrId) {
+    var idPart = attrId ? attrId : '';
+    return `
+    <div class="attr-row d-flex gap-2 mb-2 align-items-center" data-attr-id="${idPart}">
+        <input type="text" class="form-control form-control-sm attr-name"
+               placeholder="Field Name (e.g. Fabric Type)" value="${name}" style="flex:1">
+        <input type="text" class="form-control form-control-sm attr-value"
+               placeholder="Value (e.g. Cotton)" value="${value}" style="flex:2">
+        <button type="button" class="btn btn-sm btn-outline-danger attr-remove">
+            <i class="fas fa-trash"></i>
+        </button>
+    </div>`;
+}
+
+// ── Add row buttons ─────────────────────────────────────────
+document.getElementById('addAttributeRowAdd')?.addEventListener('click', function() {
+    document.getElementById('addAttributeRows').insertAdjacentHTML('beforeend', attrRow('','',''));
+});
+
+document.getElementById('addAttributeRowEdit')?.addEventListener('click', function() {
+    document.getElementById('editAttributeRows').insertAdjacentHTML('beforeend', attrRow('','',''));
+});
+
+// ── Remove row (delegated) ──────────────────────────────────
+document.addEventListener('click', function(e) {
+    if (e.target.closest('.attr-remove')) {
+        e.target.closest('.attr-row').remove();
+    }
+});
+
+// ── When Edit modal opens — load existing attributes ────────
+document.addEventListener('show.bs.modal', function(e) {
+    var modal = e.target;
+    if (!modal.id.startsWith('editModal') && !modal.id.startsWith('updateProductModal')) return;
+
+    var productId = modal.dataset.productId;
+    if (!productId) {
+        // Try to get from the form action or a data attribute on the modal trigger
+        var form = modal.querySelector('form');
+        if (form && form.action) {
+            var parts = form.action.split('/');
+            productId = parts[parts.length - 3]; // Usually action ends with /id/edit/
+        }
+        if (!productId) {
+            var trigger = document.querySelector('[data-bs-target="#' + modal.id + '"]');
+            if (trigger) productId = trigger.dataset.productId;
+        }
+    }
+
+    var container = modal.querySelector('#editAttributeRows');
+    if (!container) return;
+    container.innerHTML = '<p class="text-muted small">Loading...</p>';
+
+    fetch(`/dashboard/products/${productId}/attributes/`)
+        .then(r => r.json())
+        .then(data => {
+            container.innerHTML = '';
+            data.attributes.forEach(function(attr) {
+                container.insertAdjacentHTML('beforeend', attrRow(attr.field_name, attr.field_value, attr.id));
+            });
+            if (data.attributes.length === 0) {
+                container.innerHTML = '<p class="text-muted small">No custom attributes yet. Click Add Field to begin.</p>';
+            }
+        })
+        .catch(() => { container.innerHTML = '<p class="text-danger small">Failed to load attributes.</p>'; });
+});
+
+// ── Save attributes when Edit form submits ──────────────────
+document.addEventListener('submit', function(e) {
+    var form = e.target;
+    // Check if it's an update product form
+    if (!form.action.includes('/edit/')) return;
+
+    var container = form.querySelector('#editAttributeRows');
+    if (!container) return;
+
+    var rows = container.querySelectorAll('.attr-row');
+    rows.forEach(function(row, idx) {
+        var attrId  = row.dataset.attrId || '';
+        var name    = row.querySelector('.attr-name').value.trim();
+        var value   = row.querySelector('.attr-value').value.trim();
+        if (!name && !value) return;
+
+        var hiddenId    = document.createElement('input');
+        hiddenId.type   = 'hidden';
+        hiddenId.name   = `attr_id_${idx}`;
+        hiddenId.value  = attrId;
+        form.appendChild(hiddenId);
+
+        var hiddenName  = document.createElement('input');
+        hiddenName.type = 'hidden';
+        hiddenName.name = `attr_name_${idx}`;
+        hiddenName.value = name;
+        form.appendChild(hiddenName);
+
+        var hiddenVal   = document.createElement('input');
+        hiddenVal.type  = 'hidden';
+        hiddenVal.name  = `attr_value_${idx}`;
+        hiddenVal.value = value;
+        form.appendChild(hiddenVal);
+    });
+});
+
+// ── Save attributes when Add form submits ───────────────────
+document.addEventListener('submit', function(e) {
+    var form = e.target;
+    // check if it is addProduct form
+    if (!form.action.includes('/products/add/')) return;
+
+    var container = form.querySelector('#addAttributeRows');
+    if (!container) return;
+
+    var rows = container.querySelectorAll('.attr-row');
+    rows.forEach(function(row, idx) {
+        var name  = row.querySelector('.attr-name').value.trim();
+        var value = row.querySelector('.attr-value').value.trim();
+        if (!name && !value) return;
+
+        var hiddenName  = document.createElement('input');
+        hiddenName.type = 'hidden';
+        hiddenName.name = `attr_name_${idx}`;
+        hiddenName.value = name;
+        form.appendChild(hiddenName);
+
+        var hiddenVal   = document.createElement('input');
+        hiddenVal.type  = 'hidden';
+        hiddenVal.name  = `attr_value_${idx}`;
+        hiddenVal.value = value;
+        form.appendChild(hiddenVal);
     });
 });
 </script>

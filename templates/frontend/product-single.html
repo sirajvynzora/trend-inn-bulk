@@ -39,6 +39,11 @@
                                 <li style="color: #fff;"><span style="color: #fff;">Seller: </span>{{ product.seller.name }}</li>
                                 <li style="color: #fff;"><span style="color: #fff;">Category: </span>{{ product.category.name }}</li>
                                 <li style="color: #fff;"><span style="color: #fff;">Price: </span>₹{{ product.price_per_unit }}</li>
+                                {% for attr in product.attributes.all %}
+                                <li style="color: #fff;">
+                                    <span style="color: #fff;">{{ attr.field_name }}: </span>{{ attr.field_value }}
+                                </li>
+                                {% endfor %}
                             </ul>
                         </div>
                         <!-- Page Sidebar Category List End -->
