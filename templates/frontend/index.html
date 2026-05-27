@@ -41,22 +41,22 @@
                             <div class="satisfy-client-images wow fadeInUp" data-wow-delay="0.2s">
                                 <div class="satisfy-client-image">
                                     <figure class="image-anime">
-                                        <img src="{% static 'images/author-1.jpg' %}" alt="">
+                                        <img src="{% static 'images/new/image1.png' %}" alt="">
                                     </figure>
                                 </div>
                                 <div class="satisfy-client-image">
                                     <figure class="image-anime">
-                                        <img src="{% static 'images/author-2.jpg' %}" alt="">
+                                        <img src="{% static 'images/new/image2.png' %}" alt="">
                                     </figure>
                                 </div>
                                 <div class="satisfy-client-image">
                                     <figure class="image-anime">
-                                        <img src="{% static 'images/author-3.jpg' %}" alt="">
+                                        <img src="{% static 'images/new/image3.png' %}" alt="">
                                     </figure>
                                 </div>
                                 <div class="satisfy-client-image">
                                     <figure class="image-anime">
-                                        <img src="{% static 'images/author-4.jpg' %}" alt="">
+                                        <img src="{% static 'images/new/image4.png' %}" alt="">
                                     </figure>
                                 </div>
                                 <div class="satisfy-client-image">
@@ -721,22 +721,22 @@
                             <div class="satisfy-client-images">
                                 <div class="satisfy-client-image">
                                     <figure class="image-anime">
-                                        <img src="{% static 'images/author-1.jpg' %}" alt="">
+                                        <img src="{% static 'images/new/image1.png' %}" alt="">
                                     </figure>
                                 </div>
                                 <div class="satisfy-client-image">
                                     <figure class="image-anime">
-                                        <img src="{% static 'images/author-2.jpg' %}" alt="">
+                                        <img src="{% static 'images/new/image2.png' %}" alt="">
                                     </figure>
                                 </div>
                                 <div class="satisfy-client-image">
                                     <figure class="image-anime">
-                                        <img src="{% static 'images/author-3.jpg' %}" alt="">
+                                        <img src="{% static 'images/new/image3.png' %}" alt="">
                                     </figure>
                                 </div>
                                 <div class="satisfy-client-image">
                                     <figure class="image-anime">
-                                        <img src="{% static 'images/author-4.jpg' %}" alt="">
+                                        <img src="{% static 'images/new/image4.png' %}" alt="">
                                     </figure>
                                 </div>
                                 <div class="satisfy-client-image add-more">
@@ -838,7 +838,7 @@
                     <div class="swiper-slide">
                         <a href="{% url 'category_products' category.slug %}" class="d-block text-decoration-none">
                             <div class="card-bg-wrapper">
-                                <div class="card-bg-img" style="background-image: url('{% if category.image %}{{ category.image.url }}{% else %}{% static 'images/project-1.jpg' %}{% endif %}');"></div>
+                                <div class="card-bg-img" style="background-image: url('{% if category.image %}{{ category.image.url }}{% else %}{% static 'images/new/image5.png' %}{% endif %}');"></div>
                                 <div class="card-bg-overlay"></div>
                                 <div class="card-bg-content">
                                     <h3>{{ category.name }}</h3>
@@ -872,7 +872,7 @@
             </div>
 
             <!-- Luxury Featured Banner -->
-            <div class="luxury-banner wow fadeInUp" style="background-image: url('{% if split_category.image %}{{ split_category.image.url }}{% else %}{% static 'images/project-1.jpg' %}{% endif %}');">
+            <div class="luxury-banner wow fadeInUp" style="background-image: url('{% if split_category.image %}{{ split_category.image.url }}{% else %}{% static 'images/new/image5.png' %}{% endif %}');">
                 <div class="luxury-banner-overlay"></div>
                 <div class="luxury-banner-content">
                     <div class="luxury-banner-text">
@@ -902,7 +902,7 @@
                                         {% elif product.image %}
                                             <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                         {% else %}
-                                            <img src="{% static 'images/project-1.jpg' %}" alt="{{ product.name }}">
+                                            <img src="{% static 'images/new/image5.png' %}" alt="{{ product.name }}">
                                         {% endif %}
                                     </figure>
                                     <div class="card-badge">Direct Factory</div>
@@ -1169,7 +1169,7 @@
                                             {% elif product.image %}
                                                 <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                             {% else %}
-                                                <img src="{% static 'images/project-1.jpg' %}" alt="{{ product.name }}">
+                                                <img src="{% static 'images/new/image5.png' %}" alt="{{ product.name }}">
                                             {% endif %}
                                             <div class="stack-overlay"></div>
                                         </div>
@@ -1547,7 +1547,7 @@
                             <!-- Why Choose Image Start -->
                             <div class="why-choose-img image-1">
                                 <figure class="image-anime reveal">
-                                    <img src="{% static 'images/why-choose-img-1.jpg' %}" alt="">
+                                    <img src="{% static 'images/new/image11.png' %}" alt="">
                                 </figure>
                             </div>
                             <!-- Why Choose Image End -->
@@ -1555,7 +1555,7 @@
                             <!-- Why Choose Image Start -->
                             <div class="why-choose-img image-2">
                                 <figure class="image-anime reveal">
-                                    <img src="{% static 'images/why-choose-img-2.jpg' %}" alt="">
+                                    <img src="{% static 'images/new/image12.png' %}" alt="">
                                 </figure>
                             </div>
                             <!-- Why Choose Image End -->
@@ -1565,7 +1565,7 @@
                             <!-- Why Choose Image Start -->
                             <div class="why-choose-img image-3">
                                 <figure class="image-anime reveal">
-                                    <img src="{% static 'images/why-choose-img-3.jpg' %}" alt="">
+                                    <img src="{% static 'images/new/image5.png' %}" alt="">
                                 </figure>
                             </div>
                             <!-- Why Choose Image End -->
@@ -1573,7 +1573,7 @@
                             <!-- Why Choose Image Start -->
                             <div class="why-choose-img image-4">
                                 <figure class="image-anime reveal">
-                                    <img src="{% static 'images/why-choose-img-4.jpg' %}" alt="">
+                                    <img src="{% static 'images/new/image6.png' %}" alt="">
                                 </figure>
                             </div>
                             <!-- Why Choose Image End -->
@@ -1901,7 +1901,7 @@
                         <!-- Intro Image Start -->
                         <div class="intro-video-image">
                             <figure class="image-anime">
-                                <img src="{% static 'images/intro-video-image.jpg' %}" alt="">
+                                <img src="{% static 'images/new/image11.png' %}" alt="">
                             </figure>
                         </div>
                         <!-- Intro Image End -->
@@ -1954,7 +1954,7 @@
                                     {% if product.images.first %}
                                         <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
                                     {% else %}
-                                        <img src="{% static 'images/project-1.jpg' %}" alt="{{ product.name }}">
+                                        <img src="{% static 'images/new/image5.png' %}" alt="{{ product.name }}">
                                     {% endif %}
                                 </figure>
                             </div>
@@ -2054,7 +2054,7 @@
                             <!-- Faq Image Start -->
                             <div class="faq-image">
                                 <figure class="image-anime">
-                                    <img src="{% static 'images/faq-image-1.jpg' %}" alt="">
+                                    <img src="{% static 'images/new/image9.png' %}" alt="">
                                 </figure>
                             </div>
                             <!-- Faq Image End -->
@@ -2085,7 +2085,7 @@
                             <!-- Faq Image Start -->
                             <div class="faq-image">
                                 <figure class="image-anime">
-                                    <img src="{% static 'images/faq-image-2.jpg' %}" alt="">
+                                    <img src="{% static 'images/new/image10.png' %}" alt="">
                                 </figure>
                             </div>
                             <!-- Faq Image End -->
@@ -2254,7 +2254,7 @@
                                                 {% if testimonial.image %}
                                                     <img src="{{ testimonial.image.url }}" alt="{{ testimonial.name }}">
                                                 {% else %}
-                                                    <img src="{% static 'images/author-1.jpg' %}" alt="{{ testimonial.name }}">
+                                                    <img src="{% static 'images/new/image1.png' %}" alt="{{ testimonial.name }}">
                                                 {% endif %}
                                             </figure>
                                         </div>
