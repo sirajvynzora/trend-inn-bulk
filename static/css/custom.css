@@ -2968,7 +2968,7 @@ header.main-header .header-sticky.active {
 
 .page-header {
 	position: relative;
-	background: url('../images/page-header-bg.jpg') no-repeat;
+	background: url('../images/new/hero2.png') no-repeat;
 	background-position: center center;
 	background-size: cover;
 	padding: 160px 0;
@@ -2985,6 +2985,7 @@ header.main-header .header-sticky.active {
 	width: 100%;
 	height: 100%;
 	background: linear-gradient(180deg, rgba(5, 52, 86, 0.00) 0%, var(--primary-blue) 100%);
+	opacity: 0.6;
 	z-index: 0;
 }
 
