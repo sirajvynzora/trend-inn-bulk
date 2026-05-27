@@ -3,7 +3,7 @@
 
 {% block content %}
 <!-- Page Header Start -->
-    <div class="page-header bg-section parallaxie">
+    <div class="page-header bg-section parallaxie" {% if category.image %}style="background-image: url('{{ category.image.url }}');"{% endif %}>
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
@@ -34,7 +34,9 @@
                         <div class="team-image">
                             <a href="{% url 'product_detail' product.slug %}" class="image-anime" data-cursor-text="View">
                                 <figure>
-                                    {% if product.image %}
+                                    {% if product.images.first %}
+                                        <img src="{{ product.images.first.image.url }}" alt="{{ product.name }}">
+                                    {% elif product.image %}
                                         <img src="{{ product.image.url }}" alt="{{ product.name }}">
                                     {% else %}
                                         <img src="{% static 'images/project-1.jpg' %}" alt="{{ product.name }}">
@@ -42,12 +44,12 @@
                                 </figure>
                             </a>
                         </div>
-                        <div class="team-body">
+                        <div class="team-body" style="background-color: var(--primary-blue);">
                             <div class="team-content">
-                                <h3><a href="{% url 'product_detail' product.slug %}">{{ product.name }}</a></h3>
+                                <h3><a href="{% url 'product_detail' product.slug %}" style="color: #ffffff;">{{ product.name }}</a></h3>
                             </div>
                             <div class="team-social-list">
-                                <span class="d-block text-muted">Sold by: {{ product.seller.name }}</span>
+                                <span class="d-block" style="color: #ffffff;">Sold by: {{ product.seller.name }}</span>
                             </div>
                         </div>
                     </div>

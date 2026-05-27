@@ -6,6 +6,7 @@ from .utils.image_optimizer import optimize_image
 
 class OptimizedImageModel(models.Model):
     image_fields = []
+    square_image = False
 
     class Meta:
         abstract = True
@@ -15,7 +16,7 @@ class OptimizedImageModel(models.Model):
         for field in self.image_fields:
             image_field = getattr(self, field, None)
             if image_field and hasattr(image_field, "path"):
-                optimize_image(image_field.path)
+                optimize_image(image_field.path, force_square=self.square_image)
 
 
 class WholesaleSeller(models.Model):
@@ -62,6 +63,7 @@ class Category(OptimizedImageModel):
 
 class Product(OptimizedImageModel):
     image_fields = ["image"]
+    square_image = True
 
     category = models.ForeignKey(Category, on_delete=models.CASCADE, related_name="products")
     seller = models.ForeignKey(WholesaleSeller, on_delete=models.CASCADE, related_name="products")
@@ -93,6 +95,7 @@ class Product(OptimizedImageModel):
 
 class ProductImage(OptimizedImageModel):
     image_fields = ["image"]
+    square_image = True
 
     product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name="images")
     image = models.ImageField(upload_to="products/")

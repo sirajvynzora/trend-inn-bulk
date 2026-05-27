@@ -79,13 +79,13 @@
                                 {% for img in images %}
                                 <div class="swiper-slide">
                                     <figure>
-                                        <img src="{{ img.image.url }}" alt="{{ product.name }}" style="width:100%; height:450px; object-fit:cover;">
+                                        <img src="{{ img.image.url }}" alt="{{ product.name }}" style="width:100%; height:auto; max-height:600px; object-fit:contain;">
                                     </figure>
                                 </div>
                                 {% empty %}
                                 <div class="swiper-slide">
                                     <figure>
-                                        <img src="{% static 'images/project-2.jpg' %}" alt="{{ product.name }}" style="width:100%; height:450px; object-fit:cover;">
+                                        <img src="{% static 'images/project-2.jpg' %}" alt="{{ product.name }}" style="width:100%; height:auto; max-height:550px; object-fit:contain;">
                                     </figure>
                                 </div>
                                 {% endfor %}
@@ -133,7 +133,7 @@
                                     <!-- Project Transaction Content End -->
 
                                     <!-- Project Entry Image Video Start -->
-                                    <div class="project-entry-image-video intro-video wow fadeInUp" data-wow-delay="0.4s">
+                                    <div class="project-entry-image-video intro-video wow fadeInUp d-none d-md-block" data-wow-delay="0.4s">
                                         <!-- Intro Image Start -->
                                         <div class="intro-video-image">
                                             <figure class="image-anime">
