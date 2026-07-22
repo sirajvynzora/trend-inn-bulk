@@ -1,6 +1,1005 @@
 {% extends 'frontend/base.html' %}
 {% load static %}
 
+ {% block extra_css %}
+ <style>
+ /* =========================================================
+   SELLER WHATSAPP PRODUCT MODAL
+========================================================= */
+
+/* Product page sidebar buttons */
+.seller-contact-buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.seller-contact-btn,
+.seller-whatsapp-open-btn {
+    width: 100%;
+    min-height: 56px;
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    text-align: center;
+    border: 0;
+    cursor: pointer;
+}
+
+.seller-whatsapp-open-btn {
+    background: var(--accent-orange) !important;
+    border-color: var(--accent-orange) !important;
+    color: #ffffff !important;
+}
+
+.seller-whatsapp-open-btn i {
+    font-size: 19px;
+}
+
+/* Modal wrapper */
+.seller-whatsapp-modal {
+    --seller-primary: #202d8c;
+    --seller-primary-dark: #111c63;
+    --seller-whatsapp: #20b95a;
+    --seller-whatsapp-dark: #159447;
+    --seller-orange: #ff6500;
+    --seller-text: #101936;
+    --seller-muted: #667085;
+    --seller-border: #e5e8f0;
+    --seller-soft-bg: #f7f8fc;
+}
+
+.seller-whatsapp-modal .modal-dialog {
+    width: calc(100% - 32px);
+    max-width: 850px;
+    margin: 30px auto;
+}
+
+.seller-whatsapp-modal .modal-content {
+    max-height: calc(100vh - 60px);
+    border: 0;
+    border-radius: 24px;
+    overflow: hidden;
+    background: #ffffff;
+    box-shadow: 0 30px 80px rgba(6, 13, 47, 0.28);
+}
+
+.seller-whatsapp-modal .modal-body {
+    padding: 0;
+}
+
+.seller-whatsapp-modal.show {
+    padding-right: 0 !important;
+}
+
+/* Dark page overlay */
+.modal-backdrop.show {
+    opacity: 0.78;
+}
+
+/* Modal header */
+.seller-modal-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 26px 28px 20px;
+    background: #0b123f;   /* Dark Blue */
+    border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.seller-modal-heading {
+    display: flex;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.seller-modal-heading-icon {
+    width: 48px;
+    height: 48px;
+    flex: 0 0 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 14px;
+
+    color: #ff6500;
+    background: rgba(255, 101, 0, 0.12);
+
+    font-size: 26px;
+}
+
+.seller-modal-heading h2 {
+    margin: 0 0 5px;
+    color: var(--seller-text);
+    font-size: 24px;
+    line-height: 1.3;
+    font-weight: 700;
+}
+
+.seller-modal-heading p {
+    margin: 0;
+    color: var(--seller-muted);
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.seller-modal-close {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 50%;
+    background:rgba(255,255,255,.12);
+    color: var(--seller-text);
+    font-size: 20px;
+    cursor: pointer;
+    transition:
+        background-color 0.25s ease,
+        color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.seller-modal-close:hover {
+    background: #feecec;
+    color: #e22626;
+    transform: rotate(90deg);
+}
+
+/* Modal body */
+.seller-modal-body {
+    padding: 0 28px 10px !important;
+}
+
+/* Seller summary */
+.seller-summary-card {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    padding: 20px;
+    border: 1px solid var(--seller-border);
+    border-radius: 18px;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(32, 45, 140, 0.04),
+            rgba(255, 255, 255, 1)
+        );
+}
+
+.seller-summary-left {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.seller-shop-icon {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 18px;
+    color: var(--seller-primary);
+    background: #e9ecff;
+    font-size: 28px;
+}
+
+.seller-summary-content {
+    min-width: 0;
+}
+
+.seller-summary-content span,
+.seller-product-count span {
+    display: block;
+    margin-bottom: 3px;
+    color: var(--seller-muted);
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.seller-summary-content h3 {
+    margin: 0;
+    color: var(--seller-text);
+    font-size: 21px;
+    line-height: 1.4;
+    font-weight: 700;
+    word-break: break-word;
+}
+
+.seller-summary-content p {
+    margin: 3px 0 0;
+    color: var(--seller-muted);
+    font-size: 13px;
+}
+
+.seller-product-count {
+    flex: 0 0 auto;
+    text-align: center;
+}
+
+.seller-product-count strong {
+    display: block;
+    color: var(--seller-primary);
+    font-size: 26px;
+    line-height: 1.2;
+}
+
+/* Product section heading */
+.seller-products-title {
+    margin: 24px 0 12px;
+}
+
+.seller-products-title h3 {
+    margin: 0 0 4px;
+    color: var(--seller-text);
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.seller-products-title p {
+    margin: 0;
+    color: var(--seller-muted);
+    font-size: 13px;
+}
+
+/* Products list */
+.seller-products-list {
+    overflow: hidden;
+    border: 1px solid var(--seller-border);
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.seller-product-row {
+    display: grid;
+    grid-template-columns:
+        minmax(250px, 1.7fr)
+        minmax(120px, 0.75fr)
+        minmax(150px, 0.9fr)
+        70px;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 16px;
+    border-bottom: 1px solid var(--seller-border);
+    transition:
+        background-color 0.25s ease,
+        opacity 0.25s ease,
+        transform 0.25s ease;
+}
+
+.seller-product-row:last-child {
+    border-bottom: 0;
+}
+
+.seller-product-row:hover {
+    background: #fafbff;
+}
+
+.seller-product-row.is-current-product {
+    background: #f7f8ff;
+}
+
+.seller-product-info {
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    gap: 13px;
+}
+
+.seller-product-image {
+    width: 62px;
+    height: 62px;
+    flex: 0 0 62px;
+    overflow: hidden;
+    border: 1px solid #eceef3;
+    border-radius: 12px;
+    background: #f5f6f8;
+}
+
+.seller-product-image img {
+    width: 100%;
+    height: 100%;
+    display: block;
+    object-fit: cover;
+}
+
+.seller-product-name {
+    min-width: 0;
+}
+
+.seller-product-name h4 {
+    margin: 0;
+    overflow: hidden;
+    color: var(--seller-text);
+    font-size: 14px;
+    line-height: 1.5;
+    font-weight: 650;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.current-product-label {
+    display: inline-flex;
+    margin-top: 5px;
+    padding: 3px 8px;
+    border-radius: 20px;
+    color: var(--seller-primary);
+    background: #e8ebff;
+    font-size: 10px;
+    font-weight: 700;
+}
+
+.seller-product-price strong {
+    color: var(--seller-text);
+    font-size: 14px;
+    font-weight: 650;
+    white-space: nowrap;
+}
+
+/* Quantity control */
+.seller-quantity-control {
+    width: 132px;
+    height: 44px;
+    display: grid;
+    grid-template-columns: 38px 1fr 38px;
+    align-items: center;
+    overflow: hidden;
+    border: 1px solid #dce0ea;
+    border-radius: 10px;
+    background: #ffffff;
+}
+
+.seller-quantity-btn {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    background: transparent;
+    color: var(--seller-primary);
+    font-size: 11px;
+    cursor: pointer;
+    transition:
+        color 0.2s ease,
+        background-color 0.2s ease;
+}
+
+.seller-quantity-btn:hover {
+    color: #ffffff;
+    background: var(--seller-primary);
+}
+
+.seller-quantity-input {
+    width: 100%;
+    height: 100%;
+    padding: 0 3px;
+    border: 0;
+    outline: 0;
+    color: var(--seller-text);
+    background: transparent;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 650;
+    appearance: textfield;
+    -moz-appearance: textfield;
+}
+
+.seller-quantity-input::-webkit-inner-spin-button,
+.seller-quantity-input::-webkit-outer-spin-button {
+    margin: 0;
+    appearance: none;
+    -webkit-appearance: none;
+}
+
+/* Delete button */
+.seller-product-action {
+    display: flex;
+    justify-content: center;
+}
+
+.seller-product-delete {
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ffdada;
+    border-radius: 10px;
+    color: #e72d2d;
+    background: #fff4f4;
+    font-size: 15px;
+    cursor: pointer;
+    transition:
+        color 0.25s ease,
+        background-color 0.25s ease,
+        transform 0.25s ease;
+}
+
+.seller-product-delete:hover {
+    color: #ffffff;
+    background: #e72d2d;
+    transform: translateY(-2px);
+}
+
+.mobile-field-label {
+    display: none;
+}
+
+/* Empty message */
+.seller-products-empty {
+    padding: 35px 20px;
+    text-align: center;
+}
+
+.seller-products-empty i {
+    margin-bottom: 12px;
+    color: #a5aac0;
+    font-size: 38px;
+}
+
+.seller-products-empty h4 {
+    margin: 0 0 6px;
+    color: var(--seller-text);
+    font-size: 17px;
+}
+
+.seller-products-empty p {
+    margin: 0;
+    color: var(--seller-muted);
+    font-size: 13px;
+}
+
+/* Modal footer */
+.seller-modal-footer {
+    display: grid;
+    grid-template-columns: minmax(150px, 0.65fr) minmax(260px, 1.35fr);
+    gap: 14px;
+    padding: 18px 28px 12px;
+    border-top: 1px solid var(--seller-border);
+}
+
+.seller-modal-cancel-btn,
+.seller-modal-whatsapp-btn {
+    min-height: 54px;
+    border-radius: 11px;
+    font-size: 14px;
+    font-weight: 700;
+    cursor: pointer;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.seller-modal-cancel-btn {
+    border: 1px solid #d8dce7;
+    color: var(--seller-text);
+    background: #ffffff;
+}
+
+.seller-modal-cancel-btn:hover {
+    background: #f5f6fa;
+}
+
+.seller-modal-whatsapp-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    border: 0;
+    color: #ffffff;
+
+    background: linear-gradient(
+        135deg,
+        #ff7a18 0%,
+        #ff6500 100%
+    );
+}
+
+.seller-modal-whatsapp-btn i {
+    font-size: 18px;
+}
+
+.seller-modal-whatsapp-btn small {
+    color: inherit;
+    font-size: 12px;
+    font-weight: 600;
+}
+
+.seller-modal-whatsapp-btn:hover {
+    transform: translateY(-2px);
+    background: linear-gradient(
+        135deg,
+        #ff8d3a,
+        #ff5b00
+    );
+
+    box-shadow: 0 10px 25px rgba(255, 101, 0, 0.35);
+}
+
+.seller-modal-whatsapp-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
+}
+
+.seller-modal-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 2px 20px 20px;
+    color: var(--seller-muted);
+    font-size: 12px;
+    text-align: center;
+}
+
+.seller-modal-note i {
+    font-size: 11px;
+}
+
+.seller-modal-heading h2,
+.seller-modal-heading p{
+    color:#ffffff;
+}
+
+
+/* Tablet responsive */
+@media only screen and (max-width: 991px) {
+    .seller-whatsapp-modal .modal-dialog {
+        max-width: 720px;
+    }
+
+    .seller-product-row {
+        grid-template-columns:
+            minmax(220px, 1.4fr)
+            minmax(110px, 0.7fr)
+            minmax(140px, 0.85fr)
+            55px;
+        gap: 10px;
+        padding: 12px;
+    }
+
+    .seller-product-image {
+        width: 56px;
+        height: 56px;
+        flex-basis: 56px;
+    }
+
+    .seller-quantity-control {
+        width: 125px;
+    }
+}
+
+/* Mobile responsive */
+@media only screen and (max-width: 767px) {
+
+
+    .whatsapp-customer-card {
+    margin-top: 14px;
+    padding: 14px;
+    border-radius: 14px;
+}
+
+.whatsapp-customer-title {
+    margin-bottom: 13px;
+}
+
+.whatsapp-customer-title-icon {
+    width: 38px;
+    height: 38px;
+    flex-basis: 38px;
+    font-size: 15px;
+}
+
+.whatsapp-customer-title h3 {
+    font-size: 14px;
+}
+
+.whatsapp-customer-title p {
+    font-size: 10px;
+}
+
+.whatsapp-customer-fields {
+    grid-template-columns: 1fr;
+    gap: 10px;
+}
+
+.whatsapp-customer-input {
+    height: 45px;
+    font-size: 12px;
+}
+   .seller-whatsapp-modal .modal-dialog {
+    width: calc(100% - 32px);   /* 12px gap left & right */
+    max-width: 480px;
+    margin: 12px auto;
+}
+
+   .seller-whatsapp-modal .modal-content {
+    max-height: calc(100vh - 32px);
+    min-height: auto;
+
+    border-radius: 18px;
+    overflow: hidden;
+}
+
+    .seller-modal-header {
+        padding: 18px 16px 14px;
+    }
+
+    .seller-modal-heading {
+        gap: 10px;
+    }
+
+    .seller-modal-heading-icon {
+        width: 42px;
+        height: 42px;
+        flex-basis: 42px;
+        border-radius: 12px;
+        font-size: 23px;
+    }
+
+    .seller-modal-heading h2 {
+        font-size: 19px;
+    }
+
+    .seller-modal-heading p {
+        max-width: 240px;
+        font-size: 12px;
+        line-height: 1.5;
+    }
+
+    .seller-modal-close {
+        width: 38px;
+        height: 38px;
+        flex-basis: 38px;
+    }
+
+    .seller-modal-body {
+        padding: 0 16px 8px !important;
+    }
+
+    .seller-summary-card {
+        align-items: flex-start;
+        gap: 10px;
+        padding: 14px;
+        border-radius: 14px;
+    }
+
+    .seller-summary-left {
+        gap: 11px;
+    }
+
+    .seller-shop-icon {
+        width: 48px;
+        height: 48px;
+        flex-basis: 48px;
+        border-radius: 13px;
+        font-size: 21px;
+    }
+
+    .seller-summary-content h3 {
+        font-size: 16px;
+    }
+
+    .seller-summary-content p {
+        font-size: 11px;
+    }
+
+    .seller-product-count span {
+        font-size: 10px;
+    }
+
+    .seller-product-count strong {
+        font-size: 21px;
+    }
+
+    .seller-products-title {
+        margin-top: 18px;
+    }
+
+    .seller-products-title h3 {
+        font-size: 15px;
+    }
+
+    .seller-products-list {
+        border: 0;
+        border-radius: 0;
+        background: transparent;
+    }
+
+    .seller-product-row {
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 12px;
+        margin-bottom: 12px;
+        padding: 14px;
+        border: 1px solid var(--seller-border);
+        border-radius: 14px;
+        background: #ffffff;
+    }
+
+    .seller-product-row:last-child {
+        border-bottom: 1px solid var(--seller-border);
+    }
+
+    .seller-product-info {
+        grid-column: 1 / -1;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--seller-border);
+    }
+
+    .seller-product-image {
+        width: 65px;
+        height: 65px;
+        flex-basis: 65px;
+    }
+
+    .seller-product-name h4 {
+        font-size: 14px;
+        white-space: normal;
+    }
+
+    .seller-product-price,
+    .seller-product-quantity,
+    .seller-product-action {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 7px;
+    }
+
+    .seller-product-action {
+        justify-self: end;
+    }
+
+    .mobile-field-label {
+        display: block;
+        color: var(--seller-muted);
+        font-size: 10px;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+
+    .seller-product-price strong {
+        min-height: 42px;
+        display: flex;
+        align-items: center;
+        font-size: 14px;
+    }
+
+    .seller-quantity-control {
+        width: 132px;
+        height: 42px;
+    }
+
+    .seller-product-action {
+        grid-column: 2;
+        grid-row: 2;
+    }
+
+    .seller-modal-footer {
+        grid-template-columns: 1fr;
+        gap: 10px;
+        padding: 12px 16px 10px;
+    }
+
+    .seller-modal-whatsapp-btn {
+        grid-row: 1;
+    }
+
+    .seller-modal-cancel-btn {
+        grid-row: 2;
+    }
+
+    .seller-modal-note {
+        padding: 2px 16px 16px;
+        font-size: 10px;
+    }
+}
+
+
+
+/* Very small mobile */
+@media only screen and (max-width: 420px) {
+    .seller-product-row {
+        grid-template-columns: 1fr;
+    }
+
+    .seller-product-price,
+    .seller-product-quantity,
+    .seller-product-action {
+        grid-column: 1;
+        grid-row: auto;
+        justify-self: stretch;
+    }
+
+    .seller-product-action {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    .seller-quantity-control {
+        width: 100%;
+    }
+
+    .seller-summary-content p {
+        display: none;
+    }
+
+    .seller-modal-heading p {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   CUSTOMER DETAILS INSIDE WHATSAPP MODAL
+========================================================= */
+
+.whatsapp-customer-card {
+    margin-top: 18px;
+    padding: 18px 20px;
+    border: 1px solid var(--seller-border);
+    border-radius: 16px;
+    background: #ffffff;
+}
+
+.whatsapp-customer-title {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.whatsapp-customer-title-icon {
+    width: 42px;
+    height: 42px;
+    flex: 0 0 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 12px;
+    color: var(--seller-primary);
+    background: #e9ecff;
+    font-size: 17px;
+}
+
+.whatsapp-customer-title h3 {
+    margin: 0 0 3px;
+    color: var(--seller-text);
+    font-size: 16px;
+    line-height: 1.4;
+    font-weight: 700;
+}
+
+.whatsapp-customer-title p {
+    margin: 0;
+    color: var(--seller-muted);
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.whatsapp-customer-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+.whatsapp-customer-field {
+    min-width: 0;
+}
+
+.whatsapp-customer-field label {
+    display: block;
+    margin-bottom: 7px;
+    color: var(--seller-text);
+    font-size: 12px;
+    font-weight: 650;
+}
+
+.whatsapp-customer-field label span {
+    color: #e72d2d;
+}
+
+.whatsapp-customer-input-wrap {
+    position: relative;
+}
+
+.whatsapp-customer-input-wrap > i {
+    position: absolute;
+    top: 50%;
+    left: 15px;
+    color: #7d8498;
+    font-size: 13px;
+    pointer-events: none;
+    transform: translateY(-50%);
+}
+
+.whatsapp-customer-input {
+    width: 100%;
+    height: 48px;
+    padding: 0 14px 0 42px;
+    border: 1px solid #dce0ea;
+    border-radius: 10px;
+    outline: 0;
+    color: var(--seller-text);
+    background: #ffffff;
+    font-family: inherit;
+    font-size: 13px;
+    transition:
+        border-color 0.25s ease,
+        box-shadow 0.25s ease,
+        background-color 0.25s ease;
+}
+
+.whatsapp-customer-input::placeholder {
+    color: #9ca2b3;
+}
+
+.whatsapp-customer-input:focus {
+    border-color: var(--seller-primary);
+    box-shadow: 0 0 0 4px rgba(32, 45, 140, 0.1);
+}
+
+.whatsapp-customer-input.has-error {
+    border-color: #e72d2d;
+    background: #fffafa;
+}
+
+.whatsapp-customer-input.has-error:focus {
+    box-shadow: 0 0 0 4px rgba(231, 45, 45, 0.1);
+}
+
+.whatsapp-customer-error {
+    min-height: 17px;
+    display: block;
+    margin-top: 5px;
+    color: #e72d2d;
+    font-size: 10px;
+    line-height: 1.4;
+}
+
+/* Brand logo inside modal header */
+
+.seller-modal-logo{
+    flex: 0 0 auto;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    margin-right:8px;
+}
+
+.seller-modal-logo img{
+    width:160px;
+    height:auto;
+    display:block;
+}
+@media (max-width:767px){
+
+    .seller-modal-logo img{
+        width:110px;
+    }
+
+    .seller-modal-heading{
+        gap:8px;
+    }
+
+}
+
+{% comment %} modal css end here {% endcomment %}
+</style>
+ {% endblock extra_css %}
+
 {% block content %}
 <!-- Page Header Start -->
     <div class="page-header bg-section parallaxie">
@@ -59,9 +1058,12 @@
                                     <a href="{% url 'contact' %}" class="btn-default btn-trend-gradient" style="display:block; text-align:center;">
                                         Send Enquiry
                                     </a>
-                                    <a href="https://wa.me/919446766322" target="_blank" class="btn-default btn-trend-gradient" style="display:block; text-align:center; background-color: var(--accent-orange); border-color: var(--accent-orange);">
+                                    {% comment %} <a href="https://wa.me/919446766322" target="_blank" class="btn-default btn-trend-gradient" style="display:block; text-align:center; background-color: var(--accent-orange); border-color: var(--accent-orange);">
                                         <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
-                                    </a>
+                                    </a> {% endcomment %}
+                                    <button type="button" class="btn-default btn-trend-gradient seller-whatsapp-open-btn" data-bs-toggle="modal" data-bs-target="#sellerWhatsAppModal">
+                                        <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+                                    </button>
                                 </div>
                             </div>
                         </div>
@@ -340,4 +1342,701 @@
         </div>
     </div>
     <!-- Page Project Single End -->
+
+
+    {% comment %} enquire modal start {% endcomment %}
+    <!-- Seller WhatsApp Modal Start -->
+<div
+    class="modal fade seller-whatsapp-modal"
+    id="sellerWhatsAppModal"
+    tabindex="-1"
+    aria-labelledby="sellerWhatsAppModalLabel"
+    aria-hidden="true"
+>
+    <div class="modal-dialog modal-dialog-centered modal-dialog-scrollable">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header seller-modal-header">
+                {% comment %} <div class="seller-modal-heading">
+                    <div class="seller-modal-heading-icon">
+                        <i class="fa-brands fa-whatsapp"></i>
+                    </div>
+
+                    <div>
+                        <h2 id="sellerWhatsAppModalLabel">
+                            Chat on WhatsApp
+                        </h2>
+
+                        <p>
+                            Select products and quantities before contacting the seller.
+                        </p>
+                    </div>
+                </div> {% endcomment %}
+
+<div class="seller-modal-heading">
+
+    <!-- Brand Logo -->
+    <div class="seller-modal-logo">
+        <img
+            src="{% static 'images/logo.png' %}"
+            alt="Trend in Bulk"
+        >
+    </div>
+
+    <!-- WhatsApp Icon -->
+    <div class="seller-modal-heading-icon">
+        <i class="fa-brands fa-whatsapp"></i>
+    </div>
+
+    <!-- Heading -->
+    <div>
+        <h2 id="sellerWhatsAppModalLabel">
+            Chat on WhatsApp
+        </h2>
+
+        <p>
+            Select products and quantities before contacting the seller.
+        </p>
+    </div>
+
+</div>
+
+                <button
+                    type="button"
+                    class="seller-modal-close"
+                    data-bs-dismiss="modal"
+                    aria-label="Close"
+                >
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+
+            <!-- Modal Body -->
+            <div class="modal-body seller-modal-body">
+
+                <!-- Seller Information -->
+                <div class="seller-summary-card">
+                    <div class="seller-summary-left">
+                        <div class="seller-shop-icon">
+                            <i class="fa-solid fa-store"></i>
+                        </div>
+
+                        <div class="seller-summary-content">
+                            <span>Seller name</span>
+                            <h3>{{ product.seller.name }}</h3>
+                        </div>
+                    </div>
+
+                    <div class="seller-product-count">
+                        <span>Total products</span>
+                        <strong id="visibleProductCount">
+                            {{ seller_products|length }}
+                        </strong>
+                    </div>
+                </div>
+
+
+                <!-- Customer Details Start -->
+<div class="whatsapp-customer-card">
+
+    <div class="whatsapp-customer-title">
+        <div class="whatsapp-customer-title-icon">
+            <i class="fa-regular fa-user"></i>
+        </div>
+
+        <div>
+            <h3>Customer Details</h3>
+            <p>Enter your details before selecting the products.</p>
+        </div>
+    </div>
+
+    <div class="whatsapp-customer-fields">
+
+        <!-- Customer Name -->
+        <div class="whatsapp-customer-field">
+            <label for="whatsappCustomerName">
+                Full Name <span>*</span>
+            </label>
+
+            <div class="whatsapp-customer-input-wrap">
+                <i class="fa-regular fa-user"></i>
+
+                <input
+                    type="text"
+                    id="whatsappCustomerName"
+                    class="whatsapp-customer-input"
+                    placeholder="Enter your full name"
+                    maxlength="100"
+                    autocomplete="name"
+                >
+            </div>
+
+            <small
+                class="whatsapp-customer-error"
+                id="customerNameError"
+            ></small>
+        </div>
+
+        <!-- Customer Phone -->
+        <div class="whatsapp-customer-field">
+            <label for="whatsappCustomerPhone">
+                Phone Number <span>*</span>
+            </label>
+
+            <div class="whatsapp-customer-input-wrap">
+                <i class="fa-solid fa-phone"></i>
+
+                <input
+                    type="tel"
+                    id="whatsappCustomerPhone"
+                    class="whatsapp-customer-input"
+                    placeholder="Enter your phone number"
+                    maxlength="15"
+                    inputmode="numeric"
+                    autocomplete="tel"
+                >
+            </div>
+
+            <small
+                class="whatsapp-customer-error"
+                id="customerPhoneError"
+            ></small>
+        </div>
+
+    </div>
+</div>
+<!-- Customer Details End -->
+
+
+                <!-- Product Heading -->
+                <div class="seller-products-title">
+                    <h3>Products from {{ product.seller.name }}</h3>
+                    <p>Remove products you do not want to include.</p>
+                </div>
+
+                <!-- Products -->
+                <div
+                    class="seller-products-list"
+                    id="sellerProductsList"
+                    data-seller-name="{{ product.seller.name|escape }}"
+                    {% comment %} data-seller-phone="{{ product.seller.phone|default:'9446766322' }}" {% endcomment %}
+                    data-seller-phone="{{ '9446766322' }}"
+                >
+                    {% for seller_product in seller_products %}
+                        <div
+                            class="seller-product-row {% if seller_product.id == product.id %}is-current-product{% endif %}"
+                            data-product-id="{{ seller_product.id }}"
+                            data-product-name="{{ seller_product.name|escape }}"
+                            data-product-price="{{ seller_product.price_per_unit }}"
+                        >
+                            <!-- Product Details -->
+                            <div class="seller-product-info">
+                                <div class="seller-product-image">
+                                    {% with first_image=seller_product.images.first %}
+                                        {% if first_image %}
+                                            <img
+                                                src="{{ first_image.image.url }}"
+                                                alt="{{ seller_product.name }}"
+                                            >
+                                        {% else %}
+                                            <img
+                                                src="{% static 'images/new/image6.png' %}"
+                                                alt="{{ seller_product.name }}"
+                                            >
+                                        {% endif %}
+                                    {% endwith %}
+                                </div>
+
+                                <div class="seller-product-name">
+                                    <h4>{{ seller_product.name }}</h4>
+
+                                    {% if seller_product.id == product.id %}
+                                        <span class="current-product-label">
+                                            Current product
+                                        </span>
+                                    {% endif %}
+                                </div>
+                            </div>
+
+                            <!-- Price -->
+                            <div class="seller-product-price">
+                                <span class="mobile-field-label">Price</span>
+                                <strong>
+                                    ₹{{ seller_product.price_per_unit|floatformat:2 }}
+                                </strong>
+                            </div>
+
+                            <!-- Quantity -->
+                            <div class="seller-product-quantity">
+                                <span class="mobile-field-label">Quantity</span>
+
+                                <div class="seller-quantity-control">
+                                    <button
+                                        type="button"
+                                        class="seller-quantity-btn quantity-minus"
+                                        aria-label="Decrease quantity"
+                                    >
+                                        <i class="fa-solid fa-minus"></i>
+                                    </button>
+
+                                    <input
+                                        type="number"
+                                        class="seller-quantity-input"
+                                        value="1"
+                                        min="1"
+                                        max="9999"
+                                        inputmode="numeric"
+                                        aria-label="Product quantity"
+                                    >
+
+                                    <button
+                                        type="button"
+                                        class="seller-quantity-btn quantity-plus"
+                                        aria-label="Increase quantity"
+                                    >
+                                        <i class="fa-solid fa-plus"></i>
+                                    </button>
+                                </div>
+                            </div>
+
+                            <!-- Delete -->
+                            <div class="seller-product-action">
+                                <span class="mobile-field-label">Remove</span>
+
+                                <button
+                                    type="button"
+                                    class="seller-product-delete"
+                                    aria-label="Remove {{ seller_product.name }}"
+                                    title="Remove product"
+                                >
+                                    <i class="fa-solid fa-trash-can"></i>
+                                </button>
+                            </div>
+                        </div>
+                    {% empty %}
+                        <div class="seller-products-empty">
+                            <i class="fa-solid fa-box-open"></i>
+                            <h4>No products found</h4>
+                            <p>This seller currently has no available products.</p>
+                        </div>
+                    {% endfor %}
+                </div>
+
+                <!-- Empty Message After Removing All Products -->
+                <div class="seller-products-empty d-none" id="removedAllProductsMessage">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <h4>Your product list is empty</h4>
+                    <p>Close the modal and open it again to restore the products.</p>
+                </div>
+
+            </div>
+
+            <!-- Modal Footer -->
+            <div class="modal-footer seller-modal-footer">
+                <button
+                    type="button"
+                    class="seller-modal-cancel-btn"
+                    data-bs-dismiss="modal"
+                >
+                    Close
+                </button>
+
+                <button
+                    type="button"
+                    class="seller-modal-whatsapp-btn"
+                    id="sendSellerWhatsApp"
+                >
+                    <i class="fa-brands fa-whatsapp"></i>
+
+                    <span>
+                        Chat on WhatsApp
+                    </span>
+
+                    <small id="whatsappItemCount">
+                        ({{ seller_products|length }} products)
+                    </small>
+                </button>
+            </div>
+
+            <div class="seller-modal-note">
+                <i class="fa-solid fa-lock"></i>
+                You will be redirected to WhatsApp to continue the conversation.
+            </div>
+
+        </div>
+    </div>
+</div>
+<!-- Seller WhatsApp Modal End -->
+{% comment %} enquire modal end  {% endcomment %}
+
+
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const modalElement = document.getElementById("sellerWhatsAppModal");
+    const productsList = document.getElementById("sellerProductsList");
+    const sendWhatsAppButton = document.getElementById("sendSellerWhatsApp");
+    const visibleProductCount = document.getElementById("visibleProductCount");
+    const whatsappItemCount = document.getElementById("whatsappItemCount");
+    const emptyMessage = document.getElementById("removedAllProductsMessage");
+    const customerNameInput = document.getElementById("whatsappCustomerName");
+    const customerPhoneInput = document.getElementById("whatsappCustomerPhone");
+    const customerNameError = document.getElementById("customerNameError");
+    const customerPhoneError = document.getElementById("customerPhoneError");
+
+    if (
+        !modalElement ||
+        !productsList ||
+        !sendWhatsAppButton
+    ) {
+        return;
+    }
+
+    /**
+     * Return all product rows that have not been deleted.
+     */
+    function getVisibleProductRows() {
+        return Array.from(
+            productsList.querySelectorAll(".seller-product-row")
+        ).filter(function (row) {
+            return !row.classList.contains("product-removed");
+        });
+    }
+
+    /**
+     * Validate and return quantity.
+     */
+    function getValidQuantity(input) {
+        let quantity = parseInt(input.value, 10);
+
+        if (Number.isNaN(quantity) || quantity < 1) {
+            quantity = 1;
+        }
+
+        if (quantity > 9999) {
+            quantity = 9999;
+        }
+
+        input.value = quantity;
+
+        return quantity;
+    }
+
+    /**
+     * Update visible product count and WhatsApp button.
+     */
+    function updateModalCount() {
+        const rows = getVisibleProductRows();
+        const count = rows.length;
+
+        if (visibleProductCount) {
+            visibleProductCount.textContent = count;
+        }
+
+        if (whatsappItemCount) {
+            whatsappItemCount.textContent =
+                "(" + count + (count === 1 ? " product)" : " products)");
+        }
+
+        sendWhatsAppButton.disabled = count === 0;
+
+        if (emptyMessage) {
+            emptyMessage.classList.toggle("d-none", count !== 0);
+        }
+    }
+
+    /**
+     * Quantity plus and minus buttons.
+     */
+    productsList.addEventListener("click", function (event) {
+        const minusButton = event.target.closest(".quantity-minus");
+        const plusButton = event.target.closest(".quantity-plus");
+        const deleteButton = event.target.closest(".seller-product-delete");
+
+        if (minusButton) {
+            const row = minusButton.closest(".seller-product-row");
+            const input = row.querySelector(".seller-quantity-input");
+
+            let quantity = getValidQuantity(input);
+
+            if (quantity > 1) {
+                quantity -= 1;
+            }
+
+            input.value = quantity;
+        }
+
+        if (plusButton) {
+            const row = plusButton.closest(".seller-product-row");
+            const input = row.querySelector(".seller-quantity-input");
+
+            let quantity = getValidQuantity(input);
+
+            if (quantity < 9999) {
+                quantity += 1;
+            }
+
+            input.value = quantity;
+        }
+
+        if (deleteButton) {
+            const row = deleteButton.closest(".seller-product-row");
+
+            row.style.opacity = "0";
+            row.style.transform = "translateX(20px)";
+
+            window.setTimeout(function () {
+                row.classList.add("product-removed");
+                row.style.display = "none";
+
+                updateModalCount();
+            }, 220);
+        }
+    });
+
+    /**
+     * Prevent invalid manual quantity entry.
+     */
+    productsList.addEventListener("change", function (event) {
+        if (event.target.classList.contains("seller-quantity-input")) {
+            getValidQuantity(event.target);
+        }
+    });
+
+    productsList.addEventListener("input", function (event) {
+        if (!event.target.classList.contains("seller-quantity-input")) {
+            return;
+        }
+
+        event.target.value = event.target.value.replace(/[^0-9]/g, "");
+    });
+
+
+
+    function validateCustomerDetails() {
+    const customerName = customerNameInput
+        ? customerNameInput.value.trim()
+        : "";
+
+    const customerPhone = customerPhoneInput
+        ? customerPhoneInput.value.replace(/\D/g, "")
+        : "";
+
+    let isValid = true;
+
+    if (customerNameError) {
+        customerNameError.textContent = "";
+    }
+
+    if (customerPhoneError) {
+        customerPhoneError.textContent = "";
+    }
+
+    if (customerNameInput) {
+        customerNameInput.classList.remove("has-error");
+    }
+
+    if (customerPhoneInput) {
+        customerPhoneInput.classList.remove("has-error");
+    }
+
+    if (customerName.length < 2) {
+        isValid = false;
+
+        if (customerNameInput) {
+            customerNameInput.classList.add("has-error");
+        }
+
+        if (customerNameError) {
+            customerNameError.textContent =
+                "Please enter your full name.";
+        }
+    }
+
+    if (customerPhone.length < 10 || customerPhone.length > 15) {
+        isValid = false;
+
+        if (customerPhoneInput) {
+            customerPhoneInput.classList.add("has-error");
+        }
+
+        if (customerPhoneError) {
+            customerPhoneError.textContent =
+                "Please enter a valid phone number.";
+        }
+    }
+
+    if (!isValid) {
+        const firstErrorField =
+            modalElement.querySelector(
+                ".whatsapp-customer-input.has-error"
+            );
+
+        if (firstErrorField) {
+            firstErrorField.focus();
+
+            firstErrorField.scrollIntoView({
+                behavior: "smooth",
+                block: "center"
+            });
+        }
+
+        return null;
+    }
+
+    return {
+        name: customerName,
+        phone: customerPhone
+    };
+}
+
+
+if (customerPhoneInput) {
+    customerPhoneInput.addEventListener("input", function () {
+        this.value = this.value.replace(/[^0-9+\s-]/g, "");
+
+        this.classList.remove("has-error");
+
+        if (customerPhoneError) {
+            customerPhoneError.textContent = "";
+        }
+    });
+}
+
+if (customerNameInput) {
+    customerNameInput.addEventListener("input", function () {
+        this.classList.remove("has-error");
+
+        if (customerNameError) {
+            customerNameError.textContent = "";
+        }
+    });
+}
+
+    /**
+     * Create and open WhatsApp message.
+     */
+    sendWhatsAppButton.addEventListener("click", function () {
+    const customer = validateCustomerDetails();
+
+    if (!customer) {
+        return;
+    }
+
+    const rows = getVisibleProductRows();
+
+    if (rows.length === 0) {
+        return;
+    }
+
+    const sellerName =
+        productsList.dataset.sellerName || "Seller";
+
+    let sellerPhone =
+        productsList.dataset.sellerPhone || "";
+
+    sellerPhone = sellerPhone.replace(/\D/g, "");
+
+    if (sellerPhone.length === 10) {
+        sellerPhone = "91" + sellerPhone;
+    }
+
+    if (!sellerPhone) {
+        alert("The seller's WhatsApp number is not available.");
+        return;
+    }
+
+    const messageLines = [
+        "Hello " + sellerName + ",",
+        "",
+        "I found your products on Trend in Bulk.",
+        "",
+        "Customer Details:",
+        "Name: " + customer.name,
+        "Phone: " + customer.phone,
+        "",
+        "Selected Products:",
+        ""
+    ];
+
+    rows.forEach(function (row, index) {
+        const productName =
+            row.dataset.productName || "Product";
+
+        const productPrice =
+            row.dataset.productPrice || "0";
+
+        const quantityInput =
+            row.querySelector(".seller-quantity-input");
+
+        const quantity =
+            getValidQuantity(quantityInput);
+
+        messageLines.push(
+            (index + 1) + ". " + productName
+        );
+
+        messageLines.push(
+            "   Price: ₹" + productPrice
+        );
+
+        messageLines.push(
+            "   Quantity: " + quantity
+        );
+
+        messageLines.push("");
+    });
+
+    messageLines.push(
+        "Please share availability, wholesale price, minimum order quantity and delivery details."
+    );
+
+    const message = messageLines.join("\n");
+
+    const whatsappUrl =
+        "https://wa.me/" +
+        sellerPhone +
+        "?text=" +
+        encodeURIComponent(message);
+
+    window.open(
+        whatsappUrl,
+        "_blank",
+        "noopener,noreferrer"
+    );
+});
+
+    /**
+     * Restore removed products whenever the modal closes.
+     * Remove this event if you want deleted products to remain deleted
+     * until the page is refreshed.
+     */
+    modalElement.addEventListener("hidden.bs.modal", function () {
+        const rows = productsList.querySelectorAll(
+            ".seller-product-row"
+        );
+
+        rows.forEach(function (row) {
+            row.classList.remove("product-removed");
+            row.style.display = "";
+            row.style.opacity = "";
+            row.style.transform = "";
+
+            const input = row.querySelector(
+                ".seller-quantity-input"
+            );
+
+            if (input) {
+                input.value = "1";
+            }
+        });
+
+        updateModalCount();
+    });
+
+    updateModalCount();
+});
+</script>
 {% endblock %}

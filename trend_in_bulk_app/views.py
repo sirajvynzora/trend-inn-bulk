@@ -93,13 +93,39 @@ def category_products(request, slug):
     return render(request, "frontend/category_products.html", {"category": category, "products": products})
 
 
-def product_detail(request, slug):
-    product = get_object_or_404(Product, slug=slug)
-    return render(request, 'frontend/product-single.html', {
-        'product': product,
-        'images': product.images.all(),
-    })
+# def product_detail(request, slug):
+#     product = get_object_or_404(Product, slug=slug)
+#     return render(request, 'frontend/product-single.html', {
+#         'product': product,
+#         'images': product.images.all(),
+#     })
 
+def product_detail(request, slug):
+    product = get_object_or_404(
+        Product.objects.select_related(
+            "seller",
+            "category",
+        ).prefetch_related(
+            "images",
+            "attributes",
+        ),
+        slug=slug,
+    )
+
+    seller_products = (
+        Product.objects
+        .filter(
+            seller=product.seller,
+        )
+        .prefetch_related("images")
+        .order_by("-created_at")
+    )
+
+    return render(request, "frontend/product-single.html", {
+        "product": product,
+        "images": product.images.all(),
+        "seller_products": seller_products,
+    })
 
 def product_single(request):
     return render(request, "frontend/product-single.html")
